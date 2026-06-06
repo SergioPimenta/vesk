@@ -1,0 +1,18 @@
+import { CtaBand } from '../components/home/CtaBand';
+import { PublicLayout } from '../components/layout/PublicLayout';
+import { PortfolioGrid } from '../components/portfolio/PortfolioGrid';
+import { PortfolioHero } from '../components/portfolio/PortfolioHero';
+import { PortfolioStats } from '../components/portfolio/PortfolioStats';
+
+const PortfolioPage = () => (
+  <PublicLayout>
+    <main>
+      <PortfolioHero />
+      <PortfolioGrid />
+      <PortfolioStats />
+      <CtaBand />
+    </main>
+  </PublicLayout>
+);
+
+export default PortfolioPage;

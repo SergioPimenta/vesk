@@ -1,85 +1,58 @@
-name: 🚀 Deploy MetalFire → cPanel
+name: Deploy site to GitHub Pages
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
-env:
-  APP_PATH: /templateKanka
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
-    name: Build & Deploy Frontend
+  build:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 Checkout código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js 20
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: 📦 Instalar dependências
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: 🔨 Build do projeto
+      - name: Build
         env:
-          VITE_BASE_URL: ${{ env.APP_PATH }}
+          VITE_BASE_URL: /vesk/
         run: npm run build
 
-      - name: 📝 Criar e preparar .htaccess
-        run: |
-          mkdir deploy_htaccess
-          cat << 'EOF' > deploy_htaccess/.htaccess
-          <IfModule mod_rewrite.c>
-              RewriteEngine On
-                  RewriteBase __APP_PATH__/
+      - name: SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
 
-              # 1. Requisições da API vão para o Node.js
-              RewriteRule ^api/(.*)$ http://127.0.0.1:3001/api/$1 [P,L]
-
-              # 2. Requisições de uploads vão para o Node.js
-              RewriteRule ^uploads/(.*)$ http://127.0.0.1:3001/uploads/$1 [P,L]
-
-              # 3. Impede loop infinito
-              RewriteCond %{ENV:REDIRECT_STATUS} 200
-              RewriteRule ^ - [L]
-
-              # 4. Requisições de arquivos REAIS dentro do dist/ passam direto
-              RewriteCond %{DOCUMENT_ROOT}__APP_PATH__/dist/$1 -f [OR]
-              RewriteCond %{DOCUMENT_ROOT}__APP_PATH__/dist/$1 -d
-              RewriteRule ^(.*)$ dist/$1 [L]
-
-              # 5. Fallback para o index.html gerado pelo React (dentro do dist/)
-              RewriteRule ^(.*)$ dist/index.html [L]
-          </IfModule>
-          EOF
-          sed -i "s|__APP_PATH__|${{ env.APP_PATH }}|g" deploy_htaccess/.htaccess
- 
-      - name: 🚀 Deploy .htaccess via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          server: ftp.ambienteprovisorio.com.br
-          username: ambienteprovisor
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./deploy_htaccess/
-          server-dir: /public_html${{ env.APP_PATH }}/
-          dangerous-clean-slate: false
+          path: dist
 
-      - name: 🚀 Deploy Frontend via FTP para cPanel
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.ambienteprovisorio.com.br
-          username: ambienteprovisor
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html${{ env.APP_PATH }}/dist/  
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deployment

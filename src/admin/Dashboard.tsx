@@ -12,18 +12,18 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="font-body flex min-h-screen bg-gray-50">
       {/* Sidebar sidebar */}
-      <aside className="w-64 bg-dark text-white hidden md:flex flex-col shadow-2xl">
+      <aside className="hidden w-64 flex-col bg-vesk-black text-vesk-surface shadow-2xl md:flex">
         <div className="p-6 border-b border-gray-800">
           <h2 className="text-2xl font-bold flex items-center gap-2">
-            <LayoutDashboard size={24} className="text-primary" />
+            <LayoutDashboard size={24} className="text-vesk-orange" />
             Painel
           </h2>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
-          <a href="#" className="flex items-center gap-3 bg-blue-600/20 text-blue-400 px-4 py-3 rounded-lg transition-colors border-l-2 border-primary">
+          <a href="#" className="flex items-center gap-3 rounded-lg border-l-2 border-vesk-orange bg-vesk-orange-dim px-4 py-3 text-vesk-orange transition-colors">
             <LayoutDashboard size={20} />
             Visão Geral
           </a>
@@ -55,12 +55,12 @@ const Dashboard = () => {
           <h1 className="text-xl font-semibold text-gray-800">Visão Geral</h1>
 
           <div className="flex items-center gap-6">
-            <button className="text-gray-400 hover:text-primary transition-colors relative">
+            <button className="relative text-gray-400 transition-colors hover:text-vesk-orange">
               <Bell size={20} />
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
             </button>
             <div className="flex items-center gap-3 pl-6 border-l border-gray-200">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-blue-300 flex items-center justify-center text-white font-bold shadow-md">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-vesk-orange to-vesk-orange-light font-bold text-white shadow-md">
                 {user?.name?.charAt(0).toUpperCase() || 'U'}
               </div>
               <div className="flex flex-col">
@@ -88,10 +88,10 @@ const Dashboard = () => {
                 Este é o seu dashboard administrativo. Aqui você poderá gerenciar as funções do seu novo template.
               </p>
             </div>
-            <div className="hidden md:flex w-32 h-32 bg-blue-50 rounded-full items-center justify-center relative z-10">
-              <Rocket size={48} className="text-primary" />
+            <div className="hidden md:flex w-32 h-32 bg-vesk-orange-dim rounded-full items-center justify-center relative z-10">
+              <Rocket size={48} className="text-vesk-orange" />
             </div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-vesk-orange opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
           </div>
 
           {/* Stats Cards */}

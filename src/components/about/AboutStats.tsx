@@ -1,0 +1,24 @@
+export const stats = [
+  { value: '50', suffix: '+', label: 'Projetos entregues' },
+  { value: '30', suffix: '+', label: 'Clientes atendidos' },
+  { value: '98', suffix: '%', label: 'Satisfação dos clientes', small: true },
+  { value: '5', suffix: '+', label: 'Produtos próprios' },
+];
+
+export const AboutStats = () => (
+  <section className="bg-vesk-dark px-12 py-[120px]">
+    <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+      {stats.map((stat) => (
+        <div key={stat.label} className="rounded-xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center md:text-left">
+          <div
+            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-4xl' : 'text-[44px]'}`}
+          >
+            {stat.value}
+            <span className="text-vesk-orange">{stat.suffix}</span>
+          </div>
+          <div className="text-[13px] text-vesk-muted">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
