@@ -35,6 +35,7 @@ jobs:
       - name: Build
         env:
           VITE_BASE_URL: /vesk/
+          VITE_SITE_URL: https://www.vesk.com.br
         run: npm run build
 
       - name: SPA fallback for GitHub Pages
