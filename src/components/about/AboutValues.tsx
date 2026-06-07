@@ -24,7 +24,7 @@ const values = [
 ];
 
 export const AboutValues = () => (
-  <section className="bg-vesk-dark px-12 py-[120px]">
+  <section className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
     <div className="mb-16 text-center">
       <SectionLabel centered showLine={false}>
         Nossos valores

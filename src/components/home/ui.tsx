@@ -16,9 +16,9 @@ export const NavLogo = ({ className }: { className?: string }) => (
   </Link>
 );
 
-/** Título principal do hero — mesmo tamanho e peso da home (60px, bold). */
+/** Título principal do hero — escala fluida entre mobile e desktop. */
 export const pageHeroTitleClass =
-  'font-display text-[60px] leading-[1.02] font-bold tracking-[-0.05em]';
+  'font-display text-[clamp(2.25rem,8vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.05em]';
 
 export const SectionLabel = ({
   children,

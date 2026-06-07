@@ -15,13 +15,13 @@ const features = [
 ];
 
 export const About = () => (
-  <section id="sobre" className="bg-vesk-black page-px py-[120px]">
-    <div className="grid grid-cols-2 items-center gap-[100px]">
-      <div className="mt-12 grid grid-cols-2 gap-6">
+  <section id="sobre" className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
+    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-[100px]">
+      <div className="order-2 grid grid-cols-2 gap-4 sm:gap-6 lg:order-1 lg:mt-12">
         {stats.map((stat) => (
           <div key={stat.label} className="rounded-xl border border-vesk-border bg-vesk-dark-2 px-6 py-7">
             <div
-              className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-4xl' : 'text-[44px]'}`}
+              className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
             >
               {stat.value}
               <span className="text-vesk-orange">{stat.suffix}</span>
@@ -30,7 +30,7 @@ export const About = () => (
           </div>
         ))}
       </div>
-      <div>
+      <div className="order-1 lg:order-2">
         <SectionLabel>Sobre a VESK</SectionLabel>
         <SectionTitle>Tecnologia, pessoas e propósito</SectionTitle>
         <p className="mb-4 text-base leading-[1.8] font-light text-vesk-mid">

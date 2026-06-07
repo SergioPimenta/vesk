@@ -71,9 +71,9 @@ const socials = [
 ];
 
 export const Footer = () => (
-  <footer className="border-t border-vesk-border bg-vesk-black page-px pt-[60px] pb-8">
-    <div className="mb-12 grid grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-12">
-      <div>
+  <footer className="border-t border-vesk-border bg-vesk-black page-px pt-12 pb-8 md:pt-[60px]">
+    <div className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2 md:mb-12 xl:grid-cols-[2fr_1fr_1fr_1fr_1fr] xl:gap-12">
+      <div className="sm:col-span-2 xl:col-span-1">
         <NavLogo />
         <p className="mt-4 max-w-[260px] text-[13px] leading-[1.75] text-vesk-muted">
           Desenvolvemos soluções digitais que transformam negócios, simplificam processos e geram
@@ -108,7 +108,7 @@ export const Footer = () => (
         </div>
       ))}
     </div>
-    <div className="flex items-center justify-between border-t border-vesk-border pt-7">
+    <div className="flex flex-col items-start gap-5 border-t border-vesk-border pt-7 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-xs text-vesk-muted">© 2025 VESK. Todos os direitos reservados.</p>
       <div className="flex gap-3">
         {socials.map((social) => (

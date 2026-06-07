@@ -14,8 +14,8 @@ const features = [
 ];
 
 export const AboutStory = () => (
-  <section className="bg-vesk-black px-12 py-[120px]">
-    <div className="grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+  <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
+    <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
       <div>
         <SectionLabel>Nossa história</SectionLabel>
         <SectionTitle>De ideias a soluções que transformam</SectionTitle>
@@ -36,7 +36,7 @@ export const AboutStory = () => (
           ))}
         </ul>
       </div>
-      <div className="flex flex-col gap-0 border-l border-vesk-border pl-10">
+      <div className="flex flex-col gap-0 border-l border-vesk-border pl-6 sm:pl-10">
         {milestones.map((item, index) => (
           <article
             key={item.year}

@@ -2,7 +2,7 @@ import { SectionDesc, SectionLabel, SectionTitle } from '../home/ui';
 import { techStack } from './servicesData';
 
 export const ServicesTech = () => (
-  <section className="bg-vesk-dark-2 page-px py-[100px]">
+  <section className="bg-vesk-dark-2 page-px py-16 md:py-24 lg:py-[100px]">
     <div className="mb-12 max-w-2xl">
       <SectionLabel>Stack tecnológica</SectionLabel>
       <SectionTitle>Ferramentas que dominamos</SectionTitle>

@@ -2,7 +2,7 @@ import { IconBox, SectionDesc, SectionLabel, SectionTitle } from '../home/ui';
 import { serviceBenefits } from './servicesData';
 
 export const ServicesBenefits = () => (
-  <section className="bg-vesk-black page-px py-[100px]">
+  <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[100px]">
     <div className="mb-16 text-center">
       <SectionLabel centered showLine={false}>
         Por que a VESK

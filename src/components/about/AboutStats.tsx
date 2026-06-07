@@ -6,12 +6,12 @@ export const stats = [
 ];
 
 export const AboutStats = () => (
-  <section className="bg-vesk-dark px-12 py-[120px]">
+  <section className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
     <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
       {stats.map((stat) => (
         <div key={stat.label} className="rounded-xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center md:text-left">
           <div
-            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-4xl' : 'text-[44px]'}`}
+            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
           >
             {stat.value}
             <span className="text-vesk-orange">{stat.suffix}</span>

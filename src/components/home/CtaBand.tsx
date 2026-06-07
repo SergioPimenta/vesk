@@ -1,5 +1,5 @@
 export const CtaBand = () => (
-  <div className="grid grid-cols-2 items-center gap-[60px] bg-vesk-orange page-px py-20">
+  <div className="grid grid-cols-1 items-start gap-10 bg-vesk-orange page-px py-12 sm:items-center md:grid-cols-2 md:gap-[60px] md:py-20">
     <div>
       <h2 className="font-display text-[clamp(1.75rem,3.5vw,3rem)] leading-tight font-extrabold tracking-tight text-white">
         Pronto para transformar sua empresa?

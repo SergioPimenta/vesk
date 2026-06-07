@@ -13,7 +13,7 @@ export const ServicesGrid = ({
   showFeatures = false,
   showHeader = true,
   id = 'servicos',
-  className = 'bg-vesk-dark page-px py-[120px]',
+  className = 'bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]',
 }: ServicesGridProps) => (
   <section id={id} className={className}>
     {showHeader && (

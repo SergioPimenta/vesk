@@ -52,7 +52,7 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
 
   if (variant === 'home') {
     return (
-      <section id="portfolio" className="bg-vesk-black page-px py-[120px]">
+      <section id="portfolio" className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
         <div className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <SectionLabel>Portfólio</SectionLabel>
@@ -72,7 +72,7 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
   }
 
   return (
-    <section id="projetos" className="bg-vesk-black page-px py-[100px]">
+    <section id="projetos" className="bg-vesk-black page-px py-16 md:py-24 lg:py-[100px]">
       <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <SectionLabel>Cases</SectionLabel>

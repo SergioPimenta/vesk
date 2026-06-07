@@ -30,7 +30,7 @@ const badges = [
 export const Hero = () => (
   <section
     id="inicio"
-    className="relative grid min-h-screen grid-cols-2 items-center gap-20 overflow-hidden page-px pt-40 pb-[100px]"
+    className="relative grid min-h-0 grid-cols-1 items-center gap-12 overflow-hidden page-px pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:grid-cols-2 lg:gap-20 lg:pt-40 lg:pb-[100px]"
   >
     <div
       className="pointer-events-none absolute -top-[200px] -left-[200px] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(184,92,56,0.1)_0%,transparent_70%)]"
@@ -59,9 +59,9 @@ export const Hero = () => (
         </BtnPrimary>
         <BtnOutline href="/servicos">Conhecer soluções</BtnOutline>
       </div>
-      <div className="animate-fade-up mt-[52px] flex gap-7 border-t border-vesk-border pt-10 [animation-delay:320ms]">
+      <div className="animate-fade-up mt-10 flex flex-col gap-5 border-t border-vesk-border pt-8 sm:mt-[52px] sm:flex-row sm:flex-wrap sm:gap-7 sm:pt-10 [animation-delay:320ms]">
         {badges.map((badge) => (
-          <div key={badge.title} className="flex items-center gap-2.5">
+          <div key={badge.title} className="flex min-w-0 items-center gap-2.5 sm:min-w-[180px]">
             <IconBox size="md">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 {badge.icon}
@@ -152,7 +152,7 @@ export const Hero = () => (
           </div>
         </div>
       </div>
-      <div className="absolute -bottom-5 -left-[30px] flex items-center gap-3 rounded-xl border border-vesk-border-warm bg-vesk-dark-2 px-5 py-3.5 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+      <div className="absolute -bottom-5 left-0 flex max-w-[calc(100%-1rem)] items-center gap-3 rounded-xl border border-vesk-border-warm bg-vesk-dark-2 px-4 py-3.5 shadow-[0_20px_40px_rgba(0,0,0,0.4)] sm:-left-[30px] sm:max-w-none sm:px-5">
         <div className="font-display flex h-9 w-9 items-center justify-center rounded-full border-2 border-vesk-orange bg-vesk-orange-dim text-[13px] font-bold text-vesk-orange">
           VK
         </div>

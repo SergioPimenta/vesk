@@ -2,7 +2,7 @@ import { SectionDesc, SectionLabel, SectionTitle } from '../home/ui';
 import { contactFaqs } from './contactData';
 
 export const ContactFaq = () => (
-  <section className="bg-vesk-black page-px py-[100px]">
+  <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[100px]">
     <div className="mb-14 text-center">
       <SectionLabel centered showLine={false}>
         Dúvidas frequentes

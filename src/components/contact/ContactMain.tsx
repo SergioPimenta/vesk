@@ -4,7 +4,7 @@ import { ContactChannels } from './ContactChannels';
 import { ContactForm } from './ContactForm';
 
 export const ContactMain = () => (
-  <section id="formulario" className="bg-vesk-dark page-px py-[100px]">
+  <section id="formulario" className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[100px]">
     <div className="mb-14 max-w-2xl">
       <SectionLabel>Formulário</SectionLabel>
       <SectionTitle>Envie sua mensagem</SectionTitle>

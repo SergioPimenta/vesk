@@ -16,7 +16,7 @@ const pillars = [
 ];
 
 export const AboutMission = () => (
-  <section className="bg-vesk-black px-12 py-[120px]">
+  <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
     <div className="mb-16 max-w-2xl">
       <SectionLabel>Nossa essência</SectionLabel>
       <SectionTitle>O que nos move</SectionTitle>

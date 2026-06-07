@@ -1,7 +1,7 @@
 import { portfolioStats } from './portfolioData';
 
 export const PortfolioStats = () => (
-  <section className="bg-vesk-dark page-px py-[100px]">
+  <section className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[100px]">
     <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
       {portfolioStats.map((stat) => (
         <div
@@ -9,7 +9,7 @@ export const PortfolioStats = () => (
           className="rounded-xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center md:text-left"
         >
           <div
-            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${'small' in stat && stat.small ? 'text-4xl' : 'text-[44px]'}`}
+            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${'small' in stat && stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
           >
             {stat.value}
             <span className="text-vesk-orange">{stat.suffix}</span>

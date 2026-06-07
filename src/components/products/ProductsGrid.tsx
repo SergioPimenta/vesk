@@ -12,8 +12,8 @@ type ProductsGridProps = {
 export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalogo' }: ProductsGridProps) => {
   if (variant === 'home') {
     return (
-      <section id="produtos" className="bg-vesk-cream page-px py-[120px] text-vesk-surface">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+      <section id="produtos" className="bg-vesk-cream page-px py-16 md:py-24 lg:py-[120px] text-vesk-surface">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
             <SectionLabel showLine className="text-vesk-orange">
               Produtos
@@ -36,7 +36,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
               <Link
                 key={product.title}
                 to="/produtos"
-                className="flex items-start gap-5 rounded-xl border border-vesk-border bg-vesk-dark-3 px-8 py-7 text-inherit no-underline transition-all duration-200 hover:-translate-y-[3px] hover:border-vesk-border-warm hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+                className="flex items-start gap-4 rounded-xl border border-vesk-border bg-vesk-dark-3 px-5 py-6 text-inherit no-underline transition-all duration-200 hover:-translate-y-[3px] hover:border-vesk-border-warm hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:gap-5 sm:px-8 sm:py-7"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-vesk-orange-dim text-vesk-orange [&_svg]:h-5 [&_svg]:w-5">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -59,7 +59,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
   }
 
   return (
-    <section id={id} className="bg-vesk-cream page-px py-[100px] text-vesk-surface">
+    <section id={id} className="bg-vesk-cream page-px py-16 md:py-24 lg:py-[100px] text-vesk-surface">
       {showHeader && (
         <div className="mb-14 max-w-2xl">
           <SectionLabel showLine className="text-vesk-orange">
