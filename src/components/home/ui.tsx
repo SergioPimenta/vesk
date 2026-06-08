@@ -3,13 +3,29 @@ import { Link } from 'react-router-dom';
 import { cn } from '../../lib/cn';
 import { externalLinkProps } from '../../lib/links';
 
-export const NavLogo = ({ className }: { className?: string }) => (
+export const NavLogo = ({
+  className,
+  variant = 'header',
+}: {
+  className?: string;
+  variant?: 'header' | 'footer';
+}) => (
   <Link
     to="/"
     className={cn('inline-flex shrink-0 items-center gap-2.5 no-underline', className)}
-    aria-label="VESK — Início"
+    aria-label={variant === 'header' ? 'VESK Software House — Início' : 'VESK — Início'}
   >
-    <img src="/assets/logo-mark.svg" alt="" className="h-8 w-auto md:h-9" aria-hidden />
+    <img
+      src="/assets/logo-mark.svg"
+      alt={
+        variant === 'header'
+          ? 'VESK Software House — Desenvolvimento de Software em Curitiba'
+          : 'VESK'
+      }
+      className="h-8 w-auto md:h-9"
+      fetchPriority={variant === 'header' ? 'high' : undefined}
+      loading={variant === 'header' ? 'eager' : 'lazy'}
+    />
     <span className="font-display text-[22px] font-extrabold tracking-tight text-vesk-surface">
       VE<span className="text-vesk-orange">SK</span>
     </span>
@@ -117,10 +133,12 @@ export const IconBox = ({
   children,
   size = 'md',
   className,
+  decorative = false,
 }: {
   children: ReactNode;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  decorative?: boolean;
 }) => {
   const sizes = {
     sm: 'h-8 w-8 [&_svg]:h-4 [&_svg]:w-4',
@@ -135,6 +153,7 @@ export const IconBox = ({
         sizes[size],
         className,
       )}
+      {...(decorative ? { role: 'presentation' as const } : {})}
     >
       {children}
     </div>

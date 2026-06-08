@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { NavLogo } from './ui';
 import { cn } from '../../lib/cn';
 
-const links = [
-  { href: '/servicos', label: 'Serviços', route: true },
-  { href: '/produtos', label: 'Produtos', route: true },
-  { href: '/portfolio', label: 'Portfólio', route: true },
-  { href: '/sobre', label: 'Sobre', route: true },
-  { href: '/contato', label: 'Contato', route: true },
+const anchorLinks = [
+  { hash: '#solucoes', label: 'Serviços' },
+  { hash: '#produtos', label: 'Produtos' },
+  { hash: '#projetos', label: 'Portfólio' },
+  { hash: '#sobre', label: 'Sobre' },
+  { hash: '#contato', label: 'Contato' },
 ];
 
 const linkClass = (isActive: boolean) =>
@@ -21,8 +21,11 @@ const linkClass = (isActive: boolean) =>
 const ctaClass =
   'rounded bg-vesk-orange px-6 py-2.5 text-[13px] font-medium tracking-wide whitespace-nowrap text-white no-underline transition-all duration-200 hover:-translate-y-px hover:bg-vesk-orange-light';
 
+const resolveHref = (hash: string, isHome: boolean) => (isHome ? hash : `/${hash}`);
+
 export const Nav = () => {
   const { pathname } = useLocation();
+  const isHome = pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -39,30 +42,24 @@ export const Nav = () => {
   return (
     <>
       <nav className="fixed top-0 right-0 left-0 z-[100] flex h-[68px] items-center justify-between border-b border-vesk-border bg-[rgb(11_17_26/0.88)] backdrop-blur-xl page-px">
-        <NavLogo />
+        <NavLogo variant="header" />
 
         <ul className="hidden list-none gap-9 lg:flex">
-          {links.map((link) => {
-            const isActive = link.route && pathname === link.href;
+          {anchorLinks.map((link) => {
+            const href = resolveHref(link.hash, isHome);
             return (
-              <li key={link.href}>
-                {link.route ? (
-                  <Link to={link.href} className={linkClass(isActive)}>
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a href={link.href} className={linkClass(isActive)}>
-                    {link.label}
-                  </a>
-                )}
+              <li key={link.hash}>
+                <a href={href} className={linkClass(false)}>
+                  {link.label}
+                </a>
               </li>
             );
           })}
         </ul>
 
-        <Link to="/contato" className={cn(ctaClass, 'hidden lg:inline-flex')}>
+        <a href={resolveHref('#contato', isHome)} className={cn(ctaClass, 'hidden lg:inline-flex')}>
           Solicitar orçamento →
-        </Link>
+        </a>
 
         <button
           type="button"
@@ -85,32 +82,28 @@ export const Nav = () => {
           />
           <div className="relative border-b border-vesk-border bg-vesk-black page-px py-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
             <ul className="flex list-none flex-col gap-1">
-              {links.map((link) => {
-                const isActive = link.route && pathname === link.href;
+              {anchorLinks.map((link) => {
+                const href = resolveHref(link.hash, isHome);
                 return (
-                  <li key={link.href}>
-                    {link.route ? (
-                      <Link
-                        to={link.href}
-                        className={cn(linkClass(isActive), 'block rounded-lg px-3 py-3.5 text-[15px]')}
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className={cn(linkClass(isActive), 'block rounded-lg px-3 py-3.5 text-[15px]')}
-                      >
-                        {link.label}
-                      </a>
-                    )}
+                  <li key={link.hash}>
+                    <a
+                      href={href}
+                      className={cn(linkClass(false), 'block rounded-lg px-3 py-3.5 text-[15px]')}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
                   </li>
                 );
               })}
             </ul>
-            <Link to="/contato" className={cn(ctaClass, 'mt-4 block w-full py-3.5 text-center')}>
+            <a
+              href={resolveHref('#contato', isHome)}
+              className={cn(ctaClass, 'mt-4 block w-full py-3.5 text-center')}
+              onClick={() => setMenuOpen(false)}
+            >
               Solicitar orçamento →
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -1,16 +1,16 @@
 import { SectionDesc, SectionLabel, SectionTitle } from './ui';
 
 const steps = [
-  { num: '01', title: 'Diagnóstico', desc: 'Entendemos seu negócio e seus objetivos a fundo' },
-  { num: '02', title: 'Planejamento', desc: 'Criamos a estratégia e o plano ideal para sua solução' },
-  { num: '03', title: 'Desenvolvimento', desc: 'Desenvolvemos com tecnologia de ponta e boas práticas' },
-  { num: '04', title: 'Testes', desc: 'Testamos cada detalhe com rigor para garantir qualidade' },
-  { num: '05', title: 'Entrega', desc: 'Lançamos a solução com segurança e excelência' },
-  { num: '06', title: 'Suporte', desc: 'Acompanhamos de perto para que você continue crescendo' },
+  { num: '01', title: 'Diagnóstico', desc: 'Entendemos seu negócio e seus objetivos a fundo', duration: '1–2 dias úteis' },
+  { num: '02', title: 'Planejamento', desc: 'Criamos a estratégia e o plano ideal para sua solução', duration: '3–5 dias úteis' },
+  { num: '03', title: 'Desenvolvimento', desc: 'Desenvolvemos com tecnologia de ponta e boas práticas', duration: 'Conforme escopo' },
+  { num: '04', title: 'Testes', desc: 'Testamos cada detalhe com rigor para garantir qualidade', duration: 'Incluso no prazo' },
+  { num: '05', title: 'Entrega', desc: 'Lançamos a solução com segurança e excelência', duration: 'Deploy e treinamento' },
+  { num: '06', title: 'Suporte', desc: 'Acompanhamos de perto para que você continue crescendo', duration: 'Contínuo pós-entrega' },
 ];
 
 export const Process = () => (
-  <section id="como-trabalhamos" className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
+  <section id="processo" className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
     <div className="mb-12 text-center md:mb-20">
       <SectionLabel centered showLine={false}>
         Nossa metodologia
@@ -30,8 +30,9 @@ export const Process = () => (
           <div className="relative z-[1] mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-vesk-border-warm bg-vesk-dark-2 font-display text-[15px] font-bold text-vesk-orange transition-colors duration-200 group-hover:border-vesk-orange group-hover:bg-vesk-orange-dim">
             {step.num}
           </div>
-          <h4 className="font-display mb-2 text-[15px] font-semibold">{step.title}</h4>
+          <h3 className="font-display mb-2 text-[15px] font-semibold">{step.title}</h3>
           <p className="text-xs leading-relaxed text-vesk-muted">{step.desc}</p>
+          <p className="mt-2 text-[11px] text-vesk-muted">{step.duration}</p>
         </div>
       ))}
     </div>

@@ -5,9 +5,16 @@ import { inputClass } from './contactData';
 type ContactFormProps = {
   id?: string;
   className?: string;
+  submitLabel?: string;
+  showPrivacyNote?: boolean;
 };
 
-export const ContactForm = ({ id, className }: ContactFormProps) => (
+export const ContactForm = ({
+  id,
+  className,
+  submitLabel = 'Enviar Mensagem',
+  showPrivacyNote = false,
+}: ContactFormProps) => (
   <form
     id={id}
     className={className}
@@ -57,8 +64,11 @@ export const ContactForm = ({ id, className }: ContactFormProps) => (
       />
     </label>
     <BtnPrimary type="button" className="mt-6 cursor-pointer self-start border-none">
-      Enviar Mensagem
+      {submitLabel}
       <ArrowIcon />
     </BtnPrimary>
+    {showPrivacyNote && (
+      <p className="mt-3 text-xs text-vesk-muted">🔒 Seus dados são confidenciais. Não enviamos spam.</p>
+    )}
   </form>
 );

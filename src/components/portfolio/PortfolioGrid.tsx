@@ -27,6 +27,7 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
       {items.map((item) => (
         <article
           key={item.num}
+          aria-label={`Projeto ${item.num} desenvolvido pela VESK Software House`}
           className={`group relative aspect-[4/3] cursor-default overflow-hidden rounded-xl border border-vesk-border bg-gradient-to-br ${item.gradient} transition-transform duration-300 hover:-translate-y-1.5`}
         >
           <div
@@ -52,7 +53,7 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
 
   if (variant === 'home') {
     return (
-      <section id="portfolio" className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
+      <section id="projetos" className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
         <div className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <SectionLabel>Portfólio</SectionLabel>

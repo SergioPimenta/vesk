@@ -27,7 +27,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
               to="/produtos"
               className="mt-8 inline-flex items-center gap-2.5 rounded bg-vesk-orange px-7 py-3.5 text-sm font-medium text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-vesk-orange-light"
             >
-              Ver todos os produtos
+              Conhecer os produtos →
               <ArrowIcon />
             </Link>
           </div>

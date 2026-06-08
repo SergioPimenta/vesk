@@ -14,11 +14,15 @@ export const Contact = () => (
         sobre seu projeto
       </SectionTitle>
       <SectionDesc className="mx-auto">
-        Entre em contato e descubra como podemos transformar seu negócio com tecnologia de ponta.
+        Preencha o formulário e um especialista da VESK entra em contato em até 2 horas úteis. Sem compromisso,
+        sem enrolação.
       </SectionDesc>
     </div>
     <div className="mx-auto grid max-w-5xl items-start gap-12 lg:grid-cols-2 lg:gap-16">
-      <ContactForm />
+      <ContactForm
+        submitLabel="Quero falar com um especialista →"
+        showPrivacyNote
+      />
       <ContactChannels />
     </div>
   </section>

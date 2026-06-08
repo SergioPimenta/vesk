@@ -46,18 +46,19 @@ export const Hero = () => (
         Software Premium
       </div>
       <h1 className={cn('animate-fade-up mb-7 [animation-delay:80ms]', pageHeroTitleClass)}>
-        Tecnologia que <em className="text-vesk-orange not-italic">transforma</em> negócios.
+        Software House em Curitiba que <em className="text-vesk-orange not-italic">transforma</em> negócios com
+        tecnologia.
       </h1>
       <p className="animate-fade-up mb-11 max-w-[440px] text-[17px] leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Desenvolvemos soluções digitais completas para impulsionar empresas, otimizar processos e gerar
-        resultados reais com tecnologia de ponta.
+        Criamos sistemas, CRMs, e-commerces e automações sob medida para PMEs em Curitiba e todo o Brasil —
+        tecnologia que você usa de verdade e que gera resultado.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center gap-4 [animation-delay:240ms]">
         <BtnPrimary href="#contato">
           Solicitar orçamento
           <ArrowIcon />
         </BtnPrimary>
-        <BtnOutline href="/servicos">Conhecer soluções</BtnOutline>
+        <BtnOutline href="#processo">Como trabalhamos →</BtnOutline>
       </div>
       <div className="animate-fade-up mt-10 flex flex-col gap-5 border-t border-vesk-border pt-8 sm:mt-[52px] sm:flex-row sm:flex-wrap sm:gap-7 sm:pt-10 [animation-delay:320ms]">
         {badges.map((badge) => (
@@ -77,7 +78,11 @@ export const Hero = () => (
     </div>
 
     <div className="relative z-10 animate-fade-up [animation-delay:300ms] [animation-duration:0.8s]">
-      <div className="overflow-hidden rounded-2xl border border-vesk-border bg-vesk-dark-2 shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+      <div
+        className="overflow-hidden rounded-2xl border border-vesk-border bg-vesk-dark-2 shadow-[0_40px_80px_rgba(0,0,0,0.5)]"
+        role="img"
+        aria-label="Dashboard do VESK CRM com métricas de vendas e conversão"
+      >
         <div className="flex items-center gap-3 border-b border-vesk-border px-5 py-4">
           <div className="flex gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />

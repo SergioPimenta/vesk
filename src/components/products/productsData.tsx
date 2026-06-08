@@ -1,7 +1,7 @@
 export const products = [
   {
     title: 'VESK Gestão',
-    desc: 'Sistema completo para gestão empresarial com relatórios inteligentes e controle total.',
+    desc: 'Controle financeiro, estoque e operações da sua empresa em um só lugar. Feito para PMEs que precisam de visibilidade sem complexidade.',
     features: ['Financeiro e fiscal', 'Estoque e compras', 'Relatórios em tempo real', 'Multi-empresa'],
     status: 'Disponível',
     icon: (
@@ -13,14 +13,14 @@ export const products = [
   },
   {
     title: 'VESK CRM',
-    desc: 'Gestão de relacionamento com clientes para impulsionar suas vendas e fidelizar clientes.',
+    desc: 'Gerencie leads, clientes e negociações com integração nativa ao WhatsApp. Nunca mais perca um follow-up por falta de organização.',
     features: ['Pipeline de vendas', 'Automação de follow-up', 'Integração WhatsApp', 'Dashboard comercial'],
     status: 'Disponível',
     icon: <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />,
   },
   {
     title: 'VESK Escola',
-    desc: 'Sistema para gestão escolar com comunicação integrada e plataforma de ensino completa.',
+    desc: 'Plataforma EAD para vender cursos, treinar equipes ou capacitar clientes. Do cadastro ao certificado, tudo integrado.',
     features: ['Matrículas e turmas', 'Portal do aluno', 'Comunicação com pais', 'Boletim e frequência'],
     status: 'Disponível',
     icon: <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />,

@@ -1,7 +1,7 @@
 export const services = [
   {
     title: 'Desenvolvimento de Sistemas',
-    desc: 'Sistemas robustos e escaláveis desenvolvidos com as melhores práticas para empresas de todos os portes.',
+    desc: 'Sistemas web e mobile desenvolvidos do zero, integrados aos seus processos. Substituímos planilhas e processos manuais por software que escala com seu negócio.',
     features: ['ERP e CRM sob medida', 'Painéis administrativos', 'Arquitetura escalável', 'Integração com legado'],
     icon: (
       <>
@@ -12,7 +12,7 @@ export const services = [
   },
   {
     title: 'Websites Institucionais',
-    desc: 'Sites modernos, rápidos e otimizados para conversão e SEO. Presença digital que converte visitas em clientes.',
+    desc: 'Sites rápidos, otimizados para SEO e focados em conversão. Desenvolvemos com tecnologias modernas e entregamos prontos para ranquear no Google.',
     features: ['Design responsivo', 'SEO técnico', 'Performance otimizada', 'CMS e gestão de conteúdo'],
     icon: (
       <>
@@ -23,7 +23,7 @@ export const services = [
   },
   {
     title: 'E-commerce',
-    desc: 'Lojas virtuais completas, integradas e prontas para vender. Experiência de compra que fideliza clientes.',
+    desc: 'Lojas virtuais completas, integradas com meios de pagamento, ERP e marketplaces. Seu negócio vendendo 24h por dia.',
     features: ['Checkout otimizado', 'Gateways de pagamento', 'Gestão de estoque', 'Relatórios de vendas'],
     icon: (
       <>
@@ -35,7 +35,7 @@ export const services = [
   },
   {
     title: 'Sistemas Personalizados',
-    desc: 'Soluções feitas sob medida para atender processos específicos do seu negócio com máxima eficiência.',
+    desc: 'Quando nenhuma solução pronta resolve, criamos do zero. Sistemas específicos para o seu segmento, suas regras e seus clientes.',
     features: ['Mapeamento de processos', 'Automação de fluxos', 'Dashboards em tempo real', 'Regras de negócio customizadas'],
     icon: (
       <>
@@ -46,7 +46,7 @@ export const services = [
   },
   {
     title: 'Suporte Técnico e Manutenção',
-    desc: 'Suporte ágil e contínuo para garantir a performance e segurança da sua plataforma digital.',
+    desc: 'Seu sistema funcionando com monitoramento contínuo, atualizações e suporte rápido via WhatsApp. Sem surpresas, sem tempo parado.',
     features: ['Monitoramento 24/7', 'Correções e atualizações', 'SLA dedicado', 'Evolução contínua'],
     icon: (
       <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
@@ -54,7 +54,7 @@ export const services = [
   },
   {
     title: 'APIs e Integrações',
-    desc: 'Integrações inteligentes e automações que conectam seus sistemas e otimizam fluxos de trabalho.',
+    desc: 'Conectamos sistemas que não conversam entre si. Integrações com ERPs, marketplaces, meios de pagamento, WhatsApp e qualquer API do mercado.',
     features: ['APIs REST e GraphQL', 'Webhooks e filas', 'Integração ERP/CRM', 'Documentação técnica'],
     icon: <path d="M18 20V10M12 20V4M6 20v-6" />,
   },

@@ -7,6 +7,7 @@ type ServicesGridProps = {
   showHeader?: boolean;
   id?: string;
   className?: string;
+  ctaLabel?: string;
 };
 
 export const ServicesGrid = ({
@@ -14,6 +15,7 @@ export const ServicesGrid = ({
   showHeader = true,
   id = 'servicos',
   className = 'bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]',
+  ctaLabel = 'Solicitar orçamento →',
 }: ServicesGridProps) => (
   <section id={id} className={className}>
     {showHeader && (
@@ -39,8 +41,8 @@ export const ServicesGrid = ({
         >
           <span className="absolute bottom-0 left-9 h-0.5 w-0 bg-vesk-orange transition-[width] duration-350 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:w-[calc(100%-4.5rem)]" />
           <div className="mb-6">
-            <IconBox size="lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <IconBox size="lg" decorative>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
                 {service.icon}
               </svg>
             </IconBox>
@@ -61,7 +63,7 @@ export const ServicesGrid = ({
             to="/contato"
             className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-vesk-orange no-underline transition-[gap] duration-200 hover:gap-2.5"
           >
-            Solicitar orçamento →
+            {ctaLabel}
           </Link>
         </div>
       ))}

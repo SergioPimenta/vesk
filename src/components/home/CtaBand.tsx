@@ -2,10 +2,11 @@ export const CtaBand = () => (
   <div className="grid grid-cols-1 items-start gap-10 bg-vesk-orange page-px py-12 sm:items-center md:grid-cols-2 md:gap-[60px] md:py-20">
     <div>
       <h2 className="font-display text-[clamp(1.75rem,3.5vw,3rem)] leading-tight font-extrabold tracking-tight text-white">
-        Pronto para transformar sua empresa?
+        Pronto para ter um sistema que realmente funciona?
       </h2>
       <p className="mt-3 text-base font-light text-[rgb(255_255_255/0.75)]">
-        Fale com a VESK e descubra como podemos alavancar seu negócio com tecnologia.
+        Fale com a VESK e descubra como podemos desenvolver seu negócio com tecnologia. Respondemos em até 2
+        horas úteis.
       </p>
     </div>
     <div className="flex flex-col items-start gap-4">
@@ -32,11 +33,14 @@ export const CtaBand = () => (
         </div>
       </div>
       <a
-        href="/contato"
+        href="#contato"
         className="inline-flex items-center gap-2.5 rounded bg-vesk-surface px-8 py-3.5 text-sm font-semibold whitespace-nowrap text-vesk-orange no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e8d9ca]"
       >
         Falar com especialista →
       </a>
+      <p className="text-[13px] leading-relaxed text-[rgb(255_255_255/0.8)]">
+        📍 Atendemos Curitiba e toda a região Sul — e desenvolvemos para o Brasil inteiro.
+      </p>
     </div>
   </div>
 );
