@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import Login from './pages/Login';
 import Dashboard from './admin/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 
