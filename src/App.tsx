@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import PortfolioPage from './pages/PortfolioPage';
 import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
-import Login from './pages/Login';
+import TermsOfUsePage from './pages/TermsOfUsePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import Dashboard from './admin/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -22,6 +23,8 @@ function App() {
       <Route path="/produtos" element={<ProductsPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/contato" element={<ContactPage />} />
+      <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
+      <Route path="/termos-de-uso" element={<TermsOfUsePage />} />
       <Route path="/login" element={<Login />} />
       
       {/* Protected Admin Routes */}

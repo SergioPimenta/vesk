@@ -167,6 +167,28 @@ export const getPageSchema = (page: SeoPageKey) => {
       );
       break;
 
+    case 'privacidade':
+      graph.push(
+        webPage(
+          'Políticas de Privacidade VESK',
+          '/politica-de-privacidade',
+          'Política de privacidade e proteção de dados da VESK Software House.',
+        ),
+        breadcrumb('Políticas de Privacidade', '/politica-de-privacidade'),
+      );
+      break;
+
+    case 'termos':
+      graph.push(
+        webPage(
+          'Termos de Uso VESK',
+          '/termos-de-uso',
+          'Termos de uso do site e serviços da VESK Software House.',
+        ),
+        breadcrumb('Termos de Uso', '/termos-de-uso'),
+      );
+      break;
+
     default:
       return null;
   }

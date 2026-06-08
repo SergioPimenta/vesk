@@ -27,8 +27,8 @@ const footerCols = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacidade', href: '#' },
-      { label: 'Termos de Uso', href: '#' },
+      { label: 'Políticas de Privacidade', href: '/politica-de-privacidade' },
+      { label: 'Termos de Uso', href: '/termos-de-uso' },
       { label: 'Cookies', href: '#' },
     ],
   },

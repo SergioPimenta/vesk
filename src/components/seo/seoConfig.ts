@@ -1,6 +1,15 @@
 import { SITE_NAME, SITE_URL } from '../../lib/site';
 
-export type SeoPageKey = 'home' | 'sobre' | 'servicos' | 'produtos' | 'portfolio' | 'contato' | 'login';
+export type SeoPageKey =
+  | 'home'
+  | 'sobre'
+  | 'servicos'
+  | 'produtos'
+  | 'portfolio'
+  | 'contato'
+  | 'privacidade'
+  | 'termos'
+  | 'login';
 
 export type SeoConfig = {
   path: string;
@@ -65,6 +74,24 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
     ogTitle: 'Contato VESK — Software House em Curitiba',
     ogDescription:
       'Entre em contato com a VESK. Especialistas em software sob medida em Curitiba. Sem compromisso, resposta rápida.',
+  },
+  privacidade: {
+    path: '/politica-de-privacidade',
+    title: 'Políticas de Privacidade | VESK Software House',
+    description:
+      'Saiba como a VESK trata seus dados pessoais. Política de privacidade em conformidade com a LGPD para visitantes e clientes do site vesk.com.br.',
+    ogTitle: 'Políticas de Privacidade — VESK',
+    ogDescription:
+      'Transparência no tratamento de dados pessoais pela VESK Software House em Curitiba.',
+  },
+  termos: {
+    path: '/termos-de-uso',
+    title: 'Termos de Uso | VESK Software House',
+    description:
+      'Termos de uso do site e serviços da VESK Software House. Condições de acesso, propriedade intelectual e responsabilidades.',
+    ogTitle: 'Termos de Uso — VESK',
+    ogDescription:
+      'Condições de uso do site vesk.com.br e dos serviços oferecidos pela VESK em Curitiba.',
   },
   login: {
     path: '/login',
