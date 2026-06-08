@@ -9,14 +9,17 @@ export const ContactMain = () => (
       <SectionLabel>Formulário</SectionLabel>
       <SectionTitle>Envie sua mensagem</SectionTitle>
       <SectionDesc>
-        Preencha os campos abaixo e retornaremos com as próximas etapas. Quanto mais detalhes sobre o
-        projeto, mais precisa será nossa resposta.
+        Preencha o formulário e um especialista da VESK em Curitiba entra em contato em até 2 horas úteis.
+        Sem compromisso, sem enrolação.
       </SectionDesc>
     </div>
 
     <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
       <div className="rounded-2xl border border-vesk-border bg-vesk-black p-8 md:p-10">
-        <ContactForm />
+        <ContactForm
+          submitLabel="Quero falar com um especialista →"
+          showPrivacyNote
+        />
       </div>
 
       <aside className="flex flex-col gap-6">

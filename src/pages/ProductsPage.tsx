@@ -3,9 +3,11 @@ import { PublicLayout } from '../components/layout/PublicLayout';
 import { ProductsGrid } from '../components/products/ProductsGrid';
 import { ProductsHero } from '../components/products/ProductsHero';
 import { ProductsHighlights } from '../components/products/ProductsHighlights';
+import { PageSeo } from '../components/seo/PageSeo';
 
 const ProductsPage = () => (
   <PublicLayout>
+    <PageSeo page="produtos" />
     <main>
       <ProductsHero />
       <ProductsGrid />

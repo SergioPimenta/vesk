@@ -7,11 +7,11 @@ import { Process } from '../components/home/Process';
 import { Products } from '../components/home/Products';
 import { Services } from '../components/home/Services';
 import { PublicLayout } from '../components/layout/PublicLayout';
-import { HomeSeo } from '../components/seo/HomeSeo';
+import { PageSeo } from '../components/seo/PageSeo';
 
 const Home = () => (
   <PublicLayout>
-    <HomeSeo />
+    <PageSeo page="home" />
     <main>
       <Hero />
       <Services />

@@ -6,9 +6,11 @@ import { ServicesBenefits } from '../components/services/ServicesBenefits';
 import { ServicesGrid } from '../components/services/ServicesGrid';
 import { ServicesHero } from '../components/services/ServicesHero';
 import { ServicesTech } from '../components/services/ServicesTech';
+import { PageSeo } from '../components/seo/PageSeo';
 
 const ServicesPage = () => (
   <PublicLayout>
+    <PageSeo page="servicos" />
     <main>
       <ServicesHero />
       <ServicesGrid id="catalogo" showFeatures />

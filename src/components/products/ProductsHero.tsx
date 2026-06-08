@@ -21,8 +21,8 @@ export const ProductsHero = () => (
         Software próprio, <em className="text-vesk-orange not-italic">pronto para escalar</em>
       </h1>
       <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Plataformas desenvolvidas pela VESK para simplificar gestão, aumentar produtividade e gerar
-        resultados mensuráveis desde o primeiro dia.
+        Plataformas SaaS desenvolvidas pela VESK em Curitiba para simplificar gestão, aumentar
+        produtividade e gerar resultados mensuráveis desde o primeiro dia.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
         <BtnPrimary href="#catalogo">

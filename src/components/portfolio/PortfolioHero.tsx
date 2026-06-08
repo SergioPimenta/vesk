@@ -21,8 +21,8 @@ export const PortfolioHero = () => (
         Projetos que geram <em className="text-vesk-orange not-italic">resultados</em>
       </h1>
       <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Conheça cases reais de e-commerce, sistemas web e plataformas corporativas que transformaram a
-        operação dos nossos clientes.
+        Cases reais de e-commerce, sistemas web e plataformas corporativas desenvolvidos pela VESK em
+        Curitiba e em todo o Brasil — projetos que transformaram a operação dos nossos clientes.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
         <BtnPrimary href="#projetos">

@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useVeskBodyTheme } from '../hooks/useVeskBodyTheme';
 import { cn } from '../lib/cn';
 import { api } from '../services/api';
+import { PageSeo } from '../components/seo/PageSeo';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -45,6 +46,7 @@ const Login = () => {
 
   return (
     <div className="font-body relative flex min-h-screen overflow-hidden bg-vesk-black text-vesk-surface antialiased">
+      <PageSeo page="login" />
       <div
         className="pointer-events-none absolute -top-[200px] -left-[200px] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(184,92,56,0.1)_0%,transparent_70%)]"
         aria-hidden

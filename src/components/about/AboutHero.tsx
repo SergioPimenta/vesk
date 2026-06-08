@@ -21,8 +21,8 @@ export const AboutHero = () => (
         Tecnologia, <em className="text-vesk-orange not-italic">pessoas</em> e propósito
       </h1>
       <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        A VESK nasceu para transformar ideias em soluções digitais inteligentes. Unimos tecnologia,
-        criatividade e estratégia para entregar software que impulsiona negócios e melhora vidas.
+        Software House em Curitiba dedicada a transformar ideias em soluções digitais inteligentes.
+        Unimos tecnologia, criatividade e estratégia para entregar software que impulsiona negócios.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
         <BtnPrimary href="/contato">

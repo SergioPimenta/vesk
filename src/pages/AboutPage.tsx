@@ -6,9 +6,11 @@ import { AboutValues } from '../components/about/AboutValues';
 import { CtaBand } from '../components/home/CtaBand';
 import { Process } from '../components/home/Process';
 import { PublicLayout } from '../components/layout/PublicLayout';
+import { PageSeo } from '../components/seo/PageSeo';
 
 const AboutPage = () => (
   <PublicLayout>
+    <PageSeo page="sobre" />
     <main>
       <AboutHero />
       <AboutStats />

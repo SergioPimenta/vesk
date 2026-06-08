@@ -21,8 +21,8 @@ export const ServicesHero = () => (
         Soluções digitais com <em className="text-vesk-orange not-italic">resultado</em>
       </h1>
       <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Do sistema corporativo ao e-commerce, desenvolvemos software sob medida com foco em performance,
-        escalabilidade e impacto real no seu negócio.
+        Software House em Curitiba: do sistema corporativo ao e-commerce, desenvolvemos soluções sob
+        medida com foco em performance, escalabilidade e impacto real no seu negócio.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
         <BtnPrimary href="#catalogo">

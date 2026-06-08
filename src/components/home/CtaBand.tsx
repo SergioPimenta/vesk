@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const CtaBand = () => (
   <div className="grid grid-cols-1 items-start gap-10 bg-vesk-orange page-px py-12 sm:items-center md:grid-cols-2 md:gap-[60px] md:py-20">
     <div>
@@ -32,12 +34,12 @@ export const CtaBand = () => (
           <p className="text-[13px] text-[rgb(255_255_255/0.8)]">Resposta em até 24h</p>
         </div>
       </div>
-      <a
-        href="#contato"
+      <Link
+        to="/contato"
         className="inline-flex items-center gap-2.5 rounded bg-vesk-surface px-8 py-3.5 text-sm font-semibold whitespace-nowrap text-vesk-orange no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e8d9ca]"
       >
         Falar com especialista →
-      </a>
+      </Link>
       <p className="text-[13px] leading-relaxed text-[rgb(255_255_255/0.8)]">
         📍 Atendemos Curitiba e toda a região Sul — e desenvolvemos para o Brasil inteiro.
       </p>
