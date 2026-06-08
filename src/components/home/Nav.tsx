@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { NavLogo } from './ui';
 import { cn } from '../../lib/cn';
 
-const anchorLinks = [
-  { hash: '#solucoes', label: 'Serviços' },
-  { hash: '#produtos', label: 'Produtos' },
-  { hash: '#projetos', label: 'Portfólio' },
-  { hash: '#sobre', label: 'Sobre' },
-  { hash: '#contato', label: 'Contato' },
+const links = [
+  { href: '/servicos', label: 'Serviços' },
+  { href: '/produtos', label: 'Produtos' },
+  { href: '/portfolio', label: 'Portfólio' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' },
 ];
 
 const linkClass = (isActive: boolean) =>
@@ -21,11 +21,8 @@ const linkClass = (isActive: boolean) =>
 const ctaClass =
   'rounded bg-vesk-orange px-6 py-2.5 text-[13px] font-medium tracking-wide whitespace-nowrap text-white no-underline transition-all duration-200 hover:-translate-y-px hover:bg-vesk-orange-light';
 
-const resolveHref = (hash: string, isHome: boolean) => (isHome ? hash : `/${hash}`);
-
 export const Nav = () => {
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -45,21 +42,21 @@ export const Nav = () => {
         <NavLogo variant="header" />
 
         <ul className="hidden list-none gap-9 lg:flex">
-          {anchorLinks.map((link) => {
-            const href = resolveHref(link.hash, isHome);
+          {links.map((link) => {
+            const isActive = pathname === link.href;
             return (
-              <li key={link.hash}>
-                <a href={href} className={linkClass(false)}>
+              <li key={link.href}>
+                <Link to={link.href} className={linkClass(isActive)}>
                   {link.label}
-                </a>
+                </Link>
               </li>
             );
           })}
         </ul>
 
-        <a href={resolveHref('#contato', isHome)} className={cn(ctaClass, 'hidden lg:inline-flex')}>
+        <Link to="/contato" className={cn(ctaClass, 'hidden lg:inline-flex')}>
           Solicitar orçamento →
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -82,28 +79,28 @@ export const Nav = () => {
           />
           <div className="relative border-b border-vesk-border bg-vesk-black page-px py-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
             <ul className="flex list-none flex-col gap-1">
-              {anchorLinks.map((link) => {
-                const href = resolveHref(link.hash, isHome);
+              {links.map((link) => {
+                const isActive = pathname === link.href;
                 return (
-                  <li key={link.hash}>
-                    <a
-                      href={href}
-                      className={cn(linkClass(false), 'block rounded-lg px-3 py-3.5 text-[15px]')}
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className={cn(linkClass(isActive), 'block rounded-lg px-3 py-3.5 text-[15px]')}
                       onClick={() => setMenuOpen(false)}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
             </ul>
-            <a
-              href={resolveHref('#contato', isHome)}
+            <Link
+              to="/contato"
               className={cn(ctaClass, 'mt-4 block w-full py-3.5 text-center')}
               onClick={() => setMenuOpen(false)}
             >
               Solicitar orçamento →
-            </a>
+            </Link>
           </div>
         </div>
       )}
