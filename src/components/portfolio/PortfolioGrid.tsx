@@ -28,13 +28,22 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
         <article
           key={item.num}
           aria-label={`Projeto ${item.num} desenvolvido pela VESK Software House`}
-          className={`group relative aspect-[4/3] cursor-default overflow-hidden rounded-xl border border-vesk-border bg-gradient-to-br ${item.gradient} transition-transform duration-300 hover:-translate-y-1.5`}
+          className={`group relative aspect-[1650/952] cursor-default overflow-hidden rounded-[22px] border border-vesk-border bg-gradient-to-br ${item.gradient} transition-transform duration-300 hover:-translate-y-1.5`}
         >
-          <div
-            className={`flex h-full w-full items-center justify-center font-display text-[32px] font-extrabold select-none ${item.thumbColor}`}
-          >
-            {item.num}
-          </div>
+          {'image' in item && item.image ? (
+            <img
+              src={item.image}
+              alt={`${item.name} — projeto desenvolvido pela VESK Software House`}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div
+              className={`flex h-full w-full items-center justify-center font-display text-[32px] font-extrabold select-none ${item.thumbColor}`}
+            >
+              {item.num}
+            </div>
+          )}
           <div className="absolute inset-0 flex flex-col justify-end bg-[rgb(11_17_26/0.92)] p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="mb-1 flex items-center justify-between gap-2">
               <span className="text-[10px] tracking-[0.1em] text-vesk-orange uppercase">{item.tag}</span>
