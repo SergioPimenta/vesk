@@ -24,6 +24,11 @@
   --font-body: "DM Sans", sans-serif;
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-float-slower: float-slow 8s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 7s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 26s linear infinite;
+  --animate-dash-flow: dash-flow 5s ease-in-out infinite;
 }
 
 @keyframes fade-up {
@@ -34,6 +39,54 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-flow {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: -18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-glow-pulse,
+  .animate-spin-slow,
+  .animate-dash-flow {
+    animation: none !important;
   }
 }
 
