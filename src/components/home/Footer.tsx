@@ -36,7 +36,7 @@ const footerCols = [
     title: 'Contato',
     links: [
       { label: '(41) 9690-2905', href: 'tel:+554196902905' },
-      { label: 'contato@vesk.com.br', href: 'mailto:contato@vesk.com.br' },
+      { label: 'comercial@vesk.com.br', href: 'mailto:comercial@vesk.com.br' },
       { label: 'Curitiba, PR', href: '#' },
     ],
   },

@@ -8,8 +8,8 @@ export const contactChannels = [
     title: 'Email',
     desc: 'Resposta em até 24 horas úteis',
     content: (
-      <a href="mailto:contato@vesk.com.br" className="text-vesk-mid no-underline hover:text-vesk-surface">
-        contato@vesk.com.br
+      <a href="mailto:comercial@vesk.com.br" className="text-vesk-mid no-underline hover:text-vesk-surface">
+        comercial@vesk.com.br
       </a>
     ),
     icon: <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />,

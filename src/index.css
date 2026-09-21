@@ -38,6 +38,7 @@
   --animate-dash-flow: dash-flow 5s ease-in-out infinite;
   --animate-marquee: marquee 32s linear infinite;
   --animate-draw: draw 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-flow-dots: flow-dots 6s linear infinite;
 }
 
 @keyframes fade-up {
@@ -107,6 +108,15 @@
   }
 }
 
+/* Continuous one-directional dash travel — small light-dots flowing along a
+   path. -400 is an exact multiple of the 4-unit dash pattern (0.1 + 3.9) used
+   with it, so the loop has no visible reset jump. */
+@keyframes flow-dots {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float-slow,
   .animate-float-slower,
@@ -114,7 +124,8 @@
   .animate-spin-slow,
   .animate-dash-flow,
   .animate-marquee,
-  .animate-draw {
+  .animate-draw,
+  .animate-flow-dots {
     animation: none !important;
   }
 }

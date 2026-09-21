@@ -29,7 +29,7 @@ const PrivacyPolicyPage = () => (
                 A VESK é uma Software House especializada em desenvolvimento de sistemas, CRM, e-commerce e
                 automações. Para questões relacionadas à privacidade e proteção de dados, entre em contato pelo
                 e-mail{' '}
-                <a href="mailto:contato@vesk.com.br">contato@vesk.com.br</a>.
+                <a href="mailto:comercial@vesk.com.br">comercial@vesk.com.br</a>.
               </p>
             ),
           },
@@ -103,7 +103,7 @@ const PrivacyPolicyPage = () => (
                 Nos termos da LGPD, você pode solicitar confirmação de tratamento, acesso, correção,
                 anonimização, portabilidade, eliminação, informação sobre compartilhamento e revogação do
                 consentimento. Envie sua solicitação para{' '}
-                <a href="mailto:contato@vesk.com.br">contato@vesk.com.br</a>.
+                <a href="mailto:comercial@vesk.com.br">comercial@vesk.com.br</a>.
               </p>
             ),
           },

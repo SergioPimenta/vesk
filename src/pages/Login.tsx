@@ -171,8 +171,8 @@ const Login = () => {
 
             <p className="mt-6 text-center text-xs text-vesk-muted">
               Problemas de acesso?{' '}
-              <a href="mailto:contato@vesk.com.br" className="text-vesk-orange no-underline hover:text-vesk-orange-light">
-                contato@vesk.com.br
+              <a href="mailto:comercial@vesk.com.br" className="text-vesk-orange no-underline hover:text-vesk-orange-light">
+                comercial@vesk.com.br
               </a>
             </p>
           </div>

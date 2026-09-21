@@ -1,7 +1,7 @@
 import { BtnOutline, BtnPrimary, MonoTag, pageHeroTitleClass } from './ui';
 import { cn } from '../../lib/cn';
 import { ArrowIcon } from './icons';
-import { HeroDashboard } from './HeroDashboard';
+import { VeskEcosystem } from './VeskEcosystem';
 import { Counter } from './Counter';
 
 const trust = [
@@ -13,7 +13,7 @@ const trust = [
 export const Hero = () => (
   <section
     id="inicio"
-    className="relative grid min-h-0 grid-cols-1 items-center gap-14 overflow-hidden blueprint page-px pt-32 pb-16 sm:pt-36 sm:pb-20 lg:min-h-screen lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pt-40 lg:pb-[110px]"
+    className="relative grid min-h-0 grid-cols-1 items-center gap-14 overflow-hidden blueprint page-px pt-32 pb-16 sm:pt-36 sm:pb-20 lg:min-h-screen lg:grid-cols-[0.7fr_0.95fr] lg:gap-16 lg:pt-40 lg:pb-[110px]"
   >
     {/* Atmosphere — copper aurora + fade of the blueprint grid */}
     <div
@@ -66,12 +66,12 @@ export const Hero = () => (
       </dl>
     </div>
 
-    <div className="relative z-10 animate-fade-up [animation-delay:420ms] [animation-duration:0.9s] lg:animate-float-slow">
+    <div className="relative z-10 animate-fade-up [animation-delay:420ms] [animation-duration:0.9s] lg:h-full lg:self-stretch lg:animate-float-slow">
       <div
-        className="pointer-events-none absolute -inset-8 rounded-[32px] bg-[radial-gradient(circle_at_60%_40%,rgba(194,101,59,0.14),transparent_70%)]"
+        className="pointer-events-none absolute -inset-8 rounded-[32px] bg-[radial-gradient(circle_at_50%_52%,rgba(194,101,59,0.14),transparent_58%)]"
         aria-hidden
       />
-      <HeroDashboard />
+      <VeskEcosystem />
     </div>
   </section>
 );
