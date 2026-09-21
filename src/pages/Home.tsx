@@ -6,6 +6,7 @@ import { Portfolio } from '../components/home/Portfolio';
 import { Process } from '../components/home/Process';
 import { Products } from '../components/home/Products';
 import { Services } from '../components/home/Services';
+import { TechMarquee } from '../components/home/TechMarquee';
 import { PublicLayout } from '../components/layout/PublicLayout';
 import { PageSeo } from '../components/seo/PageSeo';
 
@@ -14,9 +15,10 @@ const Home = () => (
     <PageSeo page="home" />
     <main>
       <Hero />
+      <TechMarquee />
       <Services />
-      <Products />
       <Portfolio />
+      <Products />
       <Process />
       <About />
       <CtaBand />

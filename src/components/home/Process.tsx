@@ -11,8 +11,8 @@ const steps = [
 
 export const Process = () => (
   <section id="processo" className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
-    <div className="mb-12 text-center md:mb-20">
-      <SectionLabel centered showLine={false}>
+    <div className="mb-12 text-center md:mb-20" data-reveal>
+      <SectionLabel centered showLine index="04">
         Nossa metodologia
       </SectionLabel>
       <SectionTitle>Como trabalhamos</SectionTitle>
@@ -22,17 +22,22 @@ export const Process = () => (
     </div>
     <div className="relative grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-0">
       <div
-        className="absolute top-7 right-[calc(100%/12)] left-[calc(100%/12)] hidden h-px bg-gradient-to-r from-vesk-orange to-[rgba(184,92,56,0.15)] xl:block"
+        className="absolute top-7 right-[calc(100%/12)] left-[calc(100%/12)] hidden h-px bg-gradient-to-r from-vesk-orange via-vesk-orange/40 to-vesk-orange/10 xl:block"
         aria-hidden
       />
-      {steps.map((step) => (
-        <div key={step.num} className="group relative px-0 text-center xl:px-3">
-          <div className="relative z-[1] mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-vesk-border-warm bg-vesk-dark-2 font-display text-[15px] font-bold text-vesk-orange transition-colors duration-200 group-hover:border-vesk-orange group-hover:bg-vesk-orange-dim">
+      {steps.map((step, i) => (
+        <div
+          key={step.num}
+          data-reveal
+          style={{ ['--reveal-delay' as string]: `${i * 70}ms` }}
+          className="group relative px-0 text-center xl:px-3"
+        >
+          <div className="relative z-[1] mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-vesk-border-warm bg-vesk-dark-2 font-mono text-[14px] font-semibold text-vesk-orange transition-[transform,border-color,background-color] duration-300 group-hover:-translate-y-1 group-hover:border-vesk-orange group-hover:bg-vesk-orange-dim group-hover:shadow-[0_0_0_6px_rgb(194_101_59/0.08)]">
             {step.num}
           </div>
           <h3 className="font-display mb-2 text-[15px] font-semibold">{step.title}</h3>
           <p className="text-xs leading-relaxed text-vesk-muted">{step.desc}</p>
-          <p className="mt-2 text-[11px] text-vesk-muted">{step.duration}</p>
+          <p className="mt-2 font-mono text-[10px] tracking-[0.04em] text-vesk-muted/80">{step.duration}</p>
         </div>
       ))}
     </div>

@@ -7,6 +7,7 @@ export type SeoPageKey =
   | 'produtos'
   | 'portfolio'
   | 'contato'
+  | 'obrigado'
   | 'privacidade'
   | 'termos'
   | 'login';
@@ -50,12 +51,12 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   },
   produtos: {
     path: '/produtos',
-    title: 'Produtos VESK | CRM, Gestão e Plataforma EAD — Software Próprio',
+    title: 'Produtos VESK | Commerce, CRM e People — Software Próprio',
     description:
-      'Conheça o VESK CRM, VESK Gestão e VESK Escola. Plataformas SaaS da VESK em Curitiba, prontas para simplificar gestão e acelerar resultados.',
-    ogTitle: 'Produtos VESK — CRM, Gestão e EAD',
+      'Conheça o VESK Commerce, VESK CRM e VESK People. Plataformas SaaS da VESK em Curitiba, prontas para vender online, organizar vendas e gerir pessoas.',
+    ogTitle: 'Produtos VESK — Commerce, CRM e People',
     ogDescription:
-      'Software próprio da VESK para PMEs: CRM com WhatsApp, gestão empresarial e plataforma EAD. Implantação rápida com suporte dedicado.',
+      'Software próprio da VESK para PMEs: e-commerce, CRM com WhatsApp e gestão de pessoas. Implantação rápida com suporte dedicado.',
   },
   portfolio: {
     path: '/portfolio',
@@ -74,6 +75,13 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
     ogTitle: 'Contato VESK — Software House em Curitiba',
     ogDescription:
       'Entre em contato com a VESK. Especialistas em software sob medida em Curitiba. Sem compromisso, resposta rápida.',
+  },
+  obrigado: {
+    path: '/obrigado',
+    title: 'Mensagem enviada | VESK Software House',
+    description:
+      'Recebemos sua mensagem. Um especialista da VESK entra em contato em até 2 horas úteis.',
+    noindex: true,
   },
   privacidade: {
     path: '/politica-de-privacidade',

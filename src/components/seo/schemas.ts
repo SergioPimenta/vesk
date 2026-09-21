@@ -109,7 +109,7 @@ export const getPageSchema = (page: SeoPageKey) => {
 
     case 'produtos':
       graph.push(
-        webPage('Produtos VESK', '/produtos', 'CRM, gestão empresarial e plataforma EAD da VESK.'),
+        webPage('Produtos VESK', '/produtos', 'E-commerce, CRM e gestão de pessoas da VESK.'),
         breadcrumb('Produtos', '/produtos'),
         {
           '@type': 'ItemList',

@@ -17,7 +17,7 @@ export const ContactMain = () => (
     <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
       <div className="rounded-2xl border border-vesk-border bg-vesk-black p-8 md:p-10">
         <ContactForm
-          submitLabel="Quero falar com um especialista →"
+          submitLabel="Quero falar com um especialista"
           showPrivacyNote
         />
       </div>

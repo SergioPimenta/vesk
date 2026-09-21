@@ -1,13 +1,14 @@
 export const products = [
   {
-    title: 'VESK Gestão',
-    desc: 'Controle financeiro, estoque e operações da sua empresa em um só lugar. Feito para PMEs que precisam de visibilidade sem complexidade.',
-    features: ['Financeiro e fiscal', 'Estoque e compras', 'Relatórios em tempo real', 'Multi-empresa'],
+    title: 'VESK Commerce',
+    desc: 'Loja virtual completa para vender online — catálogo, checkout e pagamentos integrados, pronta para escalar as vendas do seu negócio.',
+    features: ['Checkout otimizado', 'Meios de pagamento', 'Gestão de produtos', 'Relatórios de vendas'],
     status: 'Disponível',
     icon: (
       <>
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
       </>
     ),
   },
@@ -19,11 +20,17 @@ export const products = [
     icon: <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />,
   },
   {
-    title: 'VESK Escola',
-    desc: 'Plataforma EAD para vender cursos, treinar equipes ou capacitar clientes. Do cadastro ao certificado, tudo integrado.',
-    features: ['Matrículas e turmas', 'Portal do aluno', 'Comunicação com pais', 'Boletim e frequência'],
+    title: 'VESK People',
+    desc: 'Gestão de pessoas e equipes em uma plataforma só — do cadastro de colaboradores ao acompanhamento do dia a dia do seu time.',
+    features: ['Cadastro de colaboradores', 'Controle de ponto', 'Avaliações e feedback', 'Portal do colaborador'],
     status: 'Disponível',
-    icon: <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />,
+    icon: (
+      <>
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <circle cx="9" cy="10" r="2" />
+        <path d="M13 9h5M13 13h5M7 16h4" />
+      </>
+    ),
   },
 ] as const;
 

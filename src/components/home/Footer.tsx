@@ -82,7 +82,7 @@ export const Footer = () => (
       </div>
       {footerCols.map((col) => (
         <div key={col.title}>
-          <h4 className="font-display mb-4 text-[13px] font-semibold">{col.title}</h4>
+          <h4 className="mono-tag mb-4 text-vesk-orange">{col.title}</h4>
           <ul className="flex list-none flex-col gap-2.5">
             {col.links.map((link) => (
               <li key={link.label}>

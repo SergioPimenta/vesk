@@ -1,3 +1,5 @@
+import { Counter } from '../home/Counter';
+
 export const stats = [
   { value: '50', suffix: '+', label: 'Projetos entregues' },
   { value: '30', suffix: '+', label: 'Clientes atendidos' },
@@ -8,15 +10,19 @@ export const stats = [
 export const AboutStats = () => (
   <section className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
     <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-      {stats.map((stat) => (
-        <div key={stat.label} className="rounded-xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center md:text-left">
+      {stats.map((stat, i) => (
+        <div
+          key={stat.label}
+          data-reveal
+          style={{ ['--reveal-delay' as string]: `${i * 90}ms` }}
+          className="group rounded-2xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-vesk-border-warm md:text-left"
+        >
           <div
             className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
           >
-            {stat.value}
-            <span className="text-vesk-orange">{stat.suffix}</span>
+            <Counter end={Number(stat.value)} suffix={stat.suffix} suffixClassName="copper-metal" />
           </div>
-          <div className="text-[13px] text-vesk-muted">{stat.label}</div>
+          <div className="mono-tag text-vesk-muted">{stat.label}</div>
         </div>
       ))}
     </div>

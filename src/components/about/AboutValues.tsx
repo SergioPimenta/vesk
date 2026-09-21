@@ -25,7 +25,7 @@ const values = [
 
 export const AboutValues = () => (
   <section className="bg-vesk-dark page-px py-16 md:py-24 lg:py-[120px]">
-    <div className="mb-16 text-center">
+    <div className="mb-16 text-center" data-reveal>
       <SectionLabel centered showLine={false}>
         Nossos valores
       </SectionLabel>
@@ -35,13 +35,15 @@ export const AboutValues = () => (
       </SectionDesc>
     </div>
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {values.map((value) => (
+      {values.map((value, i) => (
         <div
           key={value.title}
-          className="rounded-xl border border-vesk-border bg-vesk-dark-2 p-8 transition-colors hover:border-vesk-border-warm hover:bg-vesk-dark-3"
+          data-reveal
+          style={{ ['--reveal-delay' as string]: `${(i % 4) * 80}ms` }}
+          className="group rounded-2xl border border-vesk-border bg-vesk-dark-2 p-8 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1.5 hover:border-vesk-border-warm hover:bg-vesk-dark-3"
         >
           <div className="mb-5">
-            <IconBox size="lg">
+            <IconBox size="lg" className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 {value.icon}
               </svg>

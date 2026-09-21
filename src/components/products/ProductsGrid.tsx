@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowIcon } from '../home/icons';
-import { SectionDesc, SectionLabel, SectionTitle } from '../home/ui';
+import { BtnPrimary, SectionDesc, SectionLabel, SectionTitle } from '../home/ui';
 import { products } from './productsData';
 
 type ProductsGridProps = {
@@ -14,31 +14,29 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
     return (
       <section id="produtos" className="bg-vesk-cream page-px py-16 md:py-24 lg:py-[120px] text-vesk-surface">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <SectionLabel showLine className="text-vesk-orange">
-              Produtos
-            </SectionLabel>
-            <SectionTitle>Nossos produtos próprios</SectionTitle>
-            <SectionDesc className="text-vesk-muted">
+          <div data-reveal>
+            <SectionLabel index="03">Produtos próprios</SectionLabel>
+            <SectionTitle>Plataformas prontas para escalar</SectionTitle>
+            <SectionDesc className="text-vesk-mid">
               Soluções desenvolvidas pela VESK para simplificar gestão, aumentar a produtividade e transformar
               resultados.
             </SectionDesc>
-            <Link
-              to="/produtos"
-              className="mt-8 inline-flex items-center gap-2.5 rounded bg-vesk-orange px-7 py-3.5 text-sm font-medium text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-vesk-orange-light"
-            >
-              Conhecer os produtos →
+            <BtnPrimary href="/produtos" className="mt-8">
+              Conhecer os produtos
               <ArrowIcon />
-            </Link>
+            </BtnPrimary>
           </div>
           <div className="flex flex-col gap-4">
-            {products.map((product) => (
+            {products.map((product, i) => (
               <Link
                 key={product.title}
                 to="/produtos"
-                className="flex items-start gap-4 rounded-xl border border-vesk-border bg-vesk-dark-3 px-5 py-6 text-inherit no-underline transition-all duration-200 hover:-translate-y-[3px] hover:border-vesk-border-warm hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:gap-5 sm:px-8 sm:py-7"
+                data-reveal
+                style={{ ['--reveal-delay' as string]: `${i * 70}ms` }}
+                className="group relative flex items-start gap-4 overflow-hidden rounded-2xl border border-vesk-border bg-vesk-dark-2 px-5 py-6 text-inherit no-underline transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-vesk-border-warm hover:shadow-[0_28px_56px_-24px_rgba(0,0,0,0.7)] sm:gap-5 sm:px-8 sm:py-7"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-vesk-orange-dim text-vesk-orange [&_svg]:h-5 [&_svg]:w-5">
+                <span className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-gradient-to-b from-vesk-orange-light to-vesk-orange transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-vesk-border-warm bg-vesk-orange-dim text-vesk-orange [&_svg]:h-5 [&_svg]:w-5">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     {product.icon}
                   </svg>
@@ -47,7 +45,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
                   <h3 className="font-display mb-1.5 text-base font-bold text-vesk-surface">{product.title}</h3>
                   <p className="text-[13px] leading-relaxed text-vesk-muted">{product.desc}</p>
                 </div>
-                <span className="mt-0.5 ml-auto shrink-0 text-vesk-orange">
+                <span className="mt-0.5 ml-auto shrink-0 text-vesk-orange transition-transform duration-200 group-hover:translate-x-1">
                   <ArrowIcon />
                 </span>
               </Link>
@@ -61,7 +59,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
   return (
     <section id={id} className="bg-vesk-cream page-px py-16 md:py-24 lg:py-[100px] text-vesk-surface">
       {showHeader && (
-        <div className="mb-14 max-w-2xl">
+        <div className="mb-14 max-w-2xl" data-reveal>
           <SectionLabel showLine className="text-vesk-orange">
             Catálogo
           </SectionLabel>
@@ -73,10 +71,12 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
         </div>
       )}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {products.map((product) => (
+        {products.map((product, i) => (
           <article
             key={product.title}
-            className="flex flex-col rounded-2xl border border-vesk-border bg-vesk-dark-3 p-8 transition-all duration-200 hover:-translate-y-1 hover:border-vesk-border-warm hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+            data-reveal
+            style={{ ['--reveal-delay' as string]: `${(i % 3) * 90}ms` }}
+            className="group flex flex-col rounded-2xl border border-vesk-border bg-vesk-dark-3 p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-vesk-border-warm hover:shadow-[0_28px_56px_-24px_rgba(0,0,0,0.7)]"
           >
             <div className="mb-6 flex items-start justify-between gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-vesk-orange-dim text-vesk-orange [&_svg]:h-6 [&_svg]:w-6">

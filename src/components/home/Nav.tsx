@@ -14,16 +14,17 @@ const links = [
 
 const linkClass = (isActive: boolean) =>
   cn(
-    'text-[13px] font-normal tracking-[0.04em] uppercase no-underline transition-colors duration-200',
+    'group relative font-mono text-[12px] tracking-[0.08em] uppercase no-underline transition-colors duration-200',
     isActive ? 'text-vesk-surface' : 'text-vesk-mid hover:text-vesk-surface',
   );
 
 const ctaClass =
-  'rounded bg-vesk-orange px-6 py-2.5 text-[13px] font-medium tracking-wide whitespace-nowrap text-white no-underline transition-all duration-200 hover:-translate-y-px hover:bg-vesk-orange-light';
+  'items-center gap-2 rounded-lg bg-gradient-to-b from-vesk-orange-light to-vesk-orange px-6 py-2.5 font-mono text-[12px] tracking-[0.06em] whitespace-nowrap text-white no-underline shadow-[0_1px_0_rgb(255_255_255/0.25)_inset,0_8px_22px_-8px_rgb(194_101_59/0.7)] transition-transform duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-black';
 
 export const Nav = () => {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -36,9 +37,23 @@ export const Nav = () => {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-[100] flex h-[68px] items-center justify-between border-b border-vesk-border bg-[rgb(11_17_26/0.88)] backdrop-blur-xl page-px">
+      <nav
+        className={cn(
+          'fixed top-0 right-0 left-0 z-[100] flex h-[72px] items-center justify-between page-px transition-[background-color,border-color,backdrop-filter] duration-300',
+          scrolled || menuOpen
+            ? 'border-b border-vesk-border bg-[rgb(8_11_18/0.82)] backdrop-blur-xl'
+            : 'border-b border-transparent bg-transparent',
+        )}
+      >
         <NavLogo variant="header" />
 
         <ul className="hidden list-none gap-9 lg:flex">
@@ -48,6 +63,13 @@ export const Nav = () => {
               <li key={link.href}>
                 <Link to={link.href} className={linkClass(isActive)}>
                   {link.label}
+                  <span
+                    className={cn(
+                      'absolute -bottom-2 left-0 h-px bg-vesk-orange transition-all duration-300',
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full',
+                    )}
+                    aria-hidden
+                  />
                 </Link>
               </li>
             );
@@ -60,7 +82,7 @@ export const Nav = () => {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-vesk-border text-vesk-surface lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-vesk-border text-vesk-surface transition-colors hover:border-vesk-border-warm lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -70,14 +92,14 @@ export const Nav = () => {
       </nav>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-[68px] z-[99] lg:hidden">
+        <div className="fixed inset-0 top-[72px] z-[99] lg:hidden">
           <button
             type="button"
-            className="absolute inset-0 bg-[rgb(11_17_26/0.6)]"
+            className="absolute inset-0 bg-[rgb(8_11_18/0.7)]"
             onClick={() => setMenuOpen(false)}
             aria-label="Fechar menu"
           />
-          <div className="relative border-b border-vesk-border bg-vesk-black page-px py-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+          <div className="relative border-b border-vesk-border bg-vesk-black page-px py-6 shadow-[0_24px_50px_rgba(0,0,0,0.5)]">
             <ul className="flex list-none flex-col gap-1">
               {links.map((link) => {
                 const isActive = pathname === link.href;
@@ -85,7 +107,10 @@ export const Nav = () => {
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className={cn(linkClass(isActive), 'block rounded-lg px-3 py-3.5 text-[15px]')}
+                      className={cn(
+                        'block rounded-lg px-3 py-3.5 font-mono text-[14px] tracking-[0.06em] uppercase no-underline transition-colors',
+                        isActive ? 'bg-vesk-orange-dim text-vesk-surface' : 'text-vesk-mid hover:text-vesk-surface',
+                      )}
                       onClick={() => setMenuOpen(false)}
                     >
                       {link.label}
@@ -96,7 +121,7 @@ export const Nav = () => {
             </ul>
             <Link
               to="/contato"
-              className={cn(ctaClass, 'mt-4 block w-full py-3.5 text-center')}
+              className={cn(ctaClass, 'mt-4 flex w-full justify-center py-3.5')}
               onClick={() => setMenuOpen(false)}
             >
               Solicitar orçamento →

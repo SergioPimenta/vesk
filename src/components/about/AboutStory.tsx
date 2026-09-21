@@ -16,7 +16,7 @@ const features = [
 export const AboutStory = () => (
   <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
     <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
-      <div>
+      <div data-reveal="left">
         <SectionLabel>Nossa história</SectionLabel>
         <SectionTitle>De ideias a soluções que transformam</SectionTitle>
         <p className="mb-4 text-base leading-[1.8] font-light text-vesk-mid">
@@ -40,9 +40,15 @@ export const AboutStory = () => (
         {milestones.map((item, index) => (
           <article
             key={item.year}
-            className={`relative pb-10 ${index < milestones.length - 1 ? 'border-b border-vesk-border mb-10' : ''}`}
+            data-reveal="right"
+            style={{ ['--reveal-delay' as string]: `${index * 110}ms` }}
+            className={`group relative pb-10 ${index < milestones.length - 1 ? 'border-b border-vesk-border mb-10' : ''}`}
           >
-            <span className="font-display text-sm font-bold tracking-wider text-vesk-orange">{item.year}</span>
+            <span
+              className="absolute top-1.5 -left-[29px] h-2.5 w-2.5 rounded-full border-2 border-vesk-orange bg-vesk-black transition-[background-color,box-shadow] duration-300 group-hover:bg-vesk-orange group-hover:shadow-[0_0_0_5px_rgb(194_101_59/0.12)] sm:-left-[45px]"
+              aria-hidden
+            />
+            <span className="mono-tag text-vesk-orange">{item.year}</span>
             <h3 className="font-display mt-2 mb-2 text-lg font-semibold">{item.title}</h3>
             <p className="text-sm leading-relaxed text-vesk-muted">{item.desc}</p>
           </article>

@@ -17,7 +17,7 @@ const pillars = [
 
 export const AboutMission = () => (
   <section className="bg-vesk-black page-px py-16 md:py-24 lg:py-[120px]">
-    <div className="mb-16 max-w-2xl">
+    <div className="mb-16 max-w-2xl" data-reveal>
       <SectionLabel>Nossa essência</SectionLabel>
       <SectionTitle>O que nos move</SectionTitle>
       <SectionDesc>
@@ -26,8 +26,13 @@ export const AboutMission = () => (
       </SectionDesc>
     </div>
     <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-vesk-border bg-vesk-border md:grid-cols-3">
-      {pillars.map((pillar) => (
-        <article key={pillar.title} className="bg-vesk-dark-2 px-9 py-10 transition-colors hover:bg-vesk-dark-3">
+      {pillars.map((pillar, i) => (
+        <article
+          key={pillar.title}
+          data-reveal
+          style={{ ['--reveal-delay' as string]: `${i * 100}ms` }}
+          className="bg-vesk-dark-2 px-9 py-10 transition-colors hover:bg-vesk-dark-3"
+        >
           <h3 className="font-display mb-4 text-lg font-semibold text-vesk-orange">{pillar.title}</h3>
           <p className="text-sm leading-[1.75] text-vesk-muted">{pillar.text}</p>
         </article>

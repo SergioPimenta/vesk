@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import PortfolioPage from './pages/PortfolioPage';
 import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
+import ThankYouPage from './pages/ThankYouPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import Login from './pages/Login';
@@ -24,6 +25,7 @@ function App() {
       <Route path="/produtos" element={<ProductsPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/contato" element={<ContactPage />} />
+      <Route path="/obrigado" element={<ThankYouPage />} />
       <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
       <Route path="/termos-de-uso" element={<TermsOfUsePage />} />
       <Route path="/login" element={<Login />} />
