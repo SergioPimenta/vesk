@@ -42,7 +42,7 @@ export const Hero = () => (
       </h1>
 
       <p className="animate-fade-up mb-10 max-w-[500px] text-[17px] leading-[1.75] font-light text-vesk-mid [animation-delay:170ms]">
-        Sistemas, CRMs, e-commerces e automações sob medida para empresas em Curitiba e todo o Brasil —
+        Sistemas, CRMs, e-commerces e automações sob medida para empresas em Curitiba e todo o Brasil,
         tecnologia que você usa de verdade e que gera resultado.
       </p>
 

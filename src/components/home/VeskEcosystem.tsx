@@ -241,7 +241,7 @@ export const VeskEcosystem = () => (
   <div
     className="relative aspect-[4/3] w-full sm:aspect-[16/10] lg:aspect-auto lg:h-full"
     role="img"
-    aria-label="Ecossistema VESK — núcleo tecnológico central conectado a módulos de e-commerce, CRM, automações, ERP, APIs e dashboard, representando como a VESK integra diferentes sistemas em uma única solução"
+    aria-label="Ecossistema VESK: núcleo tecnológico central conectado a módulos de e-commerce, CRM, automações, ERP, APIs e dashboard, representando como a VESK integra diferentes sistemas em uma única solução"
   >
     <div className="absolute inset-3 sm:inset-4">
       {/* connective tissue */}

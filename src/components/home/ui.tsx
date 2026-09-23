@@ -13,13 +13,13 @@ export const NavLogo = ({
   <Link
     to="/"
     className={cn('inline-flex shrink-0 items-center gap-2.5 no-underline', className)}
-    aria-label={variant === 'header' ? 'VESK Software House — Início' : 'VESK — Início'}
+    aria-label={variant === 'header' ? 'VESK Software House, Início' : 'VESK, Início'}
   >
     <img
       src="/assets/logo-mark.svg"
       alt={
         variant === 'header'
-          ? 'VESK Software House — Desenvolvimento de Software em Curitiba'
+          ? 'VESK Software House, Desenvolvimento de Software em Curitiba'
           : 'VESK'
       }
       className="h-8 w-auto md:h-9"

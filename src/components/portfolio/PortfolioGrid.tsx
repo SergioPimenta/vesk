@@ -34,7 +34,7 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
         >
           <img
             src={item.image}
-            alt={`${item.name} — projeto desenvolvido pela VESK Software House`}
+            alt={`${item.name}, projeto desenvolvido pela VESK Software House`}
             loading="lazy"
             decoding="async"
             className="h-full w-full object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"

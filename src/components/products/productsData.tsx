@@ -1,7 +1,7 @@
 export const products = [
   {
     title: 'VESK Commerce',
-    desc: 'Loja virtual completa para vender online — catálogo, checkout e pagamentos integrados, pronta para escalar as vendas do seu negócio.',
+    desc: 'Loja virtual completa para vender online: catálogo, checkout e pagamentos integrados, pronta para escalar as vendas do seu negócio.',
     features: ['Checkout otimizado', 'Meios de pagamento', 'Gestão de produtos', 'Relatórios de vendas'],
     status: 'Disponível',
     icon: (
@@ -21,7 +21,7 @@ export const products = [
   },
   {
     title: 'VESK People',
-    desc: 'Gestão de pessoas e equipes em uma plataforma só — do cadastro de colaboradores ao acompanhamento do dia a dia do seu time.',
+    desc: 'Gestão de pessoas e equipes em uma plataforma só, do cadastro de colaboradores ao acompanhamento do dia a dia do seu time.',
     features: ['Cadastro de colaboradores', 'Controle de ponto', 'Avaliações e feedback', 'Portal do colaborador'],
     status: 'Disponível',
     icon: (

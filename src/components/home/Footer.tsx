@@ -110,7 +110,7 @@ export const Footer = () => (
     </div>
     <div className="flex flex-col items-start gap-5 border-t border-vesk-border pt-7 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <p className="text-xs text-vesk-muted">VESK Software House — Curitiba, PR — Brasil</p>
+        <p className="text-xs text-vesk-muted">VESK Software House, Curitiba, PR, Brasil</p>
         <p className="mt-1 text-xs text-vesk-muted">© 2025 VESK. Todos os direitos reservados.</p>
       </div>
       <div className="flex gap-3">

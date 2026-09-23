@@ -63,7 +63,7 @@ export const services = [
 export const serviceBenefits = [
   {
     title: 'Escopo sob medida',
-    desc: 'Cada projeto começa com diagnóstico do negócio — sem pacotes engessados que não resolvem sua dor.',
+    desc: 'Cada projeto começa com diagnóstico do negócio, sem pacotes engessados que não resolvem sua dor.',
     icon: <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />,
   },
   {
@@ -78,7 +78,7 @@ export const serviceBenefits = [
   },
   {
     title: 'Suporte pós-entrega',
-    desc: 'Não abandonamos após o lançamento — evolução, manutenção e acompanhamento dedicado.',
+    desc: 'Não abandonamos após o lançamento: evolução, manutenção e acompanhamento dedicado.',
     icon: <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />,
   },
 ] as const;

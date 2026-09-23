@@ -33,11 +33,11 @@ export const Contact = () => (
           <ul className="flex list-none flex-col gap-2.5 text-[13px] text-vesk-muted">
             <li className="flex justify-between gap-4">
               <span>Segunda a sexta</span>
-              <span className="font-mono text-vesk-mid">09h — 18h</span>
+              <span className="font-mono text-vesk-mid">09h às 18h</span>
             </li>
             <li className="flex justify-between gap-4">
               <span>Sábado</span>
-              <span className="font-mono text-vesk-mid">09h — 13h</span>
+              <span className="font-mono text-vesk-mid">09h às 13h</span>
             </li>
             <li className="flex justify-between gap-4">
               <span>Domingo e feriados</span>

@@ -33,7 +33,7 @@ export const contactChannels = [
   {
     title: 'Localização',
     desc: 'Atendimento remoto em todo o Brasil',
-    content: <span className="text-vesk-mid">Curitiba, PR — Brasil</span>,
+    content: <span className="text-vesk-mid">Curitiba, PR, Brasil</span>,
     icon: (
       <>
         <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -50,7 +50,7 @@ export const contactFaqs = [
   },
   {
     q: 'Vocês atendem empresas de qual porte?',
-    a: 'Trabalhamos com startups, PMEs e empresas consolidadas — do MVP ao sistema corporativo.',
+    a: 'Trabalhamos com startups, PMEs e empresas consolidadas, do MVP ao sistema corporativo.',
   },
   {
     q: 'Como funciona o orçamento?',

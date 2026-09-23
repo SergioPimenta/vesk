@@ -21,7 +21,7 @@ export const ContactHero = () => (
         Vamos conversar sobre o seu <em className="text-vesk-orange not-italic">projeto</em>
       </h1>
       <p className="animate-fade-up mx-auto mb-10 max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Fale com a VESK em Curitiba. Conte sua ideia, tire dúvidas ou solicite um orçamento — respondemos
+        Fale com a VESK em Curitiba. Conte sua ideia, tire dúvidas ou solicite um orçamento. Respondemos
         em até 2 horas úteis com clareza sobre escopo, prazos e próximos passos.
       </p>
       <div className="animate-fade-up flex flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">

@@ -18,7 +18,7 @@ const PrivacyPolicyPage = () => (
               vesk.com.br
             </a>
             . Este documento descreve como coletamos, usamos, armazenamos e protegemos suas informações, em
-            conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).
+            conformidade com a Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018).
           </>
         }
         sections={[

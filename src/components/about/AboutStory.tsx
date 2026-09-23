@@ -21,7 +21,7 @@ export const AboutStory = () => (
         <SectionTitle>De ideias a soluções que transformam</SectionTitle>
         <p className="mb-4 text-base leading-[1.8] font-light text-vesk-mid">
           Começamos atendendo demandas pontuais e evoluímos para uma operação completa de
-          desenvolvimento — do diagnóstico ao suporte pós-entrega.
+          desenvolvimento, do diagnóstico ao suporte pós-entrega.
         </p>
         <p className="mb-9 text-base leading-[1.8] font-light text-vesk-mid">
           Hoje, a VESK atua em projetos sob medida e produtos próprios, sempre com o mesmo

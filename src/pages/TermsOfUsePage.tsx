@@ -68,7 +68,7 @@ const TermsOfUsePage = () => (
             title: '5. Propriedade intelectual',
             content: (
               <p>
-                Todo o conteúdo do site — textos, layout, logotipos, marcas, imagens e código — é de
+                Todo o conteúdo do site (textos, layout, logotipos, marcas, imagens e código) é de
                 propriedade da VESK ou de licenciadores, protegido pela legislação brasileira de direitos
                 autorais e propriedade industrial. O nome VESK e produtos associados (VESK Commerce, VESK CRM,
                 VESK People) são marcas da empresa.

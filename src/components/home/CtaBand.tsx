@@ -54,7 +54,7 @@ export const CtaBand = () => (
           Falar com especialista →
         </Link>
         <p className="text-[13px] leading-relaxed text-[rgb(255_255_255/0.8)]">
-          📍 Atendemos Curitiba e toda a região Sul — e desenvolvemos para o Brasil inteiro.
+          📍 Atendemos Curitiba e toda a região Sul e desenvolvemos para o Brasil inteiro.
         </p>
       </div>
     </div>

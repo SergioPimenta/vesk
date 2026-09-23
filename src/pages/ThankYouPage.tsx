@@ -18,7 +18,7 @@ const nextSteps = [
   {
     num: '03',
     title: 'Proposta sob medida',
-    desc: 'Enviamos escopo, prazos e investimento estimado — sem compromisso e sem enrolação.',
+    desc: 'Enviamos escopo, prazos e investimento estimado, sem compromisso e sem enrolação.',
   },
 ];
 
