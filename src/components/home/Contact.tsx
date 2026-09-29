@@ -10,8 +10,8 @@ export const Contact = () => (
         Contato
       </SectionLabel>
       <SectionTitle>
-        Vamos conversar
-        <br />
+        Vamos conversar{' '}
+        <br className="hidden sm:block" />
         sobre seu projeto
       </SectionTitle>
       <SectionDesc className="mx-auto">

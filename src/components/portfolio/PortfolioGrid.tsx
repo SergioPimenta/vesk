@@ -62,12 +62,12 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
           <div>
             <SectionLabel index="02">Portfólio</SectionLabel>
             <SectionTitle>
-              Projetos que geram
-              <br />
+              Projetos que geram{' '}
+              <br className="hidden sm:block" />
               resultados
             </SectionTitle>
           </div>
-          <BtnOutline href="/portfolio" className="whitespace-nowrap">
+          <BtnOutline href="/portfolio" className="w-full justify-center whitespace-nowrap sm:w-auto">
             Ver todos os projetos →
           </BtnOutline>
         </div>

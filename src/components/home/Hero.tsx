@@ -35,8 +35,8 @@ export const Hero = () => (
       </div>
 
       <h1 className={cn('animate-fade-up mt-6 mb-7 [animation-delay:90ms]', pageHeroTitleClass)}>
-        Construímos o software
-        <br />
+        Construímos o software{' '}
+        <br className="hidden sm:block" />
         que vira <span className="copper-metal">resultado</span>
         <span className="text-vesk-orange">.</span>
       </h1>
@@ -47,14 +47,14 @@ export const Hero = () => (
       </p>
 
       <div className="animate-fade-up flex flex-wrap items-center gap-3.5 [animation-delay:250ms]">
-        <BtnPrimary href="#contato">
+        <BtnPrimary href="#contato" className="w-full justify-center sm:w-auto">
           Solicitar orçamento
           <ArrowIcon />
         </BtnPrimary>
-        <BtnOutline href="#processo">Ver como trabalhamos</BtnOutline>
+        <BtnOutline href="#processo" className="w-full justify-center sm:w-auto">Ver como trabalhamos</BtnOutline>
       </div>
 
-      <dl className="animate-fade-up mt-14 flex flex-wrap gap-x-8 gap-y-5 border-t border-vesk-border pt-8 [animation-delay:330ms]">
+      <dl className="animate-fade-up mt-14 grid grid-cols-2 gap-x-6 sm:flex sm:flex-wrap sm:gap-x-8 gap-y-5 border-t border-vesk-border pt-8 [animation-delay:330ms]">
         {trust.map((item) => (
           <div key={item.label} className="flex flex-col">
             <dt className="font-display text-2xl font-extrabold text-vesk-surface">

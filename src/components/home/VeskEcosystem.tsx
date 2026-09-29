@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { cn } from '../../lib/cn';
+import type { CSSProperties, ReactNode } from 'react';
 
 /**
  * Visual thesis of the hero: the VESK System Core connected to the modules
@@ -89,7 +88,8 @@ type Module = {
   sub: string;
   x: number;
   y: number;
-  onMobile: boolean;
+  mx: number;
+  my: number;
   delay: string;
   duration: string;
   floatDelay: string;
@@ -106,7 +106,8 @@ const modules: Module[] = [
     sub: 'Vendas online',
     x: 50,
     y: 10,
-    onMobile: true,
+    mx: 50,
+    my: 7,
     delay: '-1.2s',
     duration: '26s',
     floatDelay: '0s',
@@ -130,7 +131,8 @@ const modules: Module[] = [
     sub: 'Gestão de clientes',
     x: 10,
     y: 33,
-    onMobile: true,
+    mx: 26,
+    my: 28,
     delay: '-3s',
     duration: '26s',
     floatDelay: '-1.3s',
@@ -153,7 +155,8 @@ const modules: Module[] = [
     sub: 'Processos inteligentes',
     x: 90,
     y: 33,
-    onMobile: true,
+    mx: 74,
+    my: 28,
     delay: '-4.5s',
     duration: '26s',
     floatDelay: '-2.6s',
@@ -171,7 +174,8 @@ const modules: Module[] = [
     sub: 'Gestão integrada',
     x: 10,
     y: 70,
-    onMobile: false,
+    mx: 26,
+    my: 72,
     delay: '-0.5s',
     duration: '26s',
     floatDelay: '-4s',
@@ -194,7 +198,8 @@ const modules: Module[] = [
     sub: 'Integrações e dados',
     x: 90,
     y: 70,
-    onMobile: false,
+    mx: 74,
+    my: 72,
     delay: '-2.2s',
     duration: '26s',
     floatDelay: '-5.3s',
@@ -214,7 +219,8 @@ const modules: Module[] = [
     sub: 'Dados em tempo real',
     x: 50,
     y: 90,
-    onMobile: false,
+    mx: 50,
+    my: 93,
     delay: '-5.5s',
     duration: '26s',
     floatDelay: '-6.6s',
@@ -239,15 +245,41 @@ const pathTo = (x: number, y: number) => {
 
 export const VeskEcosystem = () => (
   <div
-    className="relative aspect-[4/3] w-full sm:aspect-[16/10] lg:aspect-auto lg:h-full"
+    className="relative aspect-[3/4] w-full sm:aspect-[16/10] lg:aspect-auto lg:h-full"
     role="img"
     aria-label="Ecossistema VESK: núcleo tecnológico central conectado a módulos de e-commerce, CRM, automações, ERP, APIs e dashboard, representando como a VESK integra diferentes sistemas em uma única solução"
   >
     <div className="absolute inset-3 sm:inset-4">
       {/* connective tissue */}
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full sm:hidden" aria-hidden>
         {modules.map((m) => (
-          <g key={m.id} className={cn(!m.onMobile && 'hidden sm:block')}>
+          <g key={m.id}>
+            {/* extremely thin base line — the copper trace itself */}
+            <path
+              d={pathTo(m.mx, m.my)}
+              fill="none"
+              stroke="var(--color-vesk-orange)"
+              strokeWidth="0.22"
+              strokeOpacity="0.4"
+            />
+            {/* small lit points travelling the path — the flow of data */}
+            <path
+              d={pathTo(m.mx, m.my)}
+              fill="none"
+              stroke="var(--color-vesk-orange-light)"
+              strokeWidth="0.65"
+              strokeLinecap="round"
+              strokeDasharray="0.1 3.9"
+              className="animate-flow-dots"
+              style={{ animationDelay: m.delay, animationDuration: m.duration }}
+              opacity="0.95"
+            />
+          </g>
+        ))}
+      </svg>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full hidden sm:block" aria-hidden>
+        {modules.map((m) => (
+          <g key={m.id}>
             {/* extremely thin base line — the copper trace itself */}
             <path
               d={pathTo(m.x, m.y)}
@@ -309,11 +341,18 @@ export const VeskEcosystem = () => (
       {modules.map((m) => (
         <div
           key={m.id}
-          className={cn('absolute z-20 -translate-x-1/2 -translate-y-1/2', !m.onMobile && 'hidden sm:block')}
-          style={{ left: `${m.x}%`, top: `${m.y}%`, width: 'clamp(165px, 22%, 280px)' }}
+          className="absolute top-[var(--my)] left-[var(--mx)] z-20 w-[46%] -translate-x-1/2 -translate-y-1/2 sm:top-[var(--dy)] sm:left-[var(--dx)] sm:w-[clamp(165px,22%,280px)]"
+          style={
+            {
+              '--mx': `${m.mx}%`,
+              '--my': `${m.my}%`,
+              '--dx': `${m.x}%`,
+              '--dy': `${m.y}%`,
+            } as CSSProperties
+          }
         >
           <div
-            className="animate-float-slower flex w-full flex-col gap-[0.6em] rounded-xl border border-vesk-border bg-[rgb(17_26_38/0.58)] p-[9%] text-[clamp(11px,0.95vw,16px)] shadow-[0_20px_45px_-20px_rgba(0,0,0,0.65)] backdrop-blur-sm"
+            className="animate-float-slower flex w-full flex-col gap-[0.6em] rounded-xl border border-vesk-border bg-[rgb(17_26_38/0.58)] p-[9%] text-[10.5px] sm:text-[clamp(11px,0.95vw,16px)] shadow-[0_20px_45px_-20px_rgba(0,0,0,0.65)] backdrop-blur-sm"
             style={{ animationDelay: m.floatDelay }}
           >
             <div className="flex items-center gap-[0.5em]">

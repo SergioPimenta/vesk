@@ -49,7 +49,7 @@ export const CtaBand = () => (
         </div>
         <Link
           to="/contato"
-          className="mt-1 inline-flex items-center gap-2.5 rounded-lg bg-vesk-black px-8 py-3.5 text-sm font-semibold whitespace-nowrap text-vesk-surface no-underline shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-orange"
+          className="mt-1 inline-flex w-full items-center justify-center gap-2.5 sm:w-auto rounded-lg bg-vesk-black px-8 py-3.5 text-sm font-semibold whitespace-nowrap text-vesk-surface no-underline shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-orange"
         >
           Falar com especialista →
         </Link>

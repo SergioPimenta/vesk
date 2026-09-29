@@ -78,7 +78,7 @@ export const SectionLabel = ({
 export const SectionTitle = ({ children, className }: { children: ReactNode; className?: string }) => (
   <h2
     className={cn(
-      'font-display text-[clamp(2.05rem,4.2vw,3.35rem)] leading-[1.06] font-extrabold tracking-[-0.025em] text-vesk-surface',
+      'font-display text-[clamp(1.85rem,4.2vw,3.35rem)] text-balance leading-[1.06] font-extrabold tracking-[-0.025em] text-vesk-surface',
       className,
     )}
   >

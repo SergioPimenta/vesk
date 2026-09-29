@@ -49,8 +49,8 @@ export const ServicesGrid = ({
           Serviços
         </SectionLabel>
         <SectionTitle>
-          Soluções completas para
-          <br />
+          Soluções completas para{' '}
+          <br className="hidden sm:block" />
           o seu negócio
         </SectionTitle>
         <SectionDesc className="mx-auto">
