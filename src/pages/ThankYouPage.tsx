@@ -2,7 +2,12 @@ import { PublicLayout } from '../components/layout/PublicLayout';
 import { PageSeo } from '../components/seo/PageSeo';
 import { BtnOutline, BtnPrimary, MonoTag } from '../components/home/ui';
 import { ArrowIcon } from '../components/home/icons';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { externalLinkProps } from '../lib/links';
+import { track } from '../lib/analytics';
+import { projectTypeLabel } from '../lib/leadOptions';
+import { whatsappUrl } from '../lib/site';
 
 const nextSteps = [
   {
@@ -12,8 +17,8 @@ const nextSteps = [
   },
   {
     num: '02',
-    title: 'Retorno em até 2h úteis',
-    desc: 'Entramos em contato por e-mail ou WhatsApp para entender a fundo o que você precisa.',
+    title: 'Entramos em contato',
+    desc: 'Falamos com você pelo canal informado para entender a fundo o que você precisa.',
   },
   {
     num: '03',
@@ -22,7 +27,22 @@ const nextSteps = [
   },
 ];
 
-const ThankYouPage = () => (
+type ThankYouState = { queued?: boolean; service?: string } | null;
+
+const ThankYouPage = () => {
+  const state = useLocation().state as ThankYouState;
+  const queued = !!state?.queued;
+  const interest = state?.service ? projectTypeLabel(state.service) : undefined;
+  const whatsappHref = whatsappUrl(interest || undefined);
+
+  const viewTracked = useRef(false);
+  useEffect(() => {
+    if (viewTracked.current) return;
+    viewTracked.current = true;
+    track('thank_you_view', { delivery: queued ? 'queued' : 'sent' });
+  }, [queued]);
+
+  return (
   <PublicLayout>
     <PageSeo page="obrigado" />
     <main className="relative flex min-h-[88vh] items-center overflow-hidden blueprint page-px pt-32 pb-20">
@@ -48,20 +68,20 @@ const ThankYouPage = () => (
         </div>
 
         <div className="animate-fade-up flex justify-center [animation-delay:80ms]">
-          <MonoTag>Mensagem enviada</MonoTag>
+          <MonoTag>{queued ? 'Solicitação salva' : 'Solicitação enviada'}</MonoTag>
         </div>
 
         <h1 className="animate-fade-up mt-6 font-display text-[clamp(2.15rem,5.5vw,3.75rem)] leading-[1.03] font-extrabold tracking-[-0.03em] text-balance text-vesk-surface [animation-delay:130ms]">
-          Obrigado! Recebemos
+          Recebemos sua
           <br />
-          sua mensagem
-          <span className="text-vesk-orange">.</span>
+          solicitação
+          <span className="text-vesk-orange">!</span>
         </h1>
 
         <p className="animate-fade-up mx-auto mt-5 max-w-xl text-lg leading-[1.7] font-light text-vesk-mid [animation-delay:200ms]">
-          Um especialista da VESK vai entrar em contato em{' '}
-          <span className="font-medium text-vesk-surface">até 2 horas úteis</span>. Enquanto isso, fique à
-          vontade para conhecer mais do nosso trabalho.
+          {queued
+            ? 'Não conseguimos confirmar o envio agora, mas guardamos suas informações com segurança neste aparelho e tentaremos de novo automaticamente. Se preferir, fale com a gente pelo WhatsApp.'
+            : 'Nossa equipe irá analisar as informações e entrar em contato pelo canal informado. Enquanto isso, fique à vontade para conhecer mais do nosso trabalho.'}
         </p>
 
         <div className="animate-fade-up mt-9 flex flex-wrap justify-center gap-3.5 [animation-delay:280ms]">
@@ -86,9 +106,10 @@ const ThankYouPage = () => (
         <p className="animate-fade-up mt-10 text-sm text-vesk-muted [animation-delay:440ms]">
           Precisa falar agora?{' '}
           <a
-            href="https://wa.me/554196902905"
+            href={whatsappHref}
+            onClick={() => track('whatsapp_click', { cta_location: 'thank_you' })}
             className="font-medium text-vesk-orange no-underline hover:text-vesk-orange-light"
-            {...externalLinkProps('https://wa.me/554196902905')}
+            {...externalLinkProps(whatsappHref)}
           >
             Chame no WhatsApp →
           </a>
@@ -96,6 +117,7 @@ const ThankYouPage = () => (
       </div>
     </main>
   </PublicLayout>
-);
+  );
+};
 
 export default ThankYouPage;

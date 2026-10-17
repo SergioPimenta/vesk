@@ -69,18 +69,18 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   },
   contato: {
     path: '/contato',
-    title: 'Contato | VESK Software House, Curitiba, PR',
+    title: 'Solicitar Orçamento | VESK Software House, Curitiba, PR',
     description:
-      'Fale com a VESK em Curitiba. Solicite orçamento de sistemas, CRM ou e-commerce. Resposta em até 2 horas úteis via formulário ou WhatsApp.',
-    ogTitle: 'Contato VESK: Software House em Curitiba',
+      'Solicite um orçamento de site, loja virtual, sistema, aplicativo ou automação com a VESK. Atendimento para todo o Brasil por formulário ou WhatsApp.',
+    ogTitle: 'Solicite seu orçamento | VESK Software House',
     ogDescription:
-      'Entre em contato com a VESK. Especialistas em software sob medida em Curitiba. Sem compromisso, resposta rápida.',
+      'Conte sua ideia e a VESK ajuda a transformá-la em solução real: sites, lojas virtuais, aplicativos e sistemas personalizados.',
   },
   obrigado: {
     path: '/obrigado',
-    title: 'Mensagem enviada | VESK Software House',
+    title: 'Solicitação enviada | VESK Software House',
     description:
-      'Recebemos sua mensagem. Um especialista da VESK entra em contato em até 2 horas úteis.',
+      'Recebemos sua solicitação. Nossa equipe irá analisar as informações e entrar em contato pelo canal informado.',
     noindex: true,
   },
   privacidade: {

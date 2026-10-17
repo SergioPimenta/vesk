@@ -45,19 +45,23 @@ export const contactChannels = [
 
 export const contactFaqs = [
   {
-    q: 'Qual o prazo para retorno do primeiro contato?',
-    a: 'Respondemos em até 24 horas úteis. Para demandas urgentes, utilize o WhatsApp.',
+    q: 'Preciso ter o projeto completamente definido?',
+    a: 'Não. Você pode apresentar sua ideia e nossa equipe ajudará a entender as possibilidades de desenvolvimento.',
   },
   {
-    q: 'Vocês atendem empresas de qual porte?',
-    a: 'Trabalhamos com startups, PMEs e empresas consolidadas, do MVP ao sistema corporativo.',
+    q: 'A VESK atende empresas de todo o Brasil?',
+    a: 'Sim. Nosso atendimento é realizado para clientes de diferentes regiões do Brasil.',
   },
   {
-    q: 'Como funciona o orçamento?',
-    a: 'Após entender seu projeto, enviamos uma proposta com escopo, prazos e investimento estimado.',
+    q: 'Posso solicitar melhorias em um site ou sistema existente?',
+    a: 'Sim. Podemos avaliar soluções existentes e identificar possibilidades de modernização e evolução.',
   },
   {
-    q: 'Fazem manutenção de sistemas existentes?',
-    a: 'Sim. Avaliamos legado, refatoração e evolução contínua com suporte técnico dedicado.',
+    q: 'O orçamento é personalizado?',
+    a: 'Sim. Cada projeto é analisado conforme suas necessidades, funcionalidades e complexidade.',
+  },
+  {
+    q: 'Quanto tempo leva para desenvolver um projeto?',
+    a: 'O prazo depende do escopo e das funcionalidades. Uma estimativa pode ser apresentada após a análise inicial.',
   },
 ] as const;

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/cn';
 import { externalLinkProps } from '../../lib/links';
@@ -90,18 +90,8 @@ export const SectionDesc = ({ children, className }: { children: ReactNode; clas
   <p className={cn('mt-4 max-w-[520px] text-base leading-[1.75] font-light text-vesk-mid', className)}>{children}</p>
 );
 
-export const BtnPrimary = ({
-  href,
-  children,
-  className,
-  type = 'link',
-}: {
-  href?: string;
-  children: ReactNode;
-  className?: string;
-  type?: 'link' | 'button';
-}) => {
-  const classes = cn(
+export const btnPrimaryClasses = (className?: string) =>
+  cn(
     'inline-flex items-center gap-2.5 rounded-lg px-8 py-3.5 text-sm font-semibold text-white no-underline',
     'bg-gradient-to-b from-vesk-orange-light to-vesk-orange',
     'shadow-[0_1px_0_rgb(255_255_255/0.25)_inset,0_10px_30px_-8px_rgb(194_101_59/0.6)]',
@@ -110,6 +100,21 @@ export const BtnPrimary = ({
     '[&_svg]:transition-transform hover:[&_svg]:translate-x-1',
     className,
   );
+
+export const BtnPrimary = ({
+  href,
+  children,
+  className,
+  type = 'link',
+  onClick,
+}: {
+  href?: string;
+  children: ReactNode;
+  className?: string;
+  type?: 'link' | 'button';
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+}) => {
+  const classes = btnPrimaryClasses(className);
 
   if (type === 'button') {
     return (
@@ -120,7 +125,7 @@ export const BtnPrimary = ({
   }
 
   return (
-    <a href={href} className={classes} {...externalLinkProps(href ?? '')}>
+    <a href={href} className={classes} onClick={onClick} {...externalLinkProps(href ?? '')}>
       {children}
     </a>
   );
@@ -130,13 +135,16 @@ export const BtnOutline = ({
   href,
   children,
   className,
+  onClick,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }) => (
   <a
     href={href}
+    onClick={onClick}
     className={cn(
       'inline-flex items-center gap-2 rounded-lg border border-vesk-border px-8 py-3.5 text-sm font-medium text-vesk-surface no-underline transition-all duration-200',
       'hover:border-vesk-border-warm hover:bg-vesk-orange-dim hover:text-vesk-surface',
