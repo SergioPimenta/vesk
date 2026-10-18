@@ -63,7 +63,8 @@ function buildPage({ page, path }) {
 }
 
 // Shell vazio do app para rotas não pré-renderizadas (obrigado, login, 404): é o destino do
-// rewrite de SPA no vercel.json, para nunca servir a home renderizada numa URL que não é a home.
+// rewrite de SPA no vercel.json (como "/app", por causa do cleanUrls), para nunca servir a home
+// renderizada numa URL que não é a home.
 writeFileSync(join(distDir, 'app.html'), template, 'utf8');
 
 const files = prerenderRoutes.map(buildPage);
