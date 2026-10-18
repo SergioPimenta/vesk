@@ -28,7 +28,7 @@ export const ServicesBenefits = () => (
               </svg>
             </IconBox>
           </div>
-          <h3 className="font-display mb-3 text-base font-semibold">{benefit.title}</h3>
+          <h3 className="font-display mb-3 text-base font-medium">{benefit.title}</h3>
           <p className="text-sm leading-[1.7] text-vesk-muted">{benefit.desc}</p>
         </div>
       ))}

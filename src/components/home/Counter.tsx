@@ -9,7 +9,11 @@ type CounterProps = {
   suffixClassName?: string;
 };
 
-/** Conta de 0 até `end` quando entra na viewport. Honra prefers-reduced-motion. */
+/**
+ * Conta de 0 até `end` quando entra na viewport. Honra prefers-reduced-motion.
+ * Renderiza `end` de saída (HTML pré-renderizado e buscadores leem o número real) e só zera
+ * no navegador se ainda estiver fora da tela, para animar quando aparecer.
+ */
 export const Counter = ({
   end,
   suffix = '',
@@ -19,7 +23,7 @@ export const Counter = ({
   suffixClassName,
 }: CounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(end);
 
   useEffect(() => {
     const node = ref.current;
@@ -30,6 +34,18 @@ export const Counter = ({
       setValue(end);
       return;
     }
+
+    const isInView = () => {
+      const rect = node.getBoundingClientRect();
+      const h = window.innerHeight || document.documentElement.clientHeight;
+      return rect.top < h * 0.85 && rect.bottom > 0;
+    };
+    // Já visível ao carregar: mantém o número final, sem piscar para 0.
+    if (isInView()) {
+      setValue(end);
+      return;
+    }
+    setValue(0);
 
     let animRaf = 0;
     let started = false;
@@ -49,9 +65,7 @@ export const Counter = ({
     // rAF-throttled scroll check — reliable even when tabs are throttled.
     const check = () => {
       if (started) return;
-      const rect = node.getBoundingClientRect();
-      const h = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < h * 0.85 && rect.bottom > 0) {
+      if (isInView()) {
         started = true;
         run();
         cleanup();

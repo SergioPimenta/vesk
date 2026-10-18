@@ -49,7 +49,7 @@ export const AboutValues = () => (
               </svg>
             </IconBox>
           </div>
-          <h3 className="font-display mb-3 text-base font-semibold">{value.title}</h3>
+          <h3 className="font-display mb-3 text-base font-medium">{value.title}</h3>
           <p className="text-sm leading-[1.7] text-vesk-muted">{value.desc}</p>
         </div>
       ))}

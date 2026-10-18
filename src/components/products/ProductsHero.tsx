@@ -5,11 +5,11 @@ import { ArrowIcon } from '../home/icons';
 export const ProductsHero = () => (
   <section className="relative overflow-hidden page-px pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-[140px] lg:pb-20">
     <div
-      className="pointer-events-none absolute -top-[200px] -left-[200px] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(232,88,26,0.08)_0%,transparent_70%)]"
+      className="pointer-events-none absolute -top-[200px] -left-[200px] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(210,122,68,0.08)_0%,transparent_70%)]"
       aria-hidden
     />
     <div
-      className="pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(232,88,26,0.04)_0%,transparent_70%)]"
+      className="pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(210,122,68,0.04)_0%,transparent_70%)]"
       aria-hidden
     />
 

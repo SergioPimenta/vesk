@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import PortfolioPage from './pages/PortfolioPage';
 import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
+import WebsiteCreationPage from './pages/WebsiteCreationPage';
 import ThankYouPage from './pages/ThankYouPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -22,6 +23,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/sobre" element={<AboutPage />} />
       <Route path="/servicos" element={<ServicesPage />} />
+      <Route path="/criacao-de-sites" element={<WebsiteCreationPage />} />
       <Route path="/produtos" element={<ProductsPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/contato" element={<ContactPage />} />

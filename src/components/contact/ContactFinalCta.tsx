@@ -8,7 +8,7 @@ export const ContactFinalCta = ({ interest, service }: { interest?: string; serv
       aria-hidden
     />
     <div className="relative mx-auto max-w-3xl text-center" data-reveal>
-      <h2 className="font-display text-[clamp(1.85rem,4vw,3.1rem)] leading-[1.06] font-extrabold tracking-tight text-balance text-white">
+      <h2 className="font-display text-[clamp(1.85rem,4vw,3.1rem)] leading-[1.06] font-normal tracking-[-0.015em] text-balance text-white">
         Pronto para transformar sua ideia em uma solução real?
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-base font-light text-[rgb(255_255_255/0.9)] sm:text-lg">

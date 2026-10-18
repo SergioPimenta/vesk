@@ -1,33 +1,56 @@
 import { contactFaqs } from '../contact/contactData';
+import { websiteFaqs } from '../websites/websitesData';
+import { lowestPlanPrice, plans } from '../../lib/plans';
 import { products } from '../products/productsData';
 import { services } from '../services/servicesData';
-import { OG_IMAGE, SITE_NAME, SITE_URL } from '../../lib/site';
+import { OG_IMAGE, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '../../lib/site';
 import type { SeoPageKey } from './seoConfig';
 import { getCanonicalUrl } from './seoConfig';
 
 const businessRef = { '@id': `${SITE_URL}/#business` };
 
 const localBusiness = {
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'ProfessionalService'],
   '@id': `${SITE_URL}/#business`,
   name: SITE_NAME,
+  alternateName: 'VESK',
   url: SITE_URL,
   logo: `${SITE_URL}/assets/logo-mark.svg`,
+  image: OG_IMAGE,
   description:
-    'Software House em Curitiba especializada em sistemas personalizados, CRM, e-commerce e automações para empresas.',
+    'Software house em Curitiba especializada em criação de sites, landing pages, lojas virtuais, sistemas personalizados, CRM e automações.',
+  telephone: '+55-41-9690-2905',
+  email: 'comercial@vesk.com.br',
+  priceRange: `A partir de R$ ${lowestPlanPrice}`,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Curitiba',
     addressRegion: 'PR',
     addressCountry: 'BR',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Curitiba' },
+    { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Curitiba' },
+    { '@type': 'Country', name: 'Brasil' },
+  ],
+  knowsAbout: ['Criação de sites', 'Landing pages', 'Lojas virtuais', 'E-commerce', 'Sistemas web', 'CRM', 'SEO'],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '13:00' },
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+55-41-9980-2025',
-    contactType: 'customer service',
+    telephone: '+55-41-9690-2905',
+    contactType: 'sales',
     availableLanguage: 'Portuguese',
+    areaServed: 'BR',
   },
-  sameAs: ['https://www.linkedin.com/company/vesk', 'https://www.instagram.com/vesk'],
+  sameAs: [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.instagram],
 };
 
 const breadcrumb = (pageName: string, path: string) => ({
@@ -102,6 +125,49 @@ export const getPageSchema = (page: SeoPageKey) => {
               provider: businessRef,
               areaServed: { '@type': 'City', name: 'Curitiba' },
             },
+          })),
+        },
+      );
+      break;
+
+    case 'criacaoDeSites':
+      graph.push(
+        localBusiness,
+        webPage(
+          'Criação de Sites em Curitiba',
+          '/criacao-de-sites',
+          'Criação de sites profissionais, landing pages e lojas virtuais em Curitiba.',
+        ),
+        breadcrumb('Criação de sites', '/criacao-de-sites'),
+        {
+          '@type': 'Service',
+          '@id': `${getCanonicalUrl('/criacao-de-sites')}#service`,
+          name: 'Criação de sites em Curitiba',
+          serviceType: 'Criação de sites',
+          description:
+            'Criação de sites institucionais, landing pages e lojas virtuais responsivos, rápidos e otimizados para o Google.',
+          provider: businessRef,
+          areaServed: [
+            { '@type': 'City', name: 'Curitiba' },
+            { '@type': 'Country', name: 'Brasil' },
+          ],
+          offers: plans
+            .filter((plan) => plan.amount)
+            .map((plan) => ({
+              '@type': 'Offer',
+              name: plan.name,
+              price: plan.amount,
+              priceCurrency: 'BRL',
+              description: plan.items.join(', '),
+              seller: businessRef,
+            })),
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: websiteFaqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
           })),
         },
       );

@@ -28,7 +28,7 @@ export const ScrollProgress = () => {
   return (
     <div className="fixed inset-x-0 top-0 z-[110] h-[3px] bg-transparent" aria-hidden>
       <div
-        className="h-full origin-left bg-gradient-to-r from-vesk-orange-deep via-vesk-orange to-vesk-orange-light shadow-[0_0_12px_rgba(194,101,59,0.6)]"
+        className="h-full origin-left bg-gradient-to-r from-vesk-orange-deep via-vesk-orange to-vesk-orange-light shadow-[0_0_12px_rgba(210,122,68,0.6)]"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

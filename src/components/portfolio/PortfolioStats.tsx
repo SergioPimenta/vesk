@@ -12,7 +12,7 @@ export const PortfolioStats = () => (
           className="group rounded-2xl border border-vesk-border bg-vesk-dark-2 px-6 py-7 text-center transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-vesk-border-warm md:text-left"
         >
           <div
-            className={`font-display mb-2 leading-none font-extrabold text-vesk-surface ${'small' in stat && stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
+            className={`font-display mb-2 leading-none font-normal text-vesk-surface ${'small' in stat && stat.small ? 'text-3xl sm:text-4xl' : 'text-3xl sm:text-[44px]'}`}
           >
             <Counter end={Number(stat.value)} suffix={stat.suffix} suffixClassName="copper-metal" />
           </div>

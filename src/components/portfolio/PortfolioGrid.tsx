@@ -39,12 +39,12 @@ export const PortfolioGrid = ({ variant = 'page', limit }: PortfolioGridProps) =
             decoding="async"
             className="h-full w-full object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[rgb(8_11_18/0.96)] via-[rgb(8_11_18/0.7)] to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[rgb(15_17_19/0.96)] via-[rgb(15_17_19/0.7)] to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="mb-1.5 flex items-center justify-between gap-2">
               <span className="mono-tag text-vesk-orange">{item.tag}</span>
               <span className="font-mono text-[10px] tracking-[0.08em] text-vesk-muted">{item.year}</span>
             </div>
-            <h3 className="font-display text-lg font-bold">{item.name}</h3>
+            <h3 className="font-display text-lg font-normal">{item.name}</h3>
             <p className="mt-1 text-xs font-medium text-vesk-mid">{item.sub}</p>
             {variant === 'page' && (
               <p className="mt-2 text-xs leading-relaxed text-vesk-muted">{item.desc}</p>

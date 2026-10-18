@@ -47,7 +47,7 @@ const ThankYouPage = () => {
     <PageSeo page="obrigado" />
     <main className="relative flex min-h-[88vh] items-center overflow-hidden blueprint page-px pt-32 pb-20">
       <div
-        className="pointer-events-none absolute -top-[220px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(194,101,59,0.16)_0%,transparent_68%)] animate-glow-pulse"
+        className="pointer-events-none absolute -top-[220px] left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(210,122,68,0.16)_0%,transparent_68%)] animate-glow-pulse"
         aria-hidden
       />
       <div
@@ -57,7 +57,7 @@ const ThankYouPage = () => {
 
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
         {/* animated success badge */}
-        <div className="animate-fade-up mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl border border-vesk-border-warm bg-vesk-orange-dim shadow-[0_0_0_8px_rgb(194_101_59/0.06)]">
+        <div className="animate-fade-up mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl border border-vesk-border-warm bg-vesk-orange-dim shadow-[0_0_0_8px_rgb(210_122_68/0.06)]">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-vesk-orange" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path
               d="M20 6L9 17l-5-5"
@@ -71,7 +71,7 @@ const ThankYouPage = () => {
           <MonoTag>{queued ? 'Solicitação salva' : 'Solicitação enviada'}</MonoTag>
         </div>
 
-        <h1 className="animate-fade-up mt-6 font-display text-[clamp(2.15rem,5.5vw,3.75rem)] leading-[1.03] font-extrabold tracking-[-0.03em] text-balance text-vesk-surface [animation-delay:130ms]">
+        <h1 className="animate-fade-up mt-6 font-display text-[clamp(2.15rem,5.5vw,3.75rem)] leading-[1.03] font-normal tracking-[-0.015em] text-balance text-vesk-surface [animation-delay:130ms]">
           Recebemos sua
           <br />
           solicitação
@@ -97,7 +97,7 @@ const ThankYouPage = () => {
           {nextSteps.map((step) => (
             <div key={step.num} className="rounded-2xl border border-vesk-border bg-vesk-dark-2 p-6">
               <span className="mono-tag text-vesk-orange">{step.num}</span>
-              <h3 className="font-display mt-3 mb-1.5 text-base font-bold text-vesk-surface">{step.title}</h3>
+              <h3 className="font-display mt-3 mb-1.5 text-base font-normal text-vesk-surface">{step.title}</h3>
               <p className="text-[13px] leading-relaxed text-vesk-muted">{step.desc}</p>
             </div>
           ))}

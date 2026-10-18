@@ -27,9 +27,9 @@ const DRAFT_KEY = 'vesk_lead_draft_v1';
 const FIELD_ORDER = ['nome', 'telefone', 'servico', 'urlAtual'] as const;
 
 const fieldBase =
-  'w-full min-h-[52px] rounded-lg border bg-vesk-dark-2 px-4 py-3.5 text-base text-vesk-surface outline-none transition-colors duration-200 placeholder:text-vesk-surface/55 focus:border-vesk-orange focus-visible:ring-2 focus-visible:ring-vesk-orange/40';
+  'w-full min-h-[52px] rounded-md border bg-[#121417] px-4 py-3.5 text-base text-vesk-surface outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-vesk-surface/50 focus:border-vesk-orange focus:shadow-[0_0_0_4px_rgba(210,122,68,0.18)]';
 const fieldClass = (invalid: boolean) =>
-  cn(fieldBase, invalid ? 'border-[#ff9b8c]' : 'border-vesk-surface/35');
+  cn(fieldBase, invalid ? 'border-[#ff9b8c]' : 'border-vesk-surface/25');
 
 type Fields = Omit<LeadFormValues, 'servico'>;
 
@@ -75,12 +75,12 @@ const Field = ({
   children: ReactNode;
 }) => (
   <div>
-    <label htmlFor={id} className="mb-2 block text-sm font-medium text-vesk-surface">
+    <label htmlFor={id} className="mb-2 block text-xs font-medium tracking-[0.16em] text-vesk-mid uppercase">
       {label}
       {optional ? (
-        <span className="ml-1.5 font-normal text-vesk-mid">(opcional)</span>
+        <span className="ml-1.5 font-normal tracking-normal text-vesk-muted normal-case">(opcional)</span>
       ) : (
-        <span className="ml-1 text-vesk-orange-light" aria-hidden>
+        <span className="ml-1 text-vesk-orange" aria-hidden>
           *
         </span>
       )}
@@ -139,9 +139,11 @@ const ChipGroup = ({
 export const LeadForm = ({
   service,
   onServiceChange,
+  plan,
 }: {
   service: ProjectTypeValue | '';
   onServiceChange: (value: ProjectTypeValue | '') => void;
+  plan?: string;
 }) => {
   const [fields, setFields] = useState<Fields>(() => {
     const { servico: _servico, ...draft } = readDraft();
@@ -161,7 +163,7 @@ export const LeadForm = ({
   const honeypot = useRef<HTMLInputElement>(null);
   const draftServiceRestored = useRef(false);
 
-  const values: LeadFormValues = { ...fields, servico: service };
+  const values: LeadFormValues = { ...fields, servico: service, plano: plan };
 
   // O script do CRM presente no site captura qualquer <form> no submit. Este formulário faz o próprio
   // envio (com validação e fila de reenvio); marcamos como já rastreado para não duplicar o lead.
@@ -269,7 +271,7 @@ export const LeadForm = ({
       onSubmit={onSubmit}
       onFocus={markStarted}
       aria-label="Solicitar orçamento"
-      className="relative rounded-2xl border border-vesk-border bg-vesk-dark-2 p-5 sm:p-8 md:p-10"
+      className="relative rounded-[14px] border border-vesk-border bg-vesk-dark-2 p-5 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.8)] sm:p-8 md:p-10"
     >
       <div className="grid gap-5">
         <Field id={FIRST_FIELD_ID} label="Nome" error={errors.nome}>

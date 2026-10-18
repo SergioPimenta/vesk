@@ -15,7 +15,7 @@ const trustPoints = [
 export const ContactHero = ({ interest }: { interest?: string }) => (
   <section className="blueprint relative overflow-hidden page-px pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-[150px] lg:pb-24">
     <div
-      className="pointer-events-none absolute -top-[220px] -left-[180px] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(194,101,59,0.16)_0%,transparent_68%)]"
+      className="pointer-events-none absolute -top-[220px] -left-[180px] h-[720px] w-[720px] rounded-full bg-[radial-gradient(circle,rgba(210,122,68,0.16)_0%,transparent_68%)]"
       aria-hidden
     />
     <div

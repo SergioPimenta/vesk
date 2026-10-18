@@ -11,7 +11,7 @@ export const services = [
     ),
   },
   {
-    title: 'Websites Institucionais',
+    title: 'Criação de Sites',
     desc: 'Sites rápidos, otimizados para SEO e focados em conversão. Desenvolvemos com tecnologias modernas e entregamos prontos para ranquear no Google.',
     features: ['Design responsivo', 'SEO técnico', 'Performance otimizada', 'CMS e gestão de conteúdo'],
     icon: (

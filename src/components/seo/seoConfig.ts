@@ -4,6 +4,7 @@ export type SeoPageKey =
   | 'home'
   | 'sobre'
   | 'servicos'
+  | 'criacaoDeSites'
   | 'produtos'
   | 'portfolio'
   | 'contato'
@@ -24,12 +25,12 @@ export type SeoConfig = {
 export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   home: {
     path: '/',
-    title: 'VESK | Software House em Curitiba: Sistemas, CRM e E-commerce Sob Medida',
+    title: 'Criação de Sites em Curitiba | VESK Software House',
     description:
-      'VESK é uma Software House em Curitiba. Desenvolvemos sistemas personalizados, CRMs, e-commerces e sites institucionais para empresas que querem crescer com tecnologia.',
-    ogTitle: 'VESK | Software House em Curitiba: Sistemas e Tecnologia Sob Medida',
+      'Criação de sites profissionais, landing pages e lojas virtuais em Curitiba. Sites rápidos, prontos para o Google e feitos para trazer clientes.',
+    ogTitle: 'VESK | Criação de Sites e Sistemas em Curitiba',
     ogDescription:
-      'Desenvolvemos sistemas, CRMs, e-commerces e automações para empresas em Curitiba e todo o Brasil. Tecnologia que gera resultado real.',
+      'Sites profissionais, lojas virtuais e sistemas sob medida para empresas de Curitiba e de todo o Brasil. Planos a partir de R$ 600.',
   },
   sobre: {
     path: '/sobre',
@@ -42,12 +43,21 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   },
   servicos: {
     path: '/servicos',
-    title: 'Serviços de Desenvolvimento de Software | VESK, Curitiba',
+    title: 'Criação de Sites, Sistemas e E-commerce em Curitiba | VESK',
     description:
-      'Sistemas web, e-commerce, CRM, APIs e integrações sob medida. A VESK em Curitiba entrega software personalizado com foco em performance, escala e resultado.',
-    ogTitle: 'Serviços VESK: Desenvolvimento de Software em Curitiba',
+      'Criação de sites, lojas virtuais, sistemas web, CRM, APIs e integrações em Curitiba. Conheça os serviços da VESK Software House.',
+    ogTitle: 'Serviços VESK: Criação de Sites e Sistemas em Curitiba',
     ogDescription:
-      'Do sistema corporativo ao e-commerce: soluções digitais completas desenvolvidas pela VESK para empresas em Curitiba e todo o Brasil.',
+      'Do site institucional ao sistema sob medida: soluções digitais completas para empresas de Curitiba e todo o Brasil.',
+  },
+  criacaoDeSites: {
+    path: '/criacao-de-sites',
+    title: 'Criação de Sites em Curitiba a partir de R$ 600 | VESK',
+    description:
+      'Criação de sites em Curitiba: sites profissionais, landing pages e lojas virtuais rápidos, responsivos e prontos para o Google. Planos a partir de R$ 600.',
+    ogTitle: 'Criação de Sites em Curitiba | VESK Software House',
+    ogDescription:
+      'Sites profissionais, landing pages e lojas virtuais feitos em Curitiba, prontos para aparecer no Google e trazer clientes. Planos a partir de R$ 600.',
   },
   produtos: {
     path: '/produtos',
@@ -60,18 +70,18 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   },
   portfolio: {
     path: '/portfolio',
-    title: 'Portfólio de Projetos | VESK Software House, Curitiba',
+    title: 'Portfólio de Sites e Sistemas | VESK, Curitiba',
     description:
-      'Cases reais de e-commerce, sistemas web e plataformas corporativas desenvolvidos pela VESK para empresas em Curitiba e em todo o Brasil.',
-    ogTitle: 'Portfólio VESK: Projetos que Geram Resultados',
+      'Veja sites institucionais, lojas virtuais e sistemas criados pela VESK para empresas de Curitiba e de todo o Brasil.',
+    ogTitle: 'Portfólio VESK: Sites e Sistemas Criados em Curitiba',
     ogDescription:
-      'Veja projetos entregues pela VESK: e-commerce, sistemas corporativos e plataformas digitais com impacto mensurável nos negócios.',
+      'Projetos reais de criação de sites, e-commerce e sistemas web desenvolvidos pela VESK Software House.',
   },
   contato: {
     path: '/contato',
-    title: 'Solicitar Orçamento | VESK Software House, Curitiba, PR',
+    title: 'Orçamento para Criação de Site em Curitiba | VESK',
     description:
-      'Solicite um orçamento de site, loja virtual, sistema, aplicativo ou automação com a VESK. Atendimento para todo o Brasil por formulário ou WhatsApp.',
+      'Solicite orçamento de site, landing page, loja virtual ou sistema com a VESK, em Curitiba. Atendimento para todo o Brasil por formulário ou WhatsApp.',
     ogTitle: 'Solicite seu orçamento | VESK Software House',
     ogDescription:
       'Conte sua ideia e a VESK ajuda a transformá-la em solução real: sites, lojas virtuais, aplicativos e sistemas personalizados.',

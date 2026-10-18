@@ -20,10 +20,10 @@ export const ProductsHighlights = () => (
           style={{ ['--reveal-delay' as string]: `${i * 100}ms` }}
           className="group rounded-2xl border border-vesk-border bg-vesk-dark-2 px-8 py-9 text-center transition-[transform,border-color] duration-300 hover:-translate-y-1.5 hover:border-vesk-border-warm md:text-left"
         >
-          <div className="font-display mb-4 text-3xl font-extrabold text-vesk-orange transition-transform duration-300 group-hover:-translate-y-0.5">
+          <div className="font-display mb-4 text-3xl font-normal text-vesk-orange transition-transform duration-300 group-hover:-translate-y-0.5">
             {String(i + 1).padStart(2, '0')}
           </div>
-          <h3 className="font-display mb-3 text-base font-semibold">{item.title}</h3>
+          <h3 className="font-display mb-3 text-base font-medium">{item.title}</h3>
           <p className="text-sm leading-[1.75] text-vesk-muted">{item.desc}</p>
         </div>
       ))}

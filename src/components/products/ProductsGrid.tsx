@@ -42,7 +42,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-display mb-1.5 text-base font-bold text-vesk-surface">{product.title}</h3>
+                  <h3 className="font-display mb-1.5 text-base font-normal text-vesk-surface">{product.title}</h3>
                   <p className="text-[13px] leading-relaxed text-vesk-muted">{product.desc}</p>
                 </div>
                 <span className="mt-0.5 ml-auto shrink-0 text-vesk-orange transition-transform duration-200 group-hover:translate-x-1">
@@ -88,7 +88,7 @@ export const ProductsGrid = ({ variant = 'page', showHeader = true, id = 'catalo
                 {product.status}
               </span>
             </div>
-            <h3 className="font-display mb-3 text-xl font-bold">{product.title}</h3>
+            <h3 className="font-display mb-3 text-xl font-normal">{product.title}</h3>
             <p className="mb-5 text-sm leading-[1.7] text-vesk-muted">{product.desc}</p>
             <ul className="mb-8 flex list-none flex-col gap-2">
               {product.features.map((feature) => (

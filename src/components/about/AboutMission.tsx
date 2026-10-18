@@ -33,7 +33,7 @@ export const AboutMission = () => (
           style={{ ['--reveal-delay' as string]: `${i * 100}ms` }}
           className="bg-vesk-dark-2 px-9 py-10 transition-colors hover:bg-vesk-dark-3"
         >
-          <h3 className="font-display mb-4 text-lg font-semibold text-vesk-orange">{pillar.title}</h3>
+          <h3 className="font-display mb-4 text-lg font-medium text-vesk-orange">{pillar.title}</h3>
           <p className="text-sm leading-[1.75] text-vesk-muted">{pillar.text}</p>
         </article>
       ))}

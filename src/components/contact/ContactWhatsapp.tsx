@@ -10,11 +10,11 @@ export const ContactWhatsapp = ({ interest, service }: { interest?: string; serv
       className="relative overflow-hidden rounded-3xl border border-vesk-border-warm bg-gradient-to-br from-vesk-dark-3 via-vesk-dark-2 to-vesk-dark p-7 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:p-14"
     >
       <div
-        className="pointer-events-none absolute -top-24 -right-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(194,101,59,0.22),transparent_70%)]"
+        className="pointer-events-none absolute -top-24 -right-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(210,122,68,0.22),transparent_70%)]"
         aria-hidden
       />
       <div className="relative max-w-2xl">
-        <h2 className="font-display text-[clamp(1.6rem,3.6vw,2.6rem)] leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-vesk-surface">
+        <h2 className="font-display text-[clamp(1.6rem,3.6vw,2.6rem)] leading-[1.08] font-normal tracking-[-0.015em] text-balance text-vesk-surface">
           Prefere conversar diretamente com nossa equipe?
         </h2>
         <p className="mt-4 text-base leading-[1.7] font-light text-vesk-mid sm:text-lg">

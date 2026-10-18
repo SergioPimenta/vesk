@@ -45,11 +45,11 @@ export const AboutStory = () => (
             className={`group relative pb-10 ${index < milestones.length - 1 ? 'border-b border-vesk-border mb-10' : ''}`}
           >
             <span
-              className="absolute top-1.5 -left-[29px] h-2.5 w-2.5 rounded-full border-2 border-vesk-orange bg-vesk-black transition-[background-color,box-shadow] duration-300 group-hover:bg-vesk-orange group-hover:shadow-[0_0_0_5px_rgb(194_101_59/0.12)] sm:-left-[45px]"
+              className="absolute top-1.5 -left-[29px] h-2.5 w-2.5 rounded-full border-2 border-vesk-orange bg-vesk-black transition-[background-color,box-shadow] duration-300 group-hover:bg-vesk-orange group-hover:shadow-[0_0_0_5px_rgb(210_122_68/0.12)] sm:-left-[45px]"
               aria-hidden
             />
             <span className="mono-tag text-vesk-orange">{item.year}</span>
-            <h3 className="font-display mt-2 mb-2 text-lg font-semibold">{item.title}</h3>
+            <h3 className="font-display mt-2 mb-2 text-lg font-medium">{item.title}</h3>
             <p className="text-sm leading-relaxed text-vesk-muted">{item.desc}</p>
           </article>
         ))}

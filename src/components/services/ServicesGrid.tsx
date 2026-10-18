@@ -13,7 +13,7 @@ const handleSpotlight = (e: MouseEvent<HTMLDivElement>) => {
 /** Masked so only a hairline ring shows — the ring lights up nearest the cursor. */
 const spotlightBorderStyle: CSSProperties = {
   padding: 1.5,
-  background: 'radial-gradient(280px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(237,228,216,0.95), rgba(194,101,59,0.4) 35%, transparent 68%)',
+  background: 'radial-gradient(280px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(237,228,216,0.95), rgba(210,122,68,0.4) 35%, transparent 68%)',
   WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
   WebkitMaskComposite: 'xor',
   mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
@@ -90,7 +90,7 @@ export const ServicesGrid = ({
               {String(i + 1).padStart(2, '0')}
             </span>
           </div>
-          <h3 className="font-display mb-3 text-xl font-bold tracking-tight">{service.title}</h3>
+          <h3 className="font-display mb-3 text-xl font-normal tracking-[-0.015em]">{service.title}</h3>
           <p className="mb-5 text-sm leading-[1.7] text-vesk-muted">{service.desc}</p>
           {showFeatures && (
             <ul className="mb-6 flex list-none flex-col gap-2">

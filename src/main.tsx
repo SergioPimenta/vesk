@@ -19,12 +19,24 @@ document.addEventListener('visibilitychange', () => {
 });
 window.setTimeout(retryPendingLeads, 3000);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const app = (
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AuthProvider>
         <App />
       </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
+
+// Páginas pré-renderizadas no build chegam com o HTML pronto: o React só "hidrata".
+// Se o HTML é de outra rota (fallback de SPA), descarta e renderiza do zero.
+const normalize = (path: string) => path.replace(/\/$/, '') || '/';
+const prerenderedPath = container.dataset.prerenderedPath;
+if (prerenderedPath && normalize(prerenderedPath) === normalize(window.location.pathname)) {
+  ReactDOM.hydrateRoot(container, app);
+} else {
+  container.innerHTML = '';
+  ReactDOM.createRoot(container).render(app);
+}

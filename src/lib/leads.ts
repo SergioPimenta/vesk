@@ -19,6 +19,8 @@ export type LeadFormValues = {
   inicio: string;
   possui: '' | 'sim' | 'nao';
   urlAtual: string;
+  /** Plano escolhido na seção de Planos da home, quando houver. */
+  plano?: string;
 };
 
 export type LeadErrors = Partial<Record<'nome' | 'telefone' | 'servico' | 'urlAtual', string>>;
@@ -113,6 +115,7 @@ const labelOf = (list: readonly { value: string; label: string }[], value: strin
 export function buildMessage(values: LeadFormValues): string {
   const attribution = getAttribution();
   const lines: string[] = [`Serviço de interesse: ${projectTypeLabel(values.servico) || 'Não informado'}`];
+  if (values.plano) lines.push(`Plano de interesse: ${values.plano}`);
 
   const perfil = labelOf(perfilOptions, values.perfil);
   const etapa = labelOf(etapaOptions, values.etapa);
@@ -135,7 +138,7 @@ export function buildMessage(values: LeadFormValues): string {
   lines.push(
     `Solicitado em: ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })} (horário de Brasília)`,
   );
-  lines.push('Canal: Formulário da página de contato');
+  lines.push(`Canal: Formulário (${window.location.pathname === '/' ? 'página inicial' : 'página de contato'})`);
 
   const description = values.mensagem.trim();
   lines.push('', 'Sobre o projeto:', description || '(não informado)');

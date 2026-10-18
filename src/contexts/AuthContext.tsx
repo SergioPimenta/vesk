@@ -20,7 +20,10 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+  // Lazy e protegido: o site também é renderizado no servidor (pré-render), onde não há localStorage.
+  const [token, setToken] = useState<string | null>(() =>
+    typeof window === 'undefined' ? null : localStorage.getItem('token'),
+  );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -49,9 +52,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, loading }}>
-      {!loading && children}
-    </AuthContext.Provider>
+    // O site público renderiza sempre (inclusive no pré-render); só a área restrita espera o `loading`.
+    <AuthContext.Provider value={{ user, token, login, logout, loading }}>{children}</AuthContext.Provider>
   );
 };
 

@@ -1,62 +1,60 @@
-import { Link } from 'react-router-dom';
+import { HeartHandshake, ShieldCheck, TrendingUp, Clock } from 'lucide-react';
+import { ArrowIcon } from './icons';
+import { btnPrimaryClasses, MonoTag } from './ui';
+import { whatsappUrl } from '../../lib/site';
+import { trackWhatsappClick } from '../contact/contactActions';
+
+const promises = [
+  { label: 'Atendimento consultivo', icon: <HeartHandshake /> },
+  { label: 'Propostas personalizadas', icon: <ShieldCheck /> },
+  { label: 'Compromisso com resultados', icon: <TrendingUp /> },
+];
 
 export const CtaBand = () => (
-  <div className="relative overflow-hidden bg-gradient-to-br from-vesk-orange-light via-vesk-orange to-vesk-orange-deep page-px py-14 md:py-20">
-    {/* engineered texture on the copper */}
-    <div
-      className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] [background-size:44px_44px]"
-      aria-hidden
-    />
-    <div
-      className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18),transparent_70%)]"
-      aria-hidden
-    />
-    <div className="relative grid grid-cols-1 items-start gap-10 sm:items-center md:grid-cols-2 md:gap-[60px]">
-      <div data-reveal="left">
-        <span className="font-mono text-[12px] tracking-[0.16em] text-[rgb(255_255_255/0.75)] uppercase">
-          Vamos construir
-        </span>
-        <h2 className="font-display mt-3 text-[clamp(1.85rem,3.6vw,3rem)] leading-[1.05] font-extrabold tracking-tight text-white">
-          Pronto para ter um sistema que realmente funciona?
+  <section className="relative overflow-hidden border-t border-vesk-border bg-[#121417] page-px py-16 text-white">
+    <span className="pointer-events-none absolute -top-[60px] -left-[240px] h-[420px] w-[420px] rounded-full border border-vesk-orange/35" aria-hidden />
+    <span className="pointer-events-none absolute -top-[240px] -right-[300px] h-[520px] w-[520px] rounded-full border border-vesk-orange/35" aria-hidden />
+
+    <div className="relative z-[1] grid items-center gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="md:col-span-2 lg:col-span-1" data-reveal>
+        <MonoTag className="mb-[18px] flex text-vesk-orange-light">Vamos conversar?</MonoTag>
+        <h2 className="font-display text-[clamp(1.875rem,3.4vw,2.5rem)] leading-[1.08] font-normal tracking-[-0.015em] text-balance">
+          Seu próximo projeto pode começar agora.
         </h2>
-        <p className="mt-4 max-w-md text-base font-light text-[rgb(255_255_255/0.82)]">
-          Fale com a VESK e descubra como podemos desenvolver seu negócio com tecnologia. Respondemos em até 2
-          horas úteis.
+        <p className="mt-3.5 max-w-[44ch] text-[15px] leading-relaxed text-vesk-mid">
+          Fale com a VESK e descubra como podemos desenvolver seu negócio com tecnologia. Atendemos Curitiba e toda a
+          região Sul e desenvolvemos para o Brasil inteiro.
         </p>
       </div>
-      <div className="flex flex-col items-start gap-4" data-reveal="right">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgb(255_255_255/0.16)] [&_svg]:h-[18px] [&_svg]:w-[18px] [&_svg]:text-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-          </div>
-          <div>
-            <strong className="block font-medium text-white">(41) 9690-2905</strong>
-            <p className="font-mono text-[12px] text-[rgb(255_255_255/0.8)]">WhatsApp disponível</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[rgb(255_255_255/0.16)] [&_svg]:h-[18px] [&_svg]:w-[18px] [&_svg]:text-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div>
-            <strong className="block font-medium text-white">comercial@vesk.com.br</strong>
-            <p className="font-mono text-[12px] text-[rgb(255_255_255/0.8)]">Resposta em até 24h</p>
-          </div>
-        </div>
-        <Link
-          to="/contato"
-          className="mt-1 inline-flex w-full items-center justify-center gap-2.5 sm:w-auto rounded-lg bg-vesk-black px-8 py-3.5 text-sm font-semibold whitespace-nowrap text-vesk-surface no-underline shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-orange"
+
+      <div className="grid justify-items-start gap-3.5" data-reveal>
+        <a
+          href={whatsappUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackWhatsappClick('cta_band')}
+          className={btnPrimaryClasses()}
         >
-          Falar com especialista →
-        </Link>
-        <p className="text-[13px] leading-relaxed text-[rgb(255_255_255/0.8)]">
-          📍 Atendemos Curitiba e toda a região Sul e desenvolvemos para o Brasil inteiro.
-        </p>
+          Falar no WhatsApp
+          <ArrowIcon />
+        </a>
+        <small className="flex items-center gap-2 text-sm text-vesk-mid">
+          <Clock size={16} className="text-vesk-orange-light" aria-hidden />
+          Seg a sex, 09h às 18h · Sáb, 09h às 13h
+        </small>
       </div>
+
+      <ul
+        className="grid list-none gap-4 border-t border-vesk-orange/35 pt-[22px] md:border-t-0 md:border-l md:pt-0 md:pl-8"
+        data-reveal
+      >
+        {promises.map((item) => (
+          <li key={item.label} className="flex items-center gap-3 text-[14.5px] text-vesk-mid [&_svg]:h-5 [&_svg]:w-5 [&_svg]:text-vesk-orange-light">
+            {item.icon}
+            {item.label}
+          </li>
+        ))}
+      </ul>
     </div>
-  </div>
+  </section>
 );

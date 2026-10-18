@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { cn } from '../../lib/cn';
 import { externalLinkProps } from '../../lib/links';
 
+/** Marca oficial + assinatura "VESK / Software house". */
 export const NavLogo = ({
   className,
   variant = 'header',
@@ -12,31 +13,33 @@ export const NavLogo = ({
 }) => (
   <Link
     to="/"
-    className={cn('inline-flex shrink-0 items-center gap-2.5 no-underline', className)}
+    className={cn('inline-flex shrink-0 items-center gap-3 no-underline', className)}
     aria-label={variant === 'header' ? 'VESK Software House, Início' : 'VESK, Início'}
   >
     <img
       src="/assets/logo-mark.svg"
-      alt={
-        variant === 'header'
-          ? 'VESK Software House, Desenvolvimento de Software em Curitiba'
-          : 'VESK'
-      }
-      className="h-8 w-auto md:h-9"
-      fetchPriority={variant === 'header' ? 'high' : undefined}
+      alt=""
+      width={46}
+      height={38}
+      className="h-8 w-auto sm:h-[38px]"
       loading={variant === 'header' ? 'eager' : 'lazy'}
+      // React 18 só repassa o atributo em minúsculas.
+      {...(variant === 'header' ? ({ fetchpriority: 'high' } as Record<string, string>) : {})}
     />
-    <span className="font-display text-[22px] font-extrabold tracking-tight text-vesk-surface">
-      VE<span className="text-vesk-orange">SK</span>
+    <span className="flex flex-col items-center leading-none">
+      <span className="mr-[-0.42em] text-[21px] font-normal tracking-[0.42em] text-vesk-surface sm:text-[24px]">VESK</span>
+      <span className="mt-1.5 flex items-center gap-1.5 text-[8.5px] tracking-[0.32em] text-vesk-orange uppercase before:h-px before:w-3 before:bg-current before:content-[''] after:h-px after:w-3 after:bg-current after:content-['']">
+        Software house
+      </span>
     </span>
   </Link>
 );
 
-/** Título principal do hero — escala fluida, editorial e grande. */
+/** Título principal do hero: serifa editorial, grande e fluida. */
 export const pageHeroTitleClass =
-  'font-display text-[clamp(1.9rem,6.6vw,4.75rem)] leading-[1.02] font-extrabold tracking-[-0.03em] text-balance';
+  'font-display text-[clamp(2.6rem,5.2vw,4.5rem)] leading-[1.03] font-normal tracking-[-0.015em] text-balance';
 
-/** Etiqueta monoespaçada — a "voz de terminal" que assina o estúdio. */
+/** Kicker: rótulo em caixa alta que abre seções e blocos. */
 export const MonoTag = ({
   children,
   className,
@@ -47,38 +50,33 @@ export const MonoTag = ({
   index?: string;
 }) => (
   <span className={cn('mono-tag inline-flex items-center gap-2 text-vesk-orange', className)}>
-    <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-vesk-orange" aria-hidden />
-    {index && <span className="text-vesk-orange-light/90">{index}</span>}
-    <span className="text-vesk-mid">{children}</span>
+    {index && <span className="text-vesk-orange-light">{index}</span>}
+    {children}
   </span>
 );
 
 export const SectionLabel = ({
   children,
   centered = false,
-  showLine = true,
   index,
   className,
 }: {
   children: ReactNode;
   centered?: boolean;
+  /** Mantido por compatibilidade; o kicker novo não usa marcador. */
   showLine?: boolean;
   index?: string;
   className?: string;
 }) => (
-  <div className={cn('mb-5 flex', centered && 'justify-center', className)}>
-    <span className="mono-tag inline-flex items-center gap-2.5 text-vesk-orange">
-      {showLine && <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-vesk-orange" aria-hidden />}
-      {index && <span className="text-vesk-orange-light/90">{index}</span>}
-      <span className="text-vesk-mid">{children}</span>
-    </span>
+  <div className={cn('mb-[18px] flex', centered && 'justify-center', className)}>
+    <MonoTag index={index}>{children}</MonoTag>
   </div>
 );
 
 export const SectionTitle = ({ children, className }: { children: ReactNode; className?: string }) => (
   <h2
     className={cn(
-      'font-display text-[clamp(1.85rem,4.2vw,3.35rem)] text-balance leading-[1.06] font-extrabold tracking-[-0.025em] text-vesk-surface',
+      'font-display text-[clamp(2.125rem,4.2vw,3rem)] leading-[1.08] font-normal tracking-[-0.015em] text-balance text-vesk-surface',
       className,
     )}
   >
@@ -87,17 +85,23 @@ export const SectionTitle = ({ children, className }: { children: ReactNode; cla
 );
 
 export const SectionDesc = ({ children, className }: { children: ReactNode; className?: string }) => (
-  <p className={cn('mt-4 max-w-[520px] text-base leading-[1.75] font-light text-vesk-mid', className)}>{children}</p>
+  <p className={cn('mt-4 max-w-[54ch] text-[17px] leading-[1.6] text-vesk-muted', className)}>{children}</p>
 );
 
 export const btnPrimaryClasses = (className?: string) =>
   cn(
-    'inline-flex items-center gap-2.5 rounded-lg px-8 py-3.5 text-sm font-semibold text-white no-underline',
-    'bg-gradient-to-b from-vesk-orange-light to-vesk-orange',
-    'shadow-[0_1px_0_rgb(255_255_255/0.25)_inset,0_10px_30px_-8px_rgb(194_101_59/0.6)]',
-    'transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_1px_0_rgb(255_255_255/0.3)_inset,0_18px_44px_-8px_rgb(194_101_59/0.75)]',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-black',
-    '[&_svg]:transition-transform hover:[&_svg]:translate-x-1',
+    'inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md px-[26px] py-3 text-[15px] font-medium text-white no-underline',
+    'bg-copper shadow-[0_10px_24px_-12px_rgba(140,67,34,0.7)] transition-[filter] duration-200 hover:brightness-110',
+    'focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-vesk-orange',
+    '[&_svg]:transition-transform hover:[&_svg]:translate-x-0.5',
+    className,
+  );
+
+export const btnOutlineClasses = (className?: string) =>
+  cn(
+    'inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md border border-vesk-orange bg-transparent px-[26px] py-3 text-[15px] font-medium text-vesk-surface no-underline',
+    'transition-colors duration-200 hover:bg-vesk-orange-dim',
+    'focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-vesk-orange',
     className,
   );
 
@@ -142,19 +146,25 @@ export const BtnOutline = ({
   className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
 }) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className={cn(
-      'inline-flex items-center gap-2 rounded-lg border border-vesk-border px-8 py-3.5 text-sm font-medium text-vesk-surface no-underline transition-all duration-200',
-      'hover:border-vesk-border-warm hover:bg-vesk-orange-dim hover:text-vesk-surface',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-black',
-      className,
-    )}
-    {...externalLinkProps(href)}
-  >
+  <a href={href} onClick={onClick} className={btnOutlineClasses(className)} {...externalLinkProps(href)}>
     {children}
   </a>
+);
+
+/** Seta em círculo dos cards; preenche de cobre no hover do card (`group`). */
+export const CircleArrow = ({ className }: { className?: string }) => (
+  <span
+    aria-hidden
+    className={cn(
+      'grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border border-vesk-orange/45 text-vesk-orange transition-colors duration-200',
+      'group-hover:border-vesk-orange group-hover:bg-vesk-orange group-hover:text-white',
+      className,
+    )}
+  >
+    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  </span>
 );
 
 export const IconBox = ({
@@ -170,15 +180,14 @@ export const IconBox = ({
 }) => {
   const sizes = {
     sm: 'h-8 w-8 [&_svg]:h-4 [&_svg]:w-4',
-    md: 'h-9 w-9 [&_svg]:h-[18px] [&_svg]:w-[18px]',
-    lg: 'h-12 w-12 [&_svg]:h-[22px] [&_svg]:w-[22px]',
+    md: 'h-10 w-10 [&_svg]:h-[18px] [&_svg]:w-[18px]',
+    lg: 'h-[46px] w-[46px] [&_svg]:h-5 [&_svg]:w-5',
   };
 
   return (
     <div
       className={cn(
-        'flex shrink-0 items-center justify-center rounded-xl border border-vesk-border-warm bg-vesk-orange-dim text-vesk-orange',
-        'shadow-[0_1px_0_rgb(237_228_216/0.06)_inset]',
+        'flex shrink-0 items-center justify-center rounded-full border border-vesk-orange/35 bg-vesk-orange-dim text-vesk-orange-light',
         sizes[size],
         className,
       )}

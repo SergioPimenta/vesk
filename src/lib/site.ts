@@ -3,6 +3,11 @@ export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const SITE_NAME = 'VESK Software House';
 
 export const WHATSAPP_NUMBER = '554196902905';
+
+export const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/veskoficial',
+  linkedin: 'https://www.linkedin.com/company/vesk-software-house',
+} as const;
 export const DEFAULT_WHATSAPP_MESSAGE = 'Olá! Vim pelo site da VESK e gostaria de conversar sobre um projeto.';
 
 /** Link wa.me com mensagem inicial. `interest` adapta o texto ao serviço já escolhido. */

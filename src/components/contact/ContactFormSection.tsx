@@ -19,7 +19,7 @@ export const ContactFormSection = ({
   service: ProjectTypeValue | '';
   onServiceChange: (value: ProjectTypeValue | '') => void;
 }) => (
-  <section id={FORM_SECTION_ID} className="scroll-mt-20 bg-vesk-dark page-px py-16 md:py-24 lg:py-[100px]">
+  <section id={FORM_SECTION_ID} className="scroll-mt-24 bg-vesk-dark page-px py-16 md:py-24 lg:py-[100px]">
     <div className="grid items-start gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-x-16 lg:gap-y-10">
       <div className="lg:col-start-1 lg:row-start-1">
         <SectionLabel>Orçamento</SectionLabel>

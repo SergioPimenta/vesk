@@ -1,134 +1,127 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { NavLogo } from './ui';
+import { btnPrimaryClasses, NavLogo } from './ui';
 import { cn } from '../../lib/cn';
+import { ArrowIcon } from './icons';
 
 const links = [
   { href: '/servicos', label: 'Serviços' },
   { href: '/produtos', label: 'Produtos' },
   { href: '/portfolio', label: 'Portfólio' },
+  { href: '/#planos', label: 'Planos' },
   { href: '/sobre', label: 'Sobre' },
   { href: '/contato', label: 'Contato' },
 ];
 
-const linkClass = (isActive: boolean) =>
-  cn(
-    'group relative font-mono text-[12px] tracking-[0.08em] uppercase no-underline transition-colors duration-200',
-    isActive ? 'text-vesk-surface' : 'text-vesk-mid hover:text-vesk-surface',
-  );
-
-const ctaClass =
-  'items-center gap-2 rounded-lg bg-gradient-to-b from-vesk-orange-light to-vesk-orange px-6 py-2.5 font-mono text-[12px] tracking-[0.06em] whitespace-nowrap text-white no-underline shadow-[0_1px_0_rgb(255_255_255/0.25)_inset,0_8px_22px_-8px_rgb(194_101_59/0.7)] transition-transform duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-black';
-
 export const Nav = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const isActive = (href: string) =>
+    href.includes('#') ? `${pathname}${hash}` === href : pathname === href;
+
   useEffect(() => {
     setMenuOpen(false);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <>
-      <nav
-        className={cn(
-          'fixed top-0 right-0 left-0 z-[100] flex h-[72px] items-center justify-between page-px transition-[background-color,border-color,backdrop-filter] duration-300',
-          scrolled || menuOpen
-            ? 'border-b border-vesk-border bg-[rgb(8_11_18/0.82)] backdrop-blur-xl'
-            : 'border-b border-transparent bg-transparent',
-        )}
-      >
+    <header
+      className={cn(
+        'fixed top-0 right-0 left-0 z-[100] border-b bg-[rgb(15_17_19/0.82)] backdrop-blur-xl transition-colors duration-200',
+        scrolled || menuOpen ? 'border-vesk-border' : 'border-transparent',
+      )}
+    >
+      <div className="flex h-[72px] items-center justify-between gap-6 page-px md:h-[84px]">
         <NavLogo variant="header" />
 
-        <ul className="hidden list-none gap-9 lg:flex">
-          {links.map((link) => {
-            const isActive = pathname === link.href;
-            return (
+        <nav aria-label="Principal" className="hidden lg:block">
+          <ul className="flex list-none gap-5 xl:gap-[30px]">
+            {links.map((link) => (
               <li key={link.href}>
-                <Link to={link.href} className={linkClass(isActive)}>
+                <Link
+                  to={link.href}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  className={cn(
+                    'border-b-[1.5px] py-1.5 text-sm no-underline xl:text-[15px] transition-colors duration-200',
+                    isActive(link.href)
+                      ? 'border-vesk-orange text-vesk-surface'
+                      : 'border-transparent text-vesk-mid hover:border-vesk-orange hover:text-vesk-surface',
+                  )}
+                >
                   {link.label}
-                  <span
-                    className={cn(
-                      'absolute -bottom-2 left-0 h-px bg-vesk-orange transition-all duration-300',
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full',
-                    )}
-                    aria-hidden
-                  />
                 </Link>
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        </nav>
 
-        <Link to="/contato" className={cn(ctaClass, 'hidden lg:inline-flex')}>
-          Solicitar orçamento →
-        </Link>
+        <div className="hidden lg:block">
+          <Link to="/contato" className={btnPrimaryClasses('min-h-[44px] px-5 py-2.5 text-sm whitespace-nowrap')}>
+            Solicitar orçamento
+            <ArrowIcon />
+          </Link>
+        </div>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-vesk-border text-vesk-surface transition-colors hover:border-vesk-border-warm lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-vesk-border bg-vesk-dark-2 text-vesk-surface lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
+          aria-controls="menu-mobile"
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </nav>
+      </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-[72px] z-[99] lg:hidden">
-          <button
-            type="button"
-            className="absolute inset-0 bg-[rgb(8_11_18/0.7)]"
+        <nav
+          id="menu-mobile"
+          aria-label="Principal"
+          className="absolute top-full right-4 left-4 mt-2 rounded-[10px] border border-vesk-border bg-vesk-dark-2 px-4 py-2 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] lg:hidden"
+        >
+          <ul className="flex list-none flex-col">
+            {links.map((link) => (
+              <li key={link.href} className="border-b border-vesk-border last:border-b-0">
+                <Link
+                  to={link.href}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  className={cn(
+                    'flex min-h-[48px] items-center text-base no-underline',
+                    isActive(link.href) ? 'text-vesk-orange-light' : 'text-vesk-surface',
+                  )}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/contato"
+            className={btnPrimaryClasses('my-3 w-full')}
             onClick={() => setMenuOpen(false)}
-            aria-label="Fechar menu"
-          />
-          <div className="relative border-b border-vesk-border bg-vesk-black page-px py-6 shadow-[0_24px_50px_rgba(0,0,0,0.5)]">
-            <ul className="flex list-none flex-col gap-1">
-              {links.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className={cn(
-                        'block rounded-lg px-3 py-3.5 font-mono text-[14px] tracking-[0.06em] uppercase no-underline transition-colors',
-                        isActive ? 'bg-vesk-orange-dim text-vesk-surface' : 'text-vesk-mid hover:text-vesk-surface',
-                      )}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <Link
-              to="/contato"
-              className={cn(ctaClass, 'mt-4 flex w-full justify-center py-3.5')}
-              onClick={() => setMenuOpen(false)}
-            >
-              Solicitar orçamento →
-            </Link>
-          </div>
-        </div>
+          >
+            Solicitar orçamento
+            <ArrowIcon />
+          </Link>
+        </nav>
       )}
-    </>
+    </header>
   );
 };

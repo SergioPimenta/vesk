@@ -37,7 +37,7 @@ export const ContactProcess = () => (
           className="relative rounded-2xl border border-vesk-border bg-vesk-dark-2 p-6 sm:p-7"
         >
           <span className="mono-tag text-vesk-orange">{step.num}</span>
-          <h3 className="font-display mt-4 mb-2 text-lg font-bold text-vesk-surface">{step.title}</h3>
+          <h3 className="font-display mt-4 mb-2 text-lg font-normal text-vesk-surface">{step.title}</h3>
           <p className="text-[15px] leading-[1.7] text-vesk-mid">{step.desc}</p>
         </li>
       ))}

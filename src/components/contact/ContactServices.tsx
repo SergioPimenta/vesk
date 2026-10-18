@@ -39,7 +39,7 @@ export const ContactServices = ({
   selected: string;
   onSelect: (value: ProjectTypeValue) => void;
 }) => (
-  <section id="solucoes" className="scroll-mt-20 bg-vesk-black page-px py-16 md:py-24">
+  <section id="solucoes" className="scroll-mt-24 bg-vesk-black page-px py-16 md:py-24">
     <div className="mb-10 max-w-2xl md:mb-14" data-reveal>
       <SectionLabel>Soluções</SectionLabel>
       <SectionTitle>O que você pode desenvolver com a VESK?</SectionTitle>
@@ -63,7 +63,7 @@ export const ContactServices = ({
             <IconBox size="lg" decorative>
               {card.icon}
             </IconBox>
-            <h3 className="font-display mt-5 mb-2 text-lg font-bold text-vesk-surface">{card.title}</h3>
+            <h3 className="font-display mt-5 mb-2 text-lg font-normal text-vesk-surface">{card.title}</h3>
             <p className="mb-6 text-[15px] leading-[1.65] text-vesk-mid">{card.desc}</p>
             <button
               type="button"
@@ -73,7 +73,7 @@ export const ContactServices = ({
                 track('service_select', { service: card.value, source: 'card' });
                 scrollToLeadForm();
               }}
-              className="mt-auto inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-vesk-border-warm bg-vesk-orange-dim px-5 text-sm font-semibold text-vesk-surface transition-colors duration-200 hover:border-vesk-orange hover:bg-[rgb(194_101_59/0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-dark-2"
+              className="mt-auto inline-flex min-h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-vesk-border-warm bg-vesk-orange-dim px-5 text-sm font-semibold text-vesk-surface transition-colors duration-200 hover:border-vesk-orange hover:bg-[rgb(210_122_68/0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light focus-visible:ring-offset-2 focus-visible:ring-offset-vesk-dark-2"
             >
               {isSelected ? 'Selecionado ✓' : 'Quero essa solução'}
             </button>

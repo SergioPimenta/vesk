@@ -19,7 +19,7 @@ export const LegalPageLayout = ({ label, title, updatedAt, intro, sections }: Le
   <section className="bg-vesk-black page-px pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-[140px] lg:pb-24">
     <div className="mx-auto max-w-3xl">
       <SectionLabel>{label}</SectionLabel>
-      <h1 className="font-display text-[clamp(2rem,5vw,2.75rem)] leading-[1.08] font-bold tracking-[-0.04em]">
+      <h1 className="font-display text-[clamp(2rem,5vw,2.75rem)] leading-[1.08] font-normal tracking-[-0.015em]">
         {title}
       </h1>
       <p className="mt-4 text-sm text-vesk-muted">Última atualização: {updatedAt}</p>
@@ -30,7 +30,7 @@ export const LegalPageLayout = ({ label, title, updatedAt, intro, sections }: Le
       <div className="mt-12 flex flex-col gap-10">
         {sections.map((section) => (
           <article key={section.title}>
-            <h2 className="font-display mb-4 text-lg font-semibold text-vesk-surface">{section.title}</h2>
+            <h2 className="font-display mb-4 text-lg font-medium text-vesk-surface">{section.title}</h2>
             <div className="flex flex-col gap-3 text-sm leading-[1.85] text-vesk-mid [&_a]:text-vesk-orange [&_a]:no-underline [&_a]:hover:text-vesk-orange-light [&_li]:ml-5 [&_li]:list-disc [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_strong]:font-medium [&_strong]:text-vesk-surface">
               {section.content}
             </div>

@@ -1,36 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #c2653b;
-  --color-primary-hover: #e08a5c;
-  --color-dark: #080b12;
+  --color-primary: #d27a44;
+  --color-primary-hover: #e39a68;
+  --color-dark: #0f1113;
   --color-light: #f8fafc;
 
-  /* Copper — the single accent, treated as a metal (light → base → deep) */
-  --color-vesk-orange: #c2653b;
-  --color-vesk-orange-light: #e08a5c;
-  --color-vesk-orange-deep: #7a3c22;
-  --color-vesk-orange-dim: rgb(194 101 59 / 0.14);
+  /* Cobre: o único acento (claro → base → profundo) */
+  --color-vesk-orange: #d27a44;
+  --color-vesk-orange-light: #e39a68;
+  --color-vesk-orange-deep: #8e4422;
+  --color-vesk-orange-dim: rgb(210 122 68 / 0.12);
 
-  /* Navy ink — deep, cool, layered */
-  --color-vesk-black: #080b12;
-  --color-vesk-dark: #0b1019;
-  --color-vesk-dark-2: #111a26;
-  --color-vesk-dark-3: #17222f;
-  --color-vesk-cream: #0a0f18;
+  /* Grafite quente: página → seções alternadas → cards */
+  --color-vesk-black: #0f1113;
+  --color-vesk-dark: #141619;
+  --color-vesk-dark-2: #1a1c1f;
+  --color-vesk-dark-3: #1f2226;
+  --color-vesk-cream: #121417;
 
-  /* Cream type — brighter for editorial contrast */
-  --color-vesk-surface: #ede4d8;
-  --color-vesk-muted: rgb(237 228 216 / 0.42);
-  --color-vesk-mid: rgb(237 228 216 / 0.70);
-  --color-vesk-border: rgb(237 228 216 / 0.09);
-  --color-vesk-border-warm: rgb(194 101 59 / 0.32);
+  /* Texto off-white e tons de apoio (sólidos, com contraste AA sobre o fundo) */
+  --color-vesk-surface: #f2ece4;
+  --color-vesk-mid: #c8c0b5;
+  --color-vesk-muted: #9c958c;
+  --color-vesk-border: #2c2925;
+  --color-vesk-border-warm: rgb(210 122 68 / 0.45);
 
-  --font-display: "Archivo", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "DM Sans", "Segoe UI", system-ui, sans-serif;
 
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-hero-fade: hero-fade 1.4s ease both;
   --animate-float-slow: float-slow 6s ease-in-out infinite;
   --animate-float-slower: float-slow 8s ease-in-out infinite;
   --animate-glow-pulse: glow-pulse 7s ease-in-out infinite;
@@ -44,11 +45,20 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -118,6 +128,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-hero-fade,
   .animate-float-slow,
   .animate-float-slower,
   .animate-glow-pulse,
@@ -130,37 +142,40 @@
   }
 }
 
+/* Margem lateral proporcional (24px no celular, até 64px no notebook) e conteúdo limitado a
+   1520px em telas largas, com o fundo da seção indo de ponta a ponta. */
 @utility page-px {
-  padding-inline: clamp(1.5rem, 6vw, 5rem);
+  padding-inline: max(clamp(1.5rem, 5vw, 4rem), calc((100% - 1520px) / 2));
 }
 
 /* ── Signature: engineered blueprint grid ─────────────────────────── */
 @utility blueprint {
   background-image:
-    linear-gradient(to right, rgb(237 228 216 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(237 228 216 / 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgb(242 236 228 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(242 236 228 / 0.03) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
 /* Metallic copper text — light lip, base, deep shadow */
 @utility copper-metal {
-  background: linear-gradient(
-    98deg,
-    var(--color-vesk-orange-light) 0%,
-    var(--color-vesk-orange) 46%,
-    var(--color-vesk-orange-deep) 100%
-  );
+  background: linear-gradient(98deg, var(--color-vesk-orange-light) 0%, var(--color-vesk-orange) 60%, #b35a2c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Monospace utility label — the terminal/engineering voice */
+/* Kicker: rótulo em caixa alta e bem espaçado que abre cada seção */
 @utility mono-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 12px;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+/* Gradiente cobre dos botões e destaques */
+@utility bg-copper {
+  background-image: linear-gradient(135deg, #da7a41 0%, #b35a2c 55%, #8e4422 100%);
 }
 
 @layer base {
@@ -203,7 +218,7 @@
   }
 
   ::selection {
-    background: rgb(194 101 59 / 0.3);
+    background: rgb(210 122 68 / 0.3);
     color: var(--color-vesk-surface);
   }
 }
@@ -215,6 +230,7 @@
 
   body {
     margin: 0;
+    color-scheme: dark;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
