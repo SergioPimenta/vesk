@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="copperSheen" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#7a3c22" />
+      <stop offset="28%" stop-color="#c2653b" />
+      <stop offset="52%" stop-color="#e0895c" />
+      <stop offset="76%" stop-color="#c2653b" />
+      <stop offset="100%" stop-color="#8a4020" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#0f1113" />
+  <g transform="translate(-12.4 107.8) scale(1.263)">
+    <polygon points="70,35 145,35 255,200 180,200" fill="url(#copperSheen)" stroke="#6e3a20" stroke-width="2" stroke-linejoin="round" />
+    <polygon points="265,40 355,40 310,110" fill="url(#copperSheen)" stroke="#6e3a20" stroke-width="2" stroke-linejoin="round" />
+  </g>
+</svg>
