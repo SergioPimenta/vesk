@@ -3,6 +3,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Home from './pages/Home';
+import PlansPage from './pages/PlansPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
@@ -26,6 +27,7 @@ function App() {
       <Route path="/criacao-de-sites" element={<WebsiteCreationPage />} />
       <Route path="/produtos" element={<ProductsPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/planos" element={<PlansPage />} />
       <Route path="/contato" element={<ContactPage />} />
       <Route path="/obrigado" element={<ThankYouPage />} />
       <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />

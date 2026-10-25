@@ -61,6 +61,18 @@ const breadcrumb = (pageName: string, path: string) => ({
   ],
 });
 
+const planOffers = () =>
+  plans
+    .filter((plan) => plan.amount)
+    .map((plan) => ({
+      '@type': 'Offer',
+      name: plan.name,
+      price: plan.amount,
+      priceCurrency: 'BRL',
+      description: plan.items.join(', '),
+      seller: businessRef,
+    }));
+
 const webPage = (name: string, path: string, description: string) => ({
   '@type': 'WebPage',
   '@id': `${getCanonicalUrl(path)}#webpage`,
@@ -151,16 +163,7 @@ export const getPageSchema = (page: SeoPageKey) => {
             { '@type': 'City', name: 'Curitiba' },
             { '@type': 'Country', name: 'Brasil' },
           ],
-          offers: plans
-            .filter((plan) => plan.amount)
-            .map((plan) => ({
-              '@type': 'Offer',
-              name: plan.name,
-              price: plan.amount,
-              priceCurrency: 'BRL',
-              description: plan.items.join(', '),
-              seller: businessRef,
-            })),
+          offers: planOffers(),
         },
         {
           '@type': 'FAQPage',
@@ -208,6 +211,23 @@ export const getPageSchema = (page: SeoPageKey) => {
           'Cases de e-commerce, sistemas web e plataformas corporativas da VESK.',
         ),
         breadcrumb('Portfólio', '/portfolio'),
+      );
+      break;
+
+    case 'planos':
+      graph.push(
+        webPage(
+          'Planos e preços VESK',
+          '/planos',
+          'Planos de landing page, site profissional, loja virtual e sistemas personalizados da VESK.',
+        ),
+        breadcrumb('Planos', '/planos'),
+        {
+          '@type': 'OfferCatalog',
+          '@id': `${getCanonicalUrl('/planos')}#planos`,
+          name: 'Planos VESK',
+          itemListElement: planOffers(),
+        },
       );
       break;
 

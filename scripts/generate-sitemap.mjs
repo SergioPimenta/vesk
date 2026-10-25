@@ -19,6 +19,7 @@ const pages = [
   { path: '/criacao-de-sites', changefreq: 'monthly', priority: '0.9' },
   { path: '/produtos', changefreq: 'monthly', priority: '0.9' },
   { path: '/portfolio', changefreq: 'monthly', priority: '0.8' },
+  { path: '/planos', changefreq: 'monthly', priority: '0.9' },
   { path: '/contato', changefreq: 'monthly', priority: '0.8' },
   { path: '/politica-de-privacidade', changefreq: 'yearly', priority: '0.3' },
   { path: '/termos-de-uso', changefreq: 'yearly', priority: '0.3' },

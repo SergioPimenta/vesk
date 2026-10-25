@@ -7,6 +7,7 @@ export type SeoPageKey =
   | 'criacaoDeSites'
   | 'produtos'
   | 'portfolio'
+  | 'planos'
   | 'contato'
   | 'obrigado'
   | 'privacidade'
@@ -76,6 +77,15 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
     ogTitle: 'Portfólio VESK: Sites e Sistemas Criados em Curitiba',
     ogDescription:
       'Projetos reais de criação de sites, e-commerce e sistemas web desenvolvidos pela VESK Software House.',
+  },
+  planos: {
+    path: '/planos',
+    title: 'Planos e Preços de Criação de Sites em Curitiba | VESK',
+    description:
+      'Veja os planos da VESK: landing page, site profissional, loja virtual e sistemas personalizados. Valores de referência e oferta por tempo limitado.',
+    ogTitle: 'Planos e Preços | VESK Software House',
+    ogDescription:
+      'Landing page, site profissional e loja virtual com valores promocionais, e sistemas sob medida com desconto. Planos a partir de R$ 600.',
   },
   contato: {
     path: '/contato',
