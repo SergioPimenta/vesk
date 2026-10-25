@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 import { btnOutlineClasses, btnPrimaryClasses, SectionDesc, SectionLabel } from './ui';
 import { cn } from '../../lib/cn';
 import { track } from '../../lib/analytics';
@@ -15,6 +15,10 @@ export const Plans = ({ onChoose }: { onChoose: (service: ProjectTypeValue, plan
           Soluções para cada etapa do seu negócio.
         </h2>
         <SectionDesc className="text-[15.5px]">Transparência, qualidade e suporte em todos os planos.</SectionDesc>
+        <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-vesk-orange/50 bg-vesk-orange/10 px-3.5 py-1.5 text-[13px] font-semibold text-vesk-orange-light">
+          <Clock size={15} strokeWidth={2} aria-hidden />
+          Oferta por tempo limitado
+        </p>
       </div>
 
       <ul className="grid list-none items-stretch gap-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-4">
@@ -34,15 +38,28 @@ export const Plans = ({ onChoose }: { onChoose: (service: ProjectTypeValue, plan
               </span>
             )}
             <h3 className="font-display text-[21px] leading-[1.1] font-normal text-vesk-surface">{plan.name}</h3>
-            <p
-              className={cn(
-                'font-display mt-2 mb-[18px] leading-[1.1]',
-                plan.price.startsWith('R$') ? 'text-[34px]' : 'py-1 text-[26px]',
-                plan.featured ? 'text-vesk-orange-light' : 'text-vesk-orange',
+            <div className="mt-2 mb-[18px]">
+              {plan.originalPrice ? (
+                <p className="text-sm leading-none text-vesk-muted">
+                  de <s className="decoration-vesk-orange/70">{plan.originalPrice}</s> por
+                </p>
+              ) : (
+                plan.discount && (
+                  <span className="inline-block rounded bg-vesk-orange/15 px-2 py-0.5 text-[12px] font-semibold tracking-[0.04em] text-vesk-orange-light">
+                    {plan.discount}
+                  </span>
+                )
               )}
-            >
-              {plan.price}
-            </p>
+              <p
+                className={cn(
+                  'font-display mt-1.5 leading-[1.1]',
+                  plan.price.startsWith('R$') ? 'text-[38px]' : 'py-1 text-[26px]',
+                  plan.featured ? 'text-vesk-orange-light' : 'text-vesk-orange',
+                )}
+              >
+                {plan.price}
+              </p>
+            </div>
             <ul className="mb-6 grid flex-1 list-none content-start gap-[9px]">
               {plan.items.map((item) => (
                 <li key={item} className="grid grid-cols-[16px_1fr] gap-2 text-sm leading-[1.4] text-vesk-mid">
