@@ -2,8 +2,10 @@ import { Code2, Monitor, Plug, ShoppingCart } from 'lucide-react';
 import { ArrowIcon } from './icons';
 import { BtnOutline, BtnPrimary, MonoTag, pageHeroTitleClass } from './ui';
 import { cn } from '../../lib/cn';
-import { openQuote, smoothScrollTo } from '../contact/contactActions';
+import { openQuote, smoothScrollTo, trackWhatsappClick } from '../contact/contactActions';
 import { track } from '../../lib/analytics';
+import { externalLinkProps } from '../../lib/links';
+import { whatsappUrl } from '../../lib/site';
 
 const points = [
   { label: 'Sistemas', icon: <Code2 /> },
@@ -74,7 +76,18 @@ export const Hero = () => (
             </svg>
           </BtnOutline>
         </div>
-        <ul className="animate-fade-up mt-11 flex list-none flex-wrap gap-x-7 gap-y-3 border-t border-vesk-border pt-[26px] [animation-delay:400ms]">
+        <p className="animate-fade-up mt-5 text-sm text-vesk-mid [animation-delay:350ms]">
+          Prefere conversar?{' '}
+          <a
+            href={whatsappUrl()}
+            {...externalLinkProps(whatsappUrl())}
+            onClick={() => trackWhatsappClick('home_hero')}
+            className="inline-flex min-h-[44px] items-center font-medium text-vesk-surface underline underline-offset-4"
+          >
+            Chame no WhatsApp
+          </a>
+        </p>
+        <ul className="animate-fade-up mt-6 flex list-none flex-wrap gap-x-7 gap-y-3 border-t border-vesk-border pt-[26px] [animation-delay:400ms]">
           {points.map((point) => (
             <li key={point.label} className="flex items-center gap-2.5 text-sm text-vesk-mid [&_svg]:h-5 [&_svg]:w-5 [&_svg]:text-vesk-orange [&_svg]:stroke-[1.3]">
               {point.icon}

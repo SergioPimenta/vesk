@@ -16,12 +16,15 @@ import {
   inicioOptions,
   perfilOptions,
   possuiOptions,
+  projectTypeLabel,
   projectTypes,
   type ProjectTypeValue,
 } from '../../lib/leadOptions';
 import { btnPrimaryClasses } from '../home/ui';
 import { cn } from '../../lib/cn';
-import { FIRST_FIELD_ID } from './contactActions';
+import { externalLinkProps } from '../../lib/links';
+import { whatsappUrl } from '../../lib/site';
+import { FIRST_FIELD_ID, trackWhatsappClick } from './contactActions';
 
 const DRAFT_KEY = 'vesk_lead_draft_v1';
 const FIELD_ORDER = ['nome', 'telefone', 'servico', 'urlAtual'] as const;
@@ -155,7 +158,7 @@ export const LeadForm = ({
   const [serverError, setServerError] = useState('');
   const [detailsOpen, setDetailsOpen] = useState(() => {
     const draft = readDraft();
-    return !!(draft.perfil || draft.etapa || draft.inicio || draft.possui);
+    return !!(draft.mensagem || draft.perfil || draft.etapa || draft.inicio || draft.possui);
   });
 
   const mountedAt = useRef(Date.now());
@@ -191,6 +194,29 @@ export const LeadForm = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service]);
 
+  // Mede onde as pessoas desistem: quem começou e saiu sem enviar gera um evento com o último campo preenchido.
+  const submitted = useRef(false);
+  const abandonSent = useRef(false);
+  const lastField = useRef('');
+  const latest = useRef(values);
+  latest.current = values;
+  useEffect(() => {
+    const onLeave = () => {
+      if (!started.current || submitted.current || abandonSent.current) return;
+      abandonSent.current = true; // um único evento por visita
+      const v = latest.current;
+      const filled = [v.nome.trim() && 'nome', v.telefone && 'telefone', v.servico && 'servico'].filter(Boolean);
+      track('form_abandon', { last_field: lastField.current || 'none', filled: filled.join(',') || 'none' });
+    };
+    const onHide = () => document.visibilityState === 'hidden' && onLeave();
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', onLeave);
+    return () => {
+      document.removeEventListener('visibilitychange', onHide);
+      window.removeEventListener('pagehide', onLeave);
+    };
+  }, []);
+
   const markStarted = () => {
     if (started.current) return;
     started.current = true;
@@ -199,6 +225,7 @@ export const LeadForm = ({
 
   const setField = <K extends keyof Fields>(key: K, value: Fields[K]) => {
     markStarted();
+    lastField.current = key;
     setFields((prev) => ({ ...prev, [key]: value }));
     // Revalida só o que já estava sinalizado, para o erro sumir assim que for corrigido.
     const next = { ...values, [key]: value } as LeadFormValues;
@@ -249,6 +276,7 @@ export const LeadForm = ({
       return;
     }
 
+    submitted.current = true;
     clearDraft();
     const queued = outcome.status === 'queued';
     if (queued) {
@@ -319,6 +347,7 @@ export const LeadForm = ({
               value={service}
               onChange={(e) => {
                 markStarted();
+                lastField.current = 'servico';
                 const value = e.target.value as ProjectTypeValue | '';
                 onServiceChange(value);
                 if (value) track('service_select', { service: value, source: 'form' });
@@ -346,20 +375,7 @@ export const LeadForm = ({
           </div>
         </Field>
 
-        <Field id={fieldId('mensagem')} label="Conte um pouco sobre sua ideia" optional>
-          <textarea
-            id={fieldId('mensagem')}
-            name="message"
-            rows={5}
-            maxLength={1500}
-            placeholder="Conte o que você gostaria de criar, melhorar ou automatizar. Não precisa ter tudo definido."
-            value={fields.mensagem}
-            onChange={(e) => setField('mensagem', e.target.value)}
-            className={cn(fieldClass(false), 'min-h-[132px] resize-y leading-relaxed')}
-          />
-        </Field>
-
-        {/* Qualificação opcional: não bloqueia o envio */}
+        {/* Tudo abaixo é opcional e começa recolhido: o formulário visível pede só 3 campos. */}
         <div className="rounded-xl border border-vesk-border bg-vesk-black/40">
           <button
             type="button"
@@ -369,8 +385,8 @@ export const LeadForm = ({
             className="flex min-h-[52px] w-full cursor-pointer items-center justify-between gap-3 rounded-xl px-4 py-3 text-left text-sm font-medium text-vesk-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vesk-orange-light"
           >
             <span>
-              Quer nos ajudar a entender melhor?
-              <span className="block text-[13px] font-normal text-vesk-mid">Perguntas rápidas, todas opcionais</span>
+              Quer contar mais sobre sua ideia?
+              <span className="block text-[13px] font-normal text-vesk-mid">Opcional — você pode pular e enviar assim mesmo</span>
             </span>
             <ChevronDown
               size={18}
@@ -381,6 +397,18 @@ export const LeadForm = ({
 
           {detailsOpen && (
             <div id="lead-details" className="grid gap-6 border-t border-vesk-border px-4 py-5">
+              <Field id={fieldId('mensagem')} label="Conte um pouco sobre sua ideia" optional>
+                <textarea
+                  id={fieldId('mensagem')}
+                  name="message"
+                  rows={4}
+                  maxLength={1500}
+                  placeholder="Conte o que você gostaria de criar, melhorar ou automatizar. Não precisa ter tudo definido."
+                  value={fields.mensagem}
+                  onChange={(e) => setField('mensagem', e.target.value)}
+                  className={cn(fieldClass(false), 'min-h-[110px] resize-y leading-relaxed')}
+                />
+              </Field>
               <ChipGroup
                 legend="Seu projeto é para:"
                 name="perfil"
@@ -477,6 +505,22 @@ export const LeadForm = ({
           'Enviar minha solicitação'
         )}
       </button>
+
+      <p className="mt-3 text-center text-[13px] leading-snug text-vesk-mid">
+        Leva menos de 1 minuto. Sem compromisso: retornamos pelo WhatsApp no horário comercial.
+      </p>
+
+      <p className="mt-4 text-center text-sm text-vesk-mid">
+        Prefere falar agora?{' '}
+        <a
+          href={whatsappUrl(service ? projectTypeLabel(service) : undefined)}
+          {...externalLinkProps(whatsappUrl())}
+          onClick={() => trackWhatsappClick('form_alternative', service || undefined)}
+          className="font-medium text-vesk-surface underline underline-offset-4"
+        >
+          Chamar no WhatsApp
+        </a>
+      </p>
 
       <p className="mt-4 text-center text-[13px] leading-relaxed text-vesk-mid">
         Usamos seus dados apenas para responder à sua solicitação, conforme nossa{' '}

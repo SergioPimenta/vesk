@@ -22,10 +22,11 @@ const Home = () => {
         <Hero />
         <Solutions onSelect={setService} />
         <Portfolio />
-        <Products />
-        <Process />
-        <About />
+        {/* Formulário logo após serviços e prova: a rolagem média era 44%, então ele não pode ficar no fim. */}
         <Contact service={service} onServiceChange={setService} />
+        <Process />
+        <Products />
+        <About />
         <CtaBand />
       </main>
     </PublicLayout>
