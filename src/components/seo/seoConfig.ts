@@ -1,4 +1,5 @@
 import { SITE_NAME, SITE_URL } from '../../lib/site';
+import { BLOG_DESCRIPTION } from '../blog/blogData';
 
 export type SeoPageKey =
   | 'home'
@@ -8,6 +9,7 @@ export type SeoPageKey =
   | 'produtos'
   | 'portfolio'
   | 'planos'
+  | 'blog'
   | 'contato'
   | 'obrigado'
   | 'privacidade'
@@ -86,6 +88,14 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
     ogTitle: 'Planos e Preços | VESK Software House',
     ogDescription:
       'Landing page, site profissional e loja virtual com valores promocionais, e sistemas sob medida com desconto. Planos a partir de R$ 600.',
+  },
+  blog: {
+    path: '/blog',
+    title: 'Blog VESK | Criação de Sites, SEO, E-commerce e CRM',
+    description: BLOG_DESCRIPTION,
+    ogTitle: 'Blog VESK: guias de sites, SEO, lojas virtuais e CRM',
+    ogDescription:
+      'Conteúdo prático da VESK Software House para empresas que querem vender mais pela internet.',
   },
   contato: {
     path: '/contato',

@@ -10,6 +10,7 @@ const links = [
   { href: '/produtos', label: 'Produtos' },
   { href: '/portfolio', label: 'Portfólio' },
   { href: '/planos', label: 'Planos' },
+  { href: '/blog', label: 'Blog' },
   { href: '/sobre', label: 'Sobre' },
   { href: '/contato', label: 'Contato' },
 ];
@@ -20,7 +21,9 @@ export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const isActive = (href: string) =>
-    href.includes('#') ? `${pathname}${hash}` === href : pathname === href;
+    href.includes('#')
+      ? `${pathname}${hash}` === href
+      : pathname === href || (href === '/blog' && pathname.startsWith('/blog/'));
 
   useEffect(() => {
     setMenuOpen(false);

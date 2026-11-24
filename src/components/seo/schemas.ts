@@ -1,6 +1,7 @@
 import { contactFaqs } from '../contact/contactData';
 import { websiteFaqs } from '../websites/websitesData';
 import { lowestPlanPrice, plans } from '../../lib/plans';
+import { BLOG_TITLE, BLOG_DESCRIPTION, postImage, postPath, sortedPosts, stripInline, wordCount, type BlogPost } from '../blog/blogData';
 import { products } from '../products/productsData';
 import { services } from '../services/servicesData';
 import { OG_IMAGE, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '../../lib/site';
@@ -231,6 +232,27 @@ export const getPageSchema = (page: SeoPageKey) => {
       );
       break;
 
+    case 'blog':
+      graph.push(
+        {
+          '@type': 'Blog',
+          '@id': `${getCanonicalUrl('/blog')}#blog`,
+          url: getCanonicalUrl('/blog'),
+          name: BLOG_TITLE,
+          description: BLOG_DESCRIPTION,
+          inLanguage: 'pt-BR',
+          publisher: businessRef,
+          blogPost: sortedPosts.map((post) => ({
+            '@type': 'BlogPosting',
+            headline: post.title,
+            url: getCanonicalUrl(postPath(post)),
+            datePublished: post.date,
+          })),
+        },
+        breadcrumb('Blog', '/blog'),
+      );
+      break;
+
     case 'contato':
       graph.push(
         {
@@ -283,3 +305,38 @@ export const getPageSchema = (page: SeoPageKey) => {
 };
 
 export const getOgImage = () => OG_IMAGE;
+
+/** JSON-LD de um artigo: BlogPosting + trilha de navegação. */
+export const getPostSchema = (post: BlogPost) => {
+  const url = getCanonicalUrl(postPath(post));
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${url}#article`,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        url,
+        headline: post.title,
+        description: post.seoDescription ?? post.excerpt,
+        image: `${SITE_URL}${postImage(post)}`,
+        datePublished: post.date,
+        dateModified: post.updated ?? post.date,
+        wordCount: wordCount(post),
+        articleSection: post.category,
+        keywords: post.tags.join(', '),
+        inLanguage: 'pt-BR',
+        author: { '@type': 'Organization', name: post.author, url: SITE_URL },
+        publisher: businessRef,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: getCanonicalUrl('/blog') },
+          { '@type': 'ListItem', position: 3, name: stripInline(post.title), item: url },
+        ],
+      },
+    ],
+  };
+};

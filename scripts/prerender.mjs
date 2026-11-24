@@ -5,7 +5,7 @@
  * conteúdo já renderizado, título, descrição, canonical, Open Graph e JSON-LD da página.
  * No navegador, o React "hidrata" esse HTML em vez de montar tudo do zero.
  */
-import { readFileSync, writeFileSync, rmSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync, rmSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
@@ -13,7 +13,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(root, 'dist');
 const ssrDir = join(root, 'dist-ssr');
 
-const { prerenderRoutes, render, getHead } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
+const { prerenderRoutes, render, getHead, blogFeed } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
 
 const basename = (process.env.VITE_BASE_URL || '/').replace(/\/$/, '') || '/';
 const template = readFileSync(join(distDir, 'index.html'), 'utf8');
@@ -28,8 +28,9 @@ function setMeta(html, attr, key, content) {
   return html.replace(re, tag);
 }
 
-function buildPage({ page, path }) {
-  const head = getHead(page);
+function buildPage(route) {
+  const { path } = route;
+  const head = getHead(route);
   const location = basename === '/' ? path : `${basename}${path === '/' ? '' : path}`;
   const appHtml = render(location, basename);
 
@@ -37,6 +38,7 @@ function buildPage({ page, path }) {
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeText(head.title)}</title>`);
   html = setMeta(html, 'name', 'description', head.description);
   html = html.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${escapeAttr(head.canonical)}" />`);
+  html = setMeta(html, 'property', 'og:type', head.ogType);
   html = setMeta(html, 'property', 'og:url', head.canonical);
   html = setMeta(html, 'property', 'og:title', head.ogTitle);
   html = setMeta(html, 'property', 'og:description', head.ogDescription);
@@ -57,7 +59,15 @@ function buildPage({ page, path }) {
     `<div id="root" data-prerendered-path="${escapeAttr(location)}">${appHtml}</div>`,
   );
 
+  if (path.startsWith('/blog')) {
+    html = html.replace(
+      '</head>',
+      `  <link rel="alternate" type="application/rss+xml" title="${escapeAttr(blogFeed.title)}" href="/rss.xml" />\n</head>`,
+    );
+  }
+
   const file = path === '/' ? 'index.html' : `${path.replace(/^\//, '')}.html`;
+  mkdirSync(dirname(join(distDir, file)), { recursive: true });
   writeFileSync(join(distDir, file), html, 'utf8');
   return file;
 }
@@ -68,5 +78,49 @@ function buildPage({ page, path }) {
 writeFileSync(join(distDir, 'app.html'), template, 'utf8');
 
 const files = prerenderRoutes.map(buildPage);
+// Sitemap: o `generate-sitemap.mjs` cobre as páginas fixas; os artigos do blog entram aqui,
+// porque a lista de artigos vive em TypeScript.
+const siteUrl = (process.env.VITE_SITE_URL || 'https://www.vesk.com.br').replace(/\/$/, '');
+const sitemapFile = join(distDir, 'sitemap.xml');
+const postEntries = blogFeed.posts
+  .map(
+    (post) => `  <url>
+    <loc>${siteUrl}${post.path}</loc>
+    <lastmod>${post.updated}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`,
+  )
+  .join('\n');
+writeFileSync(sitemapFile, readFileSync(sitemapFile, 'utf8').replace('</urlset>', `${postEntries}\n</urlset>`), 'utf8');
+
+// Feed RSS do blog.
+const rfc822 = (iso) => new Date(`${iso}T12:00:00Z`).toUTCString();
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${escapeText(blogFeed.title)}</title>
+    <link>${siteUrl}/blog</link>
+    <description>${escapeText(blogFeed.description)}</description>
+    <language>pt-BR</language>
+    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
+${blogFeed.posts
+  .map(
+    (post) => `    <item>
+      <title>${escapeText(post.title)}</title>
+      <link>${siteUrl}${post.path}</link>
+      <guid isPermaLink="true">${siteUrl}${post.path}</guid>
+      <pubDate>${rfc822(post.date)}</pubDate>
+      <category>${escapeText(post.category)}</category>
+      <description>${escapeText(post.excerpt)}</description>
+    </item>`,
+  )
+  .join('\n')}
+  </channel>
+</rss>
+`;
+writeFileSync(join(distDir, 'rss.xml'), rss, 'utf8');
+
 rmSync(ssrDir, { recursive: true, force: true });
+console.log(`Sitemap: +${blogFeed.posts.length} artigos; RSS gerado.`);
 console.log(`Pré-renderizadas ${files.length} páginas: ${files.join(', ')}`);

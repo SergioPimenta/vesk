@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import { postImage, postPath, type BlogPost } from '../blog/blogData';
+import { SITE_URL } from '../../lib/site';
 import { getCanonicalUrl, SEO_PAGES, type SeoPageKey } from './seoConfig';
-import { getOgImage, getPageSchema } from './schemas';
+import { getOgImage, getPageSchema, getPostSchema } from './schemas';
 
 const SCHEMA_ID = 'vesk-page-schema';
 
@@ -40,50 +42,89 @@ const setRobots = (noindex?: boolean) => {
   }
 };
 
-type PageSeoProps = {
-  page: SeoPageKey;
+export type SeoHead = {
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+  ogType: 'website' | 'article';
+  noindex?: boolean;
+  schema: Record<string, unknown> | null;
 };
 
-export const PageSeo = ({ page }: PageSeoProps) => {
+export const pageHead = (page: SeoPageKey): SeoHead => {
+  const config = SEO_PAGES[page];
+  return {
+    title: config.title,
+    description: config.description,
+    canonical: getCanonicalUrl(config.path),
+    ogTitle: config.ogTitle ?? config.title,
+    ogDescription: config.ogDescription ?? config.description,
+    ogImage: getOgImage(),
+    ogType: 'website',
+    noindex: config.noindex,
+    schema: getPageSchema(page),
+  };
+};
+
+export const postHead = (post: BlogPost): SeoHead => {
+  const description = post.seoDescription ?? post.excerpt;
+  return {
+    title: post.seoTitle ?? `${post.title} | Blog VESK`,
+    description,
+    canonical: getCanonicalUrl(postPath(post)),
+    ogTitle: post.title,
+    ogDescription: post.excerpt,
+    ogImage: `${SITE_URL}${postImage(post)}`,
+    ogType: 'article',
+    schema: getPostSchema(post),
+  };
+};
+
+/** Aplica título, meta tags, canonical e JSON-LD no `<head>` (navegação client-side). */
+const useSeoHead = (head: SeoHead) => {
   useEffect(() => {
-    const config = SEO_PAGES[page];
-    const canonical = getCanonicalUrl(config.path);
-    const ogTitle = config.ogTitle ?? config.title;
-    const ogDescription = config.ogDescription ?? config.description;
-    const ogImage = getOgImage();
+    document.title = head.title;
+    setMeta('description', head.description);
+    setCanonical(head.canonical);
+    setRobots(head.noindex);
 
-    document.title = config.title;
-    setMeta('description', config.description);
-    setCanonical(canonical);
-    setRobots(config.noindex);
-
-    setMeta('og:type', 'website', 'property');
-    setMeta('og:url', canonical, 'property');
-    setMeta('og:title', ogTitle, 'property');
-    setMeta('og:description', ogDescription, 'property');
-    setMeta('og:image', ogImage, 'property');
+    setMeta('og:type', head.ogType, 'property');
+    setMeta('og:url', head.canonical, 'property');
+    setMeta('og:title', head.ogTitle, 'property');
+    setMeta('og:description', head.ogDescription, 'property');
+    setMeta('og:image', head.ogImage, 'property');
 
     setMeta('twitter:card', 'summary_large_image');
-    setMeta('twitter:title', ogTitle);
-    setMeta('twitter:description', ogDescription);
-    setMeta('twitter:image', ogImage);
+    setMeta('twitter:title', head.ogTitle);
+    setMeta('twitter:description', head.ogDescription);
+    setMeta('twitter:image', head.ogImage);
 
-    const schema = getPageSchema(page);
-    const existingScript = document.getElementById(SCHEMA_ID);
-    existingScript?.remove();
-
-    if (schema) {
+    document.getElementById(SCHEMA_ID)?.remove();
+    if (head.schema) {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.id = SCHEMA_ID;
-      script.textContent = JSON.stringify(schema);
+      script.textContent = JSON.stringify(head.schema);
       document.body.appendChild(script);
     }
 
     return () => {
       document.getElementById(SCHEMA_ID)?.remove();
     };
-  }, [page]);
+  }, [head]);
+};
 
+export const PageSeo = ({ page }: { page: SeoPageKey }) => {
+  const head = useMemo(() => pageHead(page), [page]);
+  useSeoHead(head);
+  return null;
+};
+
+export const PostSeo = ({ post }: { post: BlogPost }) => {
+  const head = useMemo(() => postHead(post), [post]);
+  useSeoHead(head);
   return null;
 };

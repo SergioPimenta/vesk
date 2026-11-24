@@ -12,6 +12,7 @@ const footerCols = [
       { label: 'Produtos', href: '/produtos' },
       { label: 'Portfólio', href: '/portfolio' },
       { label: 'Planos', href: '/planos' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Sobre', href: '/sobre' },
       { label: 'Contato', href: '/contato' },
     ],

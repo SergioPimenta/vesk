@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Home from './pages/Home';
@@ -28,6 +30,8 @@ function App() {
       <Route path="/produtos" element={<ProductsPage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/planos" element={<PlansPage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/:slug" element={<BlogPostPage />} />
       <Route path="/contato" element={<ContactPage />} />
       <Route path="/obrigado" element={<ThankYouPage />} />
       <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
