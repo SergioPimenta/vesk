@@ -432,6 +432,260 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'quanto-tempo-leva-para-criar-um-site',
+    imageAlt: 'Equipe em uma mesa planejando um projeto, com cadernos, café e notebook',
+    title: 'Quanto tempo leva para criar um site? Etapas e prazos de um projeto',
+    excerpt:
+      'Do briefing ao lançamento: o que acontece em cada fase, o que pode atrasar o projeto e como você ajuda a entregar mais rápido.',
+    seoTitle: 'Quanto tempo leva para criar um site? Etapas e prazos | Blog VESK',
+    seoDescription:
+      'Entenda as etapas da criação de um site, do briefing ao lançamento, o que influencia o prazo e como evitar atrasos no seu projeto.',
+    category: 'Criação de sites',
+    date: '2026-11-24',
+    author: 'Equipe VESK',
+    tags: ['prazo', 'processo', 'briefing'],
+    content: [
+      {
+        type: 'p',
+        text: 'Uma das primeiras perguntas de quem contrata um site é "para quando fica pronto?". A resposta honesta é que depende do tamanho do projeto, mas também de algo que costuma ser subestimado: a rapidez com que o conteúdo e as aprovações chegam. Veja o caminho típico de um projeto.',
+      },
+      { type: 'h2', text: 'As etapas de um projeto de site' },
+      {
+        type: 'ol',
+        items: [
+          '**Briefing:** conversa para entender o negócio, o público, os objetivos e os concorrentes. É a etapa que mais evita retrabalho depois.',
+          '**Estrutura e conteúdo:** definição das páginas, dos textos e das imagens. Aqui nasce o mapa do site.',
+          '**Design:** criação do visual, geralmente começando pela página inicial e depois pelas demais.',
+          '**Desenvolvimento:** a programação do site, com formulários, integrações e responsividade para o celular.',
+          '**Testes e ajustes:** revisão em diferentes aparelhos e navegadores, velocidade e configurações de SEO.',
+          '**Publicação:** o site vai ao ar no domínio definitivo, com análise de resultados configurada.',
+        ],
+      },
+      { type: 'h2', text: 'O que mais influencia o prazo' },
+      {
+        type: 'ul',
+        items: [
+          '**Tamanho do projeto:** uma landing page é bem mais rápida do que um site com várias páginas ou uma loja virtual.',
+          '**Conteúdo pronto:** textos e fotos que chegam no começo aceleram tudo; conteúdo que chega no fim trava a entrega.',
+          '**Velocidade das aprovações:** cada rodada de feedback que demora dias estica o cronograma.',
+          '**Funcionalidades especiais:** integrações com sistemas, pagamento ou área restrita exigem mais desenvolvimento e testes.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'Como acelerar o seu projeto',
+        text: 'Reúna logotipo, fotos e informações da empresa antes de começar, defina uma pessoa responsável por aprovar as etapas e concentre os ajustes em uma única rodada de feedback, em vez de pedidos espalhados.',
+      },
+      { type: 'h2', text: 'Desconfie de prazos extremos' },
+      {
+        type: 'p',
+        text: 'Prometer um site completo em um dia costuma significar um modelo genérico, sem estratégia nem otimização. Por outro lado, um cronograma sem datas definidas também é sinal de alerta. Peça sempre um calendário com as entregas de cada etapa.',
+      },
+      {
+        type: 'p',
+        text: 'Quer saber o prazo do seu caso? [Descreva o projeto](/contato) e responderemos com um cronograma. Se ainda está decidindo o formato, leia também sobre [landing page ou site institucional](/blog/landing-page-ou-site-institucional).',
+      },
+    ],
+  },
+  {
+    slug: 'medir-resultados-do-site-google-analytics',
+    imageAlt: 'Tablet com painel de métricas de acesso e relatórios impressos sobre uma mesa',
+    title: 'Como medir os resultados do seu site: métricas que realmente importam',
+    excerpt:
+      'Visitas sozinhas não pagam as contas. Veja o que acompanhar no Google Analytics e no Search Console para saber se o site traz clientes.',
+    seoTitle: 'Como medir os resultados do site com Google Analytics | Blog VESK',
+    seoDescription:
+      'Saiba quais métricas acompanhar no Google Analytics e no Search Console, como configurar conversões e como transformar números em decisões para o seu site.',
+    category: 'SEO e Google',
+    date: '2026-11-24',
+    author: 'Equipe VESK',
+    tags: ['Google Analytics', 'Search Console', 'conversões'],
+    content: [
+      {
+        type: 'p',
+        text: 'Ter um site no ar é só o começo. Para saber se ele cumpre o papel de trazer clientes, você precisa medir. O problema é que as ferramentas mostram dezenas de números, e a maioria não ajuda a decidir nada. Comece pelos poucos que respondem a perguntas de negócio.',
+      },
+      { type: 'h2', text: 'As duas ferramentas gratuitas essenciais' },
+      {
+        type: 'ul',
+        items: [
+          '**Google Analytics:** mostra quem visita o site, de onde vem e o que faz lá dentro.',
+          '**Google Search Console:** mostra como o site aparece na busca: quais termos geram impressões e cliques e se há erros técnicos.',
+        ],
+      },
+      { type: 'h2', text: 'Métricas que valem a atenção' },
+      {
+        type: 'ol',
+        items: [
+          '**Conversões:** quantas pessoas pediram orçamento, clicaram no WhatsApp ou compraram. É o número mais importante.',
+          '**Origem do tráfego:** busca orgânica, anúncios, redes sociais ou acesso direto. Indica onde vale investir.',
+          '**Páginas mais acessadas:** mostram o que o público procura e quais páginas merecem mais cuidado.',
+          '**Dispositivo:** quanto vem de celular e como esse público se comporta.',
+          '**Termos de busca (Search Console):** as consultas que já levam gente ao site e as que estão perto de dar resultado.',
+        ],
+      },
+      { type: 'h2', text: 'Configure as conversões' },
+      {
+        type: 'p',
+        text: 'Sem configuração, o Analytics só conta visitas. Defina como "evento principal" as ações que geram valor para o negócio: envio de formulário, clique no botão de WhatsApp, clique no telefone e compras. Assim você enxerga o que cada canal e cada página realmente entrega.',
+      },
+      {
+        type: 'callout',
+        title: 'Privacidade e consentimento',
+        text: 'Ferramentas de medição coletam dados pessoais. Informe isso na política de privacidade do site e respeite a LGPD e as regras de consentimento aplicáveis ao seu caso.',
+      },
+      { type: 'h2', text: 'Transforme números em decisões' },
+      {
+        type: 'ul',
+        items: [
+          'Uma página muito visitada e que não converte precisa de um chamado para ação mais claro.',
+          'Se quase todo o tráfego vem do celular e a conversão é baixa, revise a experiência mobile.',
+          'Termos com muitas impressões e poucos cliques pedem título e descrição melhores.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Reserve meia hora por mês para revisar esses indicadores e anotar uma ação para o mês seguinte. Veja também como a VESK trabalha na página de [criação de sites](/criacao-de-sites).',
+      },
+    ],
+  },
+  {
+    slug: 'loja-propria-ou-marketplace',
+    imageAlt: 'Caixa de papelão escrita Online Shopping sobre um notebook',
+    title: 'Loja própria ou marketplace: onde vender na internet?',
+    excerpt:
+      'Marketplaces trazem visitas, a loja própria traz autonomia. Compare custos, controle e relacionamento com o cliente antes de escolher.',
+    seoTitle: 'Loja própria ou marketplace: qual escolher? | Blog VESK',
+    seoDescription:
+      'Compare loja virtual própria e marketplaces: custos, controle da marca, relacionamento com o cliente e quando vale combinar os dois canais.',
+    category: 'E-commerce',
+    date: '2026-11-24',
+    author: 'Equipe VESK',
+    tags: ['marketplace', 'loja virtual', 'e-commerce'],
+    content: [
+      {
+        type: 'p',
+        text: 'Quem decide vender online logo se pergunta: abrir uma loja própria ou anunciar em marketplaces? Não existe resposta única. Cada caminho tem vantagens e limites, e muitos negócios acabam usando os dois de forma complementar.',
+      },
+      { type: 'h2', text: 'Vantagens do marketplace' },
+      {
+        type: 'ul',
+        items: [
+          'Audiência que já está pronta para comprar, sem precisar atrair visitas do zero.',
+          'Estrutura de pagamento e logística já organizada.',
+          'Início rápido, com investimento inicial menor.',
+        ],
+      },
+      { type: 'h2', text: 'Limites do marketplace' },
+      {
+        type: 'ul',
+        items: [
+          '**Comissões e taxas** que reduzem a margem em cada venda.',
+          '**Concorrência direta:** seu produto aparece ao lado de ofertas parecidas, e o preço vira o principal argumento.',
+          '**Pouco controle:** regras, tarifas e posicionamento podem mudar sem aviso.',
+          '**Cliente que não é seu:** em geral você não constrói uma base própria de contatos.',
+        ],
+      },
+      { type: 'h2', text: 'Vantagens da loja própria' },
+      {
+        type: 'ul',
+        items: [
+          'Controle total da marca, da experiência de compra e das políticas.',
+          'Relacionamento direto com o cliente, com dados para recompra e campanhas.',
+          'Margem maior por venda, sem comissão de terceiros.',
+          'Um ativo da sua empresa, que cresce com o tempo.',
+        ],
+      },
+      { type: 'h2', text: 'O desafio da loja própria' },
+      {
+        type: 'p',
+        text: 'A loja própria exige trazer o tráfego: SEO, anúncios, redes sociais e e-mail. Esse trabalho leva tempo, por isso o investimento em divulgação precisa entrar na conta desde o início.',
+      },
+      { type: 'h2', text: 'Como decidir' },
+      {
+        type: 'ol',
+        items: [
+          'Se você está testando um produto, o marketplace valida a demanda rapidamente.',
+          'Se você tem marca, diferenciais e clientes recorrentes, a loja própria compensa mais.',
+          'Se sua margem é apertada, calcule as comissões antes de entrar em qualquer canal.',
+          'Na dúvida, comece em um marketplace e use as vendas para financiar a loja própria.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'Os dois podem conviver',
+        text: 'Um bom caminho é usar o marketplace para ganhar alcance e incentivar o cliente a voltar pela sua loja, com benefícios exclusivos, atendimento próximo e uma boa experiência de compra.',
+      },
+      {
+        type: 'p',
+        text: 'Antes de lançar, use nosso [checklist da loja virtual](/blog/loja-virtual-checklist-antes-de-lancar). Para um projeto sob medida, [fale com a VESK](/contato).',
+      },
+    ],
+  },
+  {
+    slug: 'atender-leads-no-whatsapp-boas-praticas',
+    imageAlt: 'Mão segurando um celular com o aplicativo de mensagens aberto',
+    title: 'Atender leads no WhatsApp: 6 boas práticas para não perder vendas',
+    excerpt:
+      'Quem responde primeiro, e bem, costuma fechar. Veja práticas simples de atendimento para transformar conversas em clientes.',
+    seoTitle: 'Atendimento no WhatsApp: 6 boas práticas para vender mais | Blog VESK',
+    seoDescription:
+      'Boas práticas para atender leads no WhatsApp: tempo de resposta, mensagem inicial, qualificação, follow-up e registro das conversas em um CRM.',
+    category: 'Vendas e CRM',
+    date: '2026-11-24',
+    author: 'Equipe VESK',
+    tags: ['WhatsApp', 'atendimento', 'leads'],
+    content: [
+      {
+        type: 'p',
+        text: 'O contato chegou pelo site ou pelo anúncio e está no seu WhatsApp. A partir daí, a venda depende de como você conduz a conversa. Estas práticas são simples e fazem diferença no resultado.',
+      },
+      { type: 'h2', text: '1. Responda rápido' },
+      {
+        type: 'p',
+        text: 'Quem pede um orçamento costuma procurar mais de uma empresa ao mesmo tempo. Responder em minutos, e não em horas, aumenta muito a chance de ser a empresa escolhida. Fora do horário, uma mensagem automática informando quando haverá retorno já ajuda.',
+      },
+      { type: 'h2', text: '2. Comece com uma mensagem clara' },
+      {
+        type: 'p',
+        text: 'Apresente-se, cite o motivo do contato e faça uma pergunta que avance a conversa. Evite textos longos logo de início e mensagens genéricas que parecem copiadas.',
+      },
+      { type: 'h2', text: '3. Qualifique antes de propor' },
+      {
+        type: 'p',
+        text: 'Entenda o que a pessoa precisa, o prazo e o investimento previsto. Poucas perguntas bem escolhidas evitam propostas que não fazem sentido e economizam o tempo da equipe.',
+      },
+      { type: 'h2', text: '4. Combine o próximo passo' },
+      {
+        type: 'p',
+        text: 'Toda conversa deve terminar com um passo definido: "envio a proposta amanhã até as 14h" ou "retorno na sexta para saber da sua decisão". Isso cria compromisso e evita o sumiço.',
+      },
+      { type: 'h2', text: '5. Faça follow-up sem ser insistente' },
+      {
+        type: 'ul',
+        items: [
+          'Retome a conversa com algo útil, como uma dúvida respondida ou um exemplo de projeto.',
+          'Espaçe os contatos e respeite a decisão da pessoa.',
+          'Registre o motivo quando o negócio não for adiante.',
+        ],
+      },
+      { type: 'h2', text: '6. Registre tudo em um só lugar' },
+      {
+        type: 'p',
+        text: 'Conversas que ficam apenas no celular de um atendente se perdem quando ele sai de férias ou deixa a empresa. Um CRM guarda o histórico, os lembretes e a etapa de cada negociação.',
+      },
+      {
+        type: 'callout',
+        title: 'Respeite a privacidade',
+        text: 'Use o contato apenas para o assunto que a pessoa pediu e ofereça a opção de parar de receber mensagens. Isso protege a reputação da empresa e atende à LGPD.',
+      },
+      {
+        type: 'p',
+        text: 'Para organizar esse processo, leia [CRM com WhatsApp: como organizar as vendas](/blog/crm-com-whatsapp-organizar-vendas) e conheça o [VESK CRM](/produtos).',
+      },
+    ],
+  },
 ];
 
 /* ── Helpers ─────────────────────────────────────────────────────────────── */
