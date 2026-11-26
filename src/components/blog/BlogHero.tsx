@@ -15,7 +15,7 @@ export const BlogHero = () => (
         Ideias para o seu negócio <em className="text-vesk-orange not-italic">vender mais</em> online
       </h1>
       <p className="animate-fade-up mx-auto max-w-2xl text-lg leading-[1.75] font-light text-vesk-mid [animation-delay:160ms]">
-        Guias práticos sobre criação de sites, SEO, lojas virtuais e CRM, escritos pela equipe da VESK para quem quer
+        Guias práticos sobre tecnologia, IA, criação de sites, e-commerce e vendas, escritos pela equipe da VESK para quem quer
         resultado, não jargão.
       </p>
     </div>

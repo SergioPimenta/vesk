@@ -91,9 +91,9 @@ export const SEO_PAGES: Record<SeoPageKey, SeoConfig> = {
   },
   blog: {
     path: '/blog',
-    title: 'Blog VESK | Criação de Sites, SEO, E-commerce e CRM',
+    title: 'Blog VESK | Tecnologia, IA, Sites e E-commerce',
     description: BLOG_DESCRIPTION,
-    ogTitle: 'Blog VESK: guias de sites, SEO, lojas virtuais e CRM',
+    ogTitle: 'Blog VESK: tecnologia, IA, sites e lojas virtuais',
     ogDescription:
       'Conteúdo prático da VESK Software House para empresas que querem vender mais pela internet.',
   },

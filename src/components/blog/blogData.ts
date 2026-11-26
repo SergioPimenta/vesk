@@ -8,9 +8,9 @@
  * Texto inline aceita `**negrito**` e `[texto](/rota-ou-url)`.
  */
 
-export type BlogCategory = 'Criação de sites' | 'SEO e Google' | 'E-commerce' | 'Vendas e CRM';
+export type BlogCategory = 'Tecnologia e IA' | 'Criação de sites' | 'SEO e Google' | 'E-commerce' | 'Vendas e CRM';
 
-export const blogCategories: BlogCategory[] = ['Criação de sites', 'SEO e Google', 'E-commerce', 'Vendas e CRM'];
+export const blogCategories: BlogCategory[] = ['Tecnologia e IA', 'Criação de sites', 'SEO e Google', 'E-commerce', 'Vendas e CRM'];
 
 export type PostBlock =
   | { type: 'p'; text: string }
@@ -43,7 +43,7 @@ export type BlogPost = {
 
 export const BLOG_TITLE = 'Blog VESK';
 export const BLOG_DESCRIPTION =
-  'Artigos da VESK sobre criação de sites, SEO, lojas virtuais e CRM: guias práticos para empresas que querem vender mais pela internet.';
+  'Artigos da VESK sobre tecnologia, IA, criação de sites, e-commerce e SEO: guias práticos para empresas que querem vender mais pela internet.';
 
 export const posts: BlogPost[] = [
   {
@@ -666,7 +666,7 @@ export const posts: BlogPost[] = [
         type: 'ul',
         items: [
           'Retome a conversa com algo útil, como uma dúvida respondida ou um exemplo de projeto.',
-          'Espaçe os contatos e respeite a decisão da pessoa.',
+          'Espace os contatos e respeite a decisão da pessoa.',
           'Registre o motivo quando o negócio não for adiante.',
         ],
       },
@@ -683,6 +683,288 @@ export const posts: BlogPost[] = [
       {
         type: 'p',
         text: 'Para organizar esse processo, leia [CRM com WhatsApp: como organizar as vendas](/blog/crm-com-whatsapp-organizar-vendas) e conheça o [VESK CRM](/produtos).',
+      },
+    ],
+  },
+  {
+    slug: 'ia-para-pequenas-empresas-por-onde-comecar',
+    imageAlt: 'Ilustração de uma figura robótica com traços humanos representando inteligência artificial',
+    title: 'IA para pequenas empresas: por onde começar sem desperdiçar dinheiro',
+    excerpt:
+      'Antes de contratar ferramentas, escolha o problema. Veja onde a inteligência artificial costuma ajudar de verdade e como testar com pouco risco.',
+    seoTitle: 'IA para pequenas empresas: por onde começar | Blog VESK',
+    seoDescription:
+      'Saiba como aplicar inteligência artificial em pequenas empresas: usos práticos, como escolher o primeiro projeto, cuidados com dados e como medir o resultado.',
+    category: 'Tecnologia e IA',
+    date: '2026-11-26',
+    author: 'Equipe VESK',
+    tags: ['inteligência artificial', 'automação', 'produtividade'],
+    content: [
+      {
+        type: 'p',
+        text: 'A inteligência artificial deixou de ser assunto só de grandes empresas. Hoje, pequenos negócios usam assistentes de IA para escrever, resumir, organizar informações e atender clientes. O risco é adotar a ferramenta da moda sem saber que problema ela resolve.',
+      },
+      { type: 'h2', text: 'Comece pelo problema, não pela ferramenta' },
+      {
+        type: 'p',
+        text: 'Liste as tarefas que se repetem toda semana e consomem tempo da equipe. As melhores candidatas são as que têm volume, seguem um padrão e permitem que uma pessoa revise o resultado antes de ele chegar ao cliente.',
+      },
+      { type: 'h2', text: 'Usos que costumam dar resultado cedo' },
+      {
+        type: 'ul',
+        items: [
+          '**Rascunhos de texto:** e-mails, descrições de produtos, publicações e propostas, sempre com revisão humana.',
+          '**Resumos:** transformar conversas longas, reuniões ou documentos em pontos de ação.',
+          '**Atendimento inicial:** responder perguntas frequentes e coletar dados antes de passar para uma pessoa.',
+          '**Organização:** classificar mensagens, contatos e solicitações por assunto ou prioridade.',
+          '**Apoio à análise:** explorar planilhas e identificar padrões para investigar melhor.',
+        ],
+      },
+      { type: 'h2', text: 'Como testar com pouco risco' },
+      {
+        type: 'ol',
+        items: [
+          'Escolha uma única tarefa e anote quanto tempo ela leva hoje.',
+          'Teste por algumas semanas com poucas pessoas.',
+          'Compare tempo gasto, qualidade e erros com o cenário anterior.',
+          'Só então amplie o uso ou integre a ferramenta aos seus sistemas.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'Cuidado com os dados',
+        text: 'Não insira dados de clientes, senhas ou informações confidenciais em ferramentas sem antes ler como elas armazenam e usam o conteúdo. A LGPD vale também quando o tratamento passa por IA.',
+      },
+      { type: 'h2', text: 'O que a IA não faz sozinha' },
+      {
+        type: 'p',
+        text: 'Modelos de IA podem responder com segurança algo que está errado. Informações sobre preços, prazos, leis ou saúde precisam de conferência. Trate a IA como um assistente rápido que ainda precisa de supervisão.',
+      },
+      {
+        type: 'p',
+        text: 'Quer integrar automações aos sistemas que sua empresa já usa? Conheça os [serviços da VESK](/servicos) ou [conte o seu desafio](/contato).',
+      },
+    ],
+  },
+  {
+    slug: 'chatbot-com-ia-no-atendimento',
+    imageAlt: 'Ilustração de robôs simpáticos reunidos em torno de um notebook',
+    title: 'Chatbot com IA no atendimento: quando vale a pena e como não irritar o cliente',
+    excerpt:
+      'Um bom assistente virtual resolve o simples na hora e entrega o complexo para uma pessoa. Veja como planejar o seu.',
+    seoTitle: 'Chatbot com IA no atendimento: quando vale a pena | Blog VESK',
+    seoDescription:
+      'Entenda a diferença entre chatbot de regras e com IA, quando usar no atendimento, como definir limites e passar a conversa para um humano.',
+    category: 'Tecnologia e IA',
+    date: '2026-11-26',
+    author: 'Equipe VESK',
+    tags: ['chatbot', 'inteligência artificial', 'atendimento'],
+    content: [
+      {
+        type: 'p',
+        text: 'Quase todo mundo já ficou preso em um atendimento automático que não entende a pergunta. A tecnologia atual permite conversas muito mais naturais, mas o resultado ainda depende de planejamento.',
+      },
+      { type: 'h2', text: 'Chatbot de regras e chatbot com IA' },
+      {
+        type: 'ul',
+        items: [
+          '**De regras:** segue um menu de opções. É previsível, barato e bom para fluxos curtos, como segunda via ou horário de funcionamento.',
+          '**Com IA:** entende perguntas escritas livremente e responde com base no conteúdo da empresa. É mais flexível, mas exige limites claros e acompanhamento.',
+        ],
+      },
+      { type: 'h2', text: 'Quando vale a pena' },
+      {
+        type: 'ul',
+        items: [
+          'Muitas perguntas repetidas sobre produtos, prazos e formas de pagamento.',
+          'Contatos que chegam fora do horário comercial.',
+          'Necessidade de coletar informações antes de o vendedor assumir.',
+        ],
+      },
+      { type: 'h2', text: 'Regras para uma boa experiência' },
+      {
+        type: 'ol',
+        items: [
+          'Avise que a pessoa está falando com um assistente virtual.',
+          'Ofereça sempre um caminho fácil para falar com um humano.',
+          'Limite o assistente a assuntos que ele pode responder com base em informações revisadas.',
+          'Passe o histórico para o atendente, para o cliente não repetir tudo.',
+          'Revise as conversas regularmente e corrija as respostas que falharam.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'Evite promessas automáticas',
+        text: 'Não deixe o assistente negociar preço, prazo ou condições sem regras definidas. O que ele informa ao cliente é visto como uma resposta da sua empresa.',
+      },
+      {
+        type: 'p',
+        text: 'O atendimento funciona melhor quando está ligado ao funil de vendas. Veja também as [boas práticas de atendimento no WhatsApp](/blog/atender-leads-no-whatsapp-boas-praticas) e [fale com a VESK](/contato) sobre o seu caso.',
+      },
+    ],
+  },
+  {
+    slug: 'ia-na-criacao-de-sites',
+    imageAlt: 'Notebook com código de programação na tela',
+    title: 'IA na criação de sites: o que ela acelera e o que ela não substitui',
+    excerpt:
+      'Geradores de sites prometem tudo em minutos. Veja onde a IA ajuda, onde falha e o que avaliar antes de publicar.',
+    seoTitle: 'IA na criação de sites: o que ela faz e o que não faz | Blog VESK',
+    seoDescription:
+      'Descubra como a inteligência artificial é usada na criação de sites, seus limites em estratégia, design, SEO e segurança, e o que revisar antes de publicar.',
+    category: 'Criação de sites',
+    date: '2026-11-26',
+    author: 'Equipe VESK',
+    tags: ['inteligência artificial', 'desenvolvimento web', 'design'],
+    content: [
+      {
+        type: 'p',
+        text: 'Já é possível descrever um negócio em poucas linhas e receber um site em minutos. Isso é útil para testar ideias, mas um site que traz clientes envolve decisões que vão além de gerar telas e textos.',
+      },
+      { type: 'h2', text: 'Onde a IA ajuda de verdade' },
+      {
+        type: 'ul',
+        items: [
+          'Gerar um primeiro esboço de estrutura e textos para discutir.',
+          'Apoiar desenvolvedores na escrita e revisão de código.',
+          'Sugerir variações de títulos e chamadas para testar.',
+          'Descrever imagens e apontar problemas básicos de acessibilidade.',
+        ],
+      },
+      { type: 'h2', text: 'Onde ela costuma falhar' },
+      {
+        type: 'ul',
+        items: [
+          '**Estratégia:** entender quem é o cliente, o que o diferencia e qual ação o site deve provocar.',
+          '**Conteúdo autêntico:** textos genéricos soam iguais aos de qualquer concorrente.',
+          '**Identidade visual:** o resultado tende a repetir padrões comuns.',
+          '**Qualidade técnica:** velocidade, segurança, acessibilidade e SEO precisam ser testados, não presumidos.',
+          '**Manutenção:** alguém precisa responder pelo site quando algo quebra.',
+        ],
+      },
+      { type: 'h2', text: 'Checklist antes de publicar um site feito com IA' },
+      {
+        type: 'ol',
+        items: [
+          'Confira cada informação: preços, serviços, endereços e promessas.',
+          'Verifique os direitos de uso das imagens.',
+          'Teste no celular e meça a velocidade.',
+          'Teste os formulários e veja para onde os contatos vão.',
+          'Confirme quem é o dono do domínio e do conteúdo e se dá para migrar depois.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'A melhor combinação',
+        text: 'IA para ganhar velocidade nas tarefas repetitivas e profissionais para decidir, revisar e garantir a qualidade. Quem usa bem a ferramenta entrega mais, sem abrir mão do cuidado.',
+      },
+      {
+        type: 'p',
+        text: 'Veja como funciona a [criação de sites na VESK](/criacao-de-sites) ou entenda [quanto custa um site profissional](/blog/quanto-custa-criar-um-site-profissional).',
+      },
+    ],
+  },
+  {
+    slug: 'busca-com-ia-como-preparar-seu-site',
+    imageAlt: 'Tablet com a página de pesquisa do Google aberta ao lado de uma xícara',
+    title: 'Busca com inteligência artificial: como preparar o seu site',
+    excerpt:
+      'Respostas geradas por IA estão mudando a forma de pesquisar. Os fundamentos continuam valendo: conteúdo útil, claro e fácil de rastrear.',
+    seoTitle: 'Busca com IA e SEO: como preparar seu site | Blog VESK',
+    seoDescription:
+      'Entenda como as respostas geradas por IA afetam a busca e o que fazer no seu site: conteúdo original, estrutura clara, base técnica e medição.',
+    category: 'SEO e Google',
+    date: '2026-11-26',
+    author: 'Equipe VESK',
+    tags: ['SEO', 'inteligência artificial', 'conteúdo'],
+    content: [
+      {
+        type: 'p',
+        text: 'Cada vez mais pesquisas mostram uma resposta pronta, gerada por IA, antes da lista de links. Assistentes conversacionais também viraram ponto de partida para quem procura produtos e serviços. Isso muda o caminho até o seu site, mas não elimina a necessidade de ter um bom.',
+      },
+      { type: 'h2', text: 'O que muda para as empresas' },
+      {
+        type: 'p',
+        text: 'Perguntas simples podem ser respondidas sem clique. Por outro lado, quem chega ao site costuma estar comparando opções ou pronto para agir. Faz sentido olhar menos para o volume de visitas isolado e mais para contatos e vendas.',
+      },
+      { type: 'h2', text: 'O que fazer no seu site' },
+      {
+        type: 'ol',
+        items: [
+          '**Publique informação própria:** experiências, exemplos, processos e respostas que só a sua empresa pode dar.',
+          '**Responda com clareza:** use títulos que correspondam às perguntas dos clientes e vá direto ao ponto.',
+          '**Cuide da base técnica:** páginas rastreáveis, rápidas, responsivas e com o conteúdo importante em texto.',
+          '**Use dados estruturados:** eles ajudam os buscadores a entender empresa, produtos e artigos, sempre refletindo o que está visível na página.',
+          '**Mostre quem está por trás:** dados da empresa, contato, avaliações e autoria transmitem confiança.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'Desconfie de fórmulas mágicas',
+        text: 'Ninguém pode garantir que sua empresa será citada em respostas de IA. Invista no que é útil para pessoas e acompanhe os resultados ao longo do tempo.',
+      },
+      { type: 'h2', text: 'Como acompanhar' },
+      {
+        type: 'p',
+        text: 'Acompanhe no Search Console a evolução de impressões e cliques e, no Analytics, de onde vêm os contatos. Pergunte também aos novos clientes como encontraram a empresa. Veja o passo a passo em [como medir os resultados do site](/blog/medir-resultados-do-site-google-analytics).',
+      },
+      {
+        type: 'p',
+        text: 'Quer revisar a base de SEO do seu site? [Fale com a VESK](/contato).',
+      },
+    ],
+  },
+  {
+    slug: 'ia-no-e-commerce-usos-praticos',
+    imageAlt: 'Pessoa fazendo uma compra pelo celular com um cartão na mão',
+    title: 'IA no e-commerce: 5 usos práticos para vender melhor',
+    excerpt:
+      'Descrições, busca interna, recomendações, atendimento e estoque: onde a inteligência artificial pode apoiar a sua loja virtual.',
+    seoTitle: 'IA no e-commerce: 5 usos práticos | Blog VESK',
+    seoDescription:
+      'Veja cinco usos de inteligência artificial em lojas virtuais: descrições de produtos, busca, recomendações, atendimento e previsão de demanda.',
+    category: 'E-commerce',
+    date: '2026-11-26',
+    author: 'Equipe VESK',
+    tags: ['e-commerce', 'inteligência artificial', 'loja virtual'],
+    content: [
+      {
+        type: 'p',
+        text: 'Uma loja virtual gera muita informação e muitas tarefas repetitivas, um terreno fértil para a inteligência artificial. Não é preciso adotar tudo de uma vez: comece pelo ponto em que a sua operação mais perde tempo ou vendas.',
+      },
+      { type: 'h2', text: '1. Descrições de produtos' },
+      {
+        type: 'p',
+        text: 'A IA ajuda a criar o primeiro rascunho a partir das características do item. Revise medidas, materiais e compatibilidades e acrescente o que só você sabe. Evite publicar textos iguais em dezenas de produtos.',
+      },
+      { type: 'h2', text: '2. Busca dentro da loja' },
+      {
+        type: 'p',
+        text: 'Uma busca que entende sinônimos, erros de digitação e intenção ajuda o cliente a achar o que quer. Acompanhe os termos que não retornam resultados: eles mostram falhas no catálogo.',
+      },
+      { type: 'h2', text: '3. Recomendações' },
+      {
+        type: 'p',
+        text: 'Sugerir itens complementares ou semelhantes pode aumentar o valor do pedido. Com poucos dados, regras simples definidas por você já funcionam bem; modelos mais elaborados fazem sentido quando há volume.',
+      },
+      { type: 'h2', text: '4. Atendimento' },
+      {
+        type: 'p',
+        text: 'Assistentes virtuais respondem dúvidas sobre prazo, troca e status do pedido. Deixe fácil falar com uma pessoa quando houver problema. Veja como planejar em [chatbot com IA no atendimento](/blog/chatbot-com-ia-no-atendimento).',
+      },
+      { type: 'h2', text: '5. Estoque e demanda' },
+      {
+        type: 'p',
+        text: 'Com histórico de vendas organizado, é possível estimar a procura e planejar reposições. São estimativas: combine-as com o seu conhecimento sobre datas sazonais e campanhas.',
+      },
+      {
+        type: 'callout',
+        title: 'Primeiro, organize os dados',
+        text: 'Catálogo padronizado, estoque correto e histórico confiável vêm antes de qualquer recurso inteligente. Com dados ruins, a IA só erra mais rápido.',
+      },
+      {
+        type: 'p',
+        text: 'Conheça o [VESK Commerce](/produtos) ou revise o [checklist antes de lançar a loja](/blog/loja-virtual-checklist-antes-de-lancar).',
       },
     ],
   },
